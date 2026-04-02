@@ -4,804 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kalpa — Specialist search across investment and trading technology</title>
-  <style>
-    :root {
-      --bg: #050505;
-      --surface: #0a0a0a;
-      --surface-2: #0f0f0f;
-      --text: #f1eee7;
-      --text-soft: #ddd7ca;
-      --muted: #a39f95;
-      --accent: #cdbf97;
-      --line: rgba(255,255,255,0.09);
-      --line-soft: rgba(255,255,255,0.05);
-      --card: rgba(255,255,255,0.03);
-      --radius: 22px;
-      --radius-sm: 14px;
-      --max: 1240px;
-      --space-1: 8px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 40px;
-      --space-5: 64px;
-      --space-6: 88px;
-      --label-size: 0.78rem;
-      --body-size: 1.02rem;
-      --body-line: 1.65;
-    }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+  <style>
     body {
       margin: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 28%), var(--bg);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: var(--body-line);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      background: #050505;
+      color: #f1eee7;
+      font-family: Inter, sans-serif;
     }
 
-    a { color: inherit; text-decoration: none; }
-    p { margin: 0; }
-
-    .shell {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(5,5,5,0.76);
-      border-bottom: 1px solid var(--line-soft);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 72px;
-      position: relative;
-    }
-
-    .brand {
-      font-size: 1.42rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex !important;
-      align-items: center;
-      gap: 28px;
-      font-size: 0.94rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .menu-toggle {
-      display: none !important;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-left: auto;
-      padding: 0;
-    }
-
-    .menu-toggle span {
-      width: 22px;
-      height: 2px;
-      background: var(--text);
-      display: block;
-    }
-
-    .mobile-menu {
-      position: absolute;
-      top: 72px;
-      right: 0;
-      width: 100%;
-      background: rgba(5,5,5,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      display: none;
-      flex-direction: column;
-      padding: 16px 24px;
-      gap: 16px;
-      z-index: 10;
-    }
-
-    .mobile-menu a {
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .hero {
-      min-height: auto;
-      display: grid;
-      align-items: center;
-      padding: var(--space-6) 0 calc(var(--space-5) - 8px);
-    }
-
-    .hero-grid,
-    .about-grid,
-    .statement {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .hero-grid { align-items: end; grid-template-columns: 1.08fr 0.92fr; }
-
-    .eyebrow,
-    .section-label,
-    .city-sub,
-    .meta-block small {
-      display: inline-block;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: var(--label-size);
-      line-height: 1.4;
-    }
-
-    .eyebrow,
-    .section-label { margin-bottom: 20px; }
 
     h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 500;
-      font-size: clamp(3.8rem, 8vw, 7.1rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      color: var(--text);
+      font-size: 48px;
+      margin-bottom: 10px;
     }
 
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(1.95rem, 3vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 500;
-      color: var(--text);
+    p {
+      color: #ccc;
+      line-height: 1.6;
     }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 1.04rem;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .hero-copy,
-    .lede,
-    .city-content p,
-    .principle p,
-    .statement-copy,
-    .closing p,
-    .hero-side,
-    .field,
-    textarea {
-      font-size: var(--body-size);
-      line-height: var(--body-line);
-    }
-
-    .hero-copy {
-      margin-top: 28px;
-      max-width: 760px;
-      color: var(--text-soft);
-    }
-
-    .hero-copy strong { color: var(--text); font-weight: 500; }
-
-    .hero-side {
-      border-left: 1px solid var(--line);
-      padding-left: 28px;
-      color: var(--muted);
-      max-width: 520px;
-      justify-self: end;
-    }
-
-    .hero-side p + p { margin-top: 20px; }
 
     .section {
-      padding: 64px 0;
-      border-top: 1px solid var(--line);
+      margin-top: 60px;
     }
 
-    .lede {
-      max-width: 760px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .about-display {
-      margin: 0;
-      font-size: clamp(2.3rem, 4vw, 4.15rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      color: var(--text);
-    }
-
-    .about-copy {
-      padding-top: 34px;
-      max-width: 900px;
-      justify-self: end;
-    }
-
-    .about-copy p {
-      color: var(--text-soft);
-      font-size: 1.045rem;
-      line-height: 1.62;
-      font-weight: 500;
-      max-width: 880px;
-    }
-
-    .about-copy p + p { margin-top: 20px; }
-
-    .capability-strip {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #070707;
-    }
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .capability-item {
-      padding: 34px 20px 36px;
-      text-align: center;
-      border-left: 1px solid var(--line-soft);
-    }
-
-    .capability-item:first-child { border-left: 0; }
-
-    .capability-line {
-      width: 58px;
-      height: 1px;
-      background: rgba(205,191,151,0.8);
-      margin: 0 auto 18px;
-    }
-
-    .capability-item span {
-      display: block;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .split,
-    .principles,
-    .contact-grid {
-      display: grid;
-      gap: 26px;
-    }
-
-    .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .contact-grid { grid-template-columns: 1fr 0.9fr; gap: 44px; }
-
-    .card,
-    .principle,
-    .contact-grid {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-    }
-
-    .card {
-      padding: 30px;
-    }
-
-    .card h3 {
-      margin-bottom: 18px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .list {
-      display: grid;
-      gap: 0;
-    }
-
-    .list div {
-      padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .list div:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .reach-head { margin-bottom: 24px; }
-
-    .city-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    .city-card {
-      background: var(--surface);
-      border-left: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .city-card:first-child { border-left: 0; }
-
-    .city-image {
-      position: relative;
-      height: 240px;
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
-    }
-
-    .city-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.66));
-    }
-
-    .london { background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80'); }
-    .newyork { background-image: url('https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80'); }
-    .hongkong { background-image: url('https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&w=1200&q=80'); }
-
-    .city-content { padding: 28px 28px 30px; }
-
-    .city-content h3 {
-      margin: 0 0 6px;
-      font-size: 1.15rem;
-    }
-
-    .city-sub { margin-bottom: 18px; }
-
-    .city-content p { color: var(--muted); }
-
-    .principle {
-      padding: 24px;
-      min-height: 170px;
-    }
-
-    .principle p { color: var(--muted); }
-
-    .statement { grid-template-columns: 1.02fr 0.98fr; }
-
-    .statement-quote {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.95rem, 4vw, 3.3rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .statement-copy {
-      max-width: 560px;
-      color: var(--muted);
-      justify-self: end;
-      padding-top: 48px;
-    }
-
-    .closing {
-      padding: 64px 0 56px;
-      text-align: center;
-      border-top: 1px solid var(--line);
-    }
-
-    .closing-mark {
-      width: 60px;
-      height: 1px;
-      margin: 0 auto 28px;
-      background: rgba(205,191,151,0.8);
-    }
-
-    .closing h2 {
-      max-width: 920px;
-      margin: 0 auto 18px;
-    }
-
-    .closing p {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .contact-grid {
-      align-items: start;
-      padding: 40px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .field,
-    textarea {
+    input, textarea {
       width: 100%;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-sm);
-      color: var(--text);
-      padding: 16px 18px;
-      font-family: inherit;
+      padding: 12px;
+      margin-top: 10px;
+      background: #111;
+      border: 1px solid #333;
+      color: white;
     }
 
-    .field::placeholder,
-    textarea::placeholder { color: var(--muted); }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-      grid-column: 1 / -1;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 140px;
-      margin-top: 18px;
-      padding: 15px 24px;
-      border: 0;
-      border-radius: 999px;
-      background: #ece6d9;
-      color: #090909;
-      font: inherit;
-      font-weight: 600;
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #cdbf97;
+      border: none;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .contact-meta {
-      display: grid;
-      gap: 26px;
-      padding-top: 64px;
-      color: var(--muted);
-    }
-
-    .meta-block div {
-      color: var(--text);
-      font-size: 1.05rem;
-      line-height: 1.55;
+    a {
+      color: #cdbf97;
+      text-decoration: none;
     }
 
     footer {
-      padding: 28px 0 40px;
-      color: rgba(255,255,255,0.46);
-      font-size: 0.92rem;
+      margin-top: 80px;
+      padding: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #222;
     }
 
-    @media (max-width: 1180px) {
-      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .city-grid { grid-template-columns: 1fr; }
-      .city-card {
-        border-left: 0;
-        border-top: 1px solid rgba(255,255,255,0.08);
-      }
-      .city-card:first-child { border-top: 0; }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .about-grid,
-      .split,
-      .principles,
-      .statement,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .hero-side {
-        justify-self: start;
-        max-width: none;
-        border-left: 0;
-        border-top: 1px solid var(--line);
-        padding-left: 0;
-        padding-top: 22px;
-      }
-
-      .about-copy,
-      .statement-copy { justify-self: start; max-width: none; padding-top: 0; }
-
-      .contact-meta { padding-top: 8px; }
-    }
-
-    @media (max-width: 720px) {
-      .shell { width: min(var(--max), calc(100% - 28px)); }
-      .nav {
-        min-height: 64px;
-        justify-content: space-between;
-      }
-      .nav-links { display: none !important; }
-      .menu-toggle { display: flex !important; margin-left: auto; }
-      .mobile-menu.show { display: flex; }
-      .section, .closing { padding: 72px 0; }
-      .hero { min-height: auto; padding-top: 48px; }
-      .brand { font-size: 1.16rem; }
-      .hero-copy,
-      .lede,
-      .city-content p,
-      .principle p,
-      .statement-copy,
-      .closing p,
-      .hero-side,
-      .about-copy p,
-      .field,
-      textarea { font-size: 0.98rem; }
-      .capability-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .contact-grid { padding: 28px; }
-    }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="shell nav">
-      <a class="brand" href="#top">Kalpa</a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#coverage">Coverage</a>
-        <a href="#reach">Global Reach</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#about">About</a>
-        <a href="#coverage">Coverage</a>
-        <a href="#reach">Global Reach</a>
-        <a href="#contact">Contact</a>
-      </div>
+
+<div class="container">
+
+  <h1>Kalpa</h1>
+  <p>Specialist search across investment and trading technology.</p>
+
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access,
+      movement is rarely visible, and hiring decisions carry weight.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+
+    <form action="https://formspree.io/f/xaqldbzv" method="POST">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="company" placeholder="Company" />
+      <textarea name="message" placeholder="Message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <div style="margin-top:20px;">
+      <p>Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/company/kalpa" target="_blank">linkedin.com/company/kalpa</a></p>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-grid">
-        <div>
-          <span class="eyebrow">Specialist search</span>
-          <h1>Investment and trading technology.</h1>
-          <p class="hero-copy">
-            Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible, and hiring decisions carry weight.<br><br>We focus on deep market understanding, direct access, and precise delivery across engineering, product, and leadership.
-          </p>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section id="about" class="section">
-      <div class="shell about-grid">
-        <div>
-          <div class="section-label">About Kalpa</div>
-          <p class="about-display">At the intersection of financial markets, technology, and talent.</p>
-        </div>
-        <div class="about-copy">
-          <p>Kalpa is a specialist search firm focused on investment and trading technology. We work with firms where the quality of engineering, product, and technical leadership can shape execution, platform strength, research capability, and business performance.</p>
-          <p>Our focus is narrow by design &amp; built for firms where technology is tightly linked to investment performance, execution, infrastructure, and edge.</p>
-          <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion, and real market reach.</p>
-        </div>
-      </div>
-    </section>
+<footer>
+  <div>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Use</a>
+  </div>
 
-    <section class="capability-strip">
-      <div class="shell capability-grid">
-        <div class="capability-item"><div class="capability-line"></div><span>Low Latency Systems</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Quantitative Platforms</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Trading Infrastructure</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Data &amp; Machine Learning</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Execution Technology</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Quant Research &amp; Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Core Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Product &amp; Technical Leadership</span></div>
-      </div>
-    </section>
-
-    <section id="coverage" class="section">
-      <div class="shell">
-        <div class="section-label">Coverage</div>
-        <h2>Focused coverage across investment and trading technology.</h2>
-        <p class="lede">The scope is intentionally narrow enough to be credible and broad enough to reflect how modern investment platforms, execution environments, and research-led technology teams are built.</p>
-
-        <div class="split">
-          <div class="card">
-            <h3>Markets</h3>
-            <div class="list">
-              <div>Hedge Funds</div>
-              <div>Quant Trading Firms</div>
-              <div>Asset Managers</div>
-              <div>Proprietary Trading Firms</div>
-              <div>Market Makers</div>
-              <div>Technology-Driven Investment Platforms</div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Roles</h3>
-            <div class="list">
-              <div>Quantitative Engineering</div>
-              <div>Platform &amp; Infrastructure</div>
-              <div>Applied AI / Machine Learning</div>
-              <div>Trading Systems</div>
-              <div>Product</div>
-              <div>Technical Leadership</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reach" class="section">
-      <div class="shell">
-        <div class="reach-head">
-          <div class="section-label">Global Reach</div>
-          <h2>Embedded in key financial centres.</h2>
-          <p class="lede">Kalpa recruits where the most competitive trading and investment firms build their technology teams.</p>
-        </div>
-
-        <div class="city-grid">
-          <article class="city-card">
-            <div class="city-image london"></div>
-            <div class="city-content">
-              <h3>London</h3>
-              <div class="city-sub">United Kingdom</div>
-              <p>Europe’s deepest concentration of hedge funds, systematic trading firms, market makers, and technology-led asset managers. High competition for platform, low-latency, and quantitative engineering talent.</p>
-            </div>
-          </article>
-
-          <article class="city-card">
-            <div class="city-image newyork"></div>
-            <div class="city-content">
-              <h3>New York</h3>
-              <div class="city-sub">United States</div>
-              <p>The largest investment technology market in the world, with constant demand across execution, infrastructure, research platforms, data engineering, and senior technical leadership.</p>
-            </div>
-          </article>
-
-          <article class="city-card">
-            <div class="city-image hongkong"></div>
-            <div class="city-content">
-              <h3>Hong Kong</h3>
-              <div class="city-sub">Asia Pacific</div>
-              <p>A critical hub for firms building APAC trading capability, platform depth, and quantitative infrastructure — with growing demand for specialist engineering and technical leadership talent.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="approach" class="section">
-      <div class="shell">
-        <div class="section-label">Approach</div>
-        <h2>Built around access, judgement, and signal.</h2>
-        <p class="lede">Kalpa is not designed around volume. The model is deliberate: understand the market properly, map it precisely, and engage the right people directly.</p>
-
-        <div class="principles">
-          <div class="principle">
-            <h3>Market-led</h3>
-            <p>Searches begin with real market context, not generic briefs or recycled candidate flow.</p>
-          </div>
-          <div class="principle">
-            <h3>Direct access</h3>
-            <p>We engage individuals who are rarely visible through standard channels and often not actively in-market.</p>
-          </div>
-          <div class="principle">
-            <h3>Selective delivery</h3>
-            <p>A small number of high-quality introductions, presented with clarity rather than noise.</p>
-          </div>
-          <div class="principle">
-            <h3>Leadership-aligned</h3>
-            <p>Built to work closely with leadership on mandates where judgement, discretion, and quality matter.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell statement">
-        <div>
-          <div class="section-label">Positioning</div>
-          <p class="statement-quote">We operate inside the market — not around it.</p>
-        </div>
-        <div class="statement-copy">
-          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from knowing where capability sits, how talent moves, and when access matters most.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing">
-      <div class="shell">
-        <div class="closing-mark"></div>
-        <h2>Kalpa partners with a small number of firms where technology talent is a true competitive advantage.</h2>
-        <p>Connected to the right firms. Known by the right people.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="shell">
-        <div class="contact-grid">
-          <div>
-            <div class="section-label">Contact</div>
-            <h2>Start a conversation.</h2>
-            <p class="lede" style="margin-bottom:0; max-width: 620px;">Discuss a mandate, a market move, or a hiring challenge.</p>
-
-            <form class="form-grid" action="https://formspree.io/f/xaqldbzv" method="POST">
-              <input class="field" type="text" name="name" placeholder="Name" required />
-              <input class="field" type="email" name="email" placeholder="Email" required />
-              <input class="field" type="text" name="company" placeholder="Company" style="grid-column: 1 / -1;" />
-              <textarea name="message" placeholder="How can we help?" required></textarea>
-              <input type="hidden" name="_subject" value="New Kalpa website enquiry" />
-              <button class="button" type="submit">Send</button>
-            </form>
-          </div>
-
-          <div class="contact-meta">
-            <div class="meta-block">
-              <small>Email</small>
-              <div><a href="mailto:contact@kalpa.co">contact@kalpa.co</a></div>
-            </div>
-            <div class="meta-block">
-              <small>Phone</small>
-              <div><a href="tel:+442012345678">+44 20 1234 5678</a></div>
-            </div>
-            <div class="meta-block">
-              <small>LinkedIn</small>
-              <div><a href="https://www.linkedin.com/company/kalpa" target="_blank" rel="noopener noreferrer">linkedin.com/company/kalpa</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell">Kalpa — Specialist search across investment and trading technology.</div>
-    </footer>
-
-<!-- LEGAL FOOTER LINKS -->
-<div style="text-align:center; padding-bottom:20px; font-size:0.85rem; color:rgba(255,255,255,0.5);">
-  <a href="privacy.html" style="margin-right:12px;">Privacy Policy</a>
-  <a href="terms.html">Terms of Use</a>
   <div style="margin-top:10px;">
     Kalpa Ltd · Registered in England & Wales · Company No. XXXXXXX
   </div>
-</div>
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('mobileMenu');
+</footer>
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
-</script>
 </body>
 </html>
