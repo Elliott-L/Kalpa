@@ -82,6 +82,42 @@
       color: var(--muted);
     }
 
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      display: block;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 72px;
+      right: 0;
+      width: 100%;
+      background: rgba(5,5,5,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: none;
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+      z-index: 10;
+    }
+
+    .mobile-menu a {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
     .nav-links a:hover { color: var(--text); }
 
     .hero {
@@ -498,6 +534,30 @@
       .shell { width: min(var(--max), calc(100% - 28px)); }
       .nav {
         min-height: 64px;
+        justify-content: space-between;
+      }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .mobile-menu.show { display: flex; }
+      .section, .closing { padding: 72px 0; }
+      .hero { min-height: auto; padding-top: 48px; }
+      .brand { font-size: 1.16rem; }
+      .hero-copy,
+      .lede,
+      .city-content p,
+      .principle p,
+      .statement-copy,
+      .closing p,
+      .hero-side,
+      .about-copy p,
+      .field,
+      textarea { font-size: 0.98rem; }
+      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .form-grid { grid-template-columns: 1fr; }
+      .contact-grid { padding: 28px; }
+    }
+      .nav {
+        min-height: 64px;
         justify-content: flex-start;
       }
       .nav-links { display: none; }
@@ -524,12 +584,23 @@
   <header class="topbar">
     <div class="shell nav">
       <a class="brand" href="#top">Kalpa</a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#coverage">Coverage</a>
         <a href="#reach">Global Reach</a>
         <a href="#contact">Contact</a>
       </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#reach">Global Reach</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -734,5 +805,13 @@
   <footer>
     <div class="shell">Kalpa — Specialist search across investment and trading technology.</div>
   </footer>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('mobileMenu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
