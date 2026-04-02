@@ -63,7 +63,7 @@
     .nav {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* ensures brand left, menu right */
+      justify-content: space-between;
       min-height: 72px;
       position: relative;
     }
@@ -124,10 +124,8 @@
       font-size: 1rem;
     }
 
-    .nav-links a:hover { color: var(--text); }
-
     .hero {
-      min-height: auto; /* remove excessive hero height */
+      min-height: auto;
       display: grid;
       align-items: center;
       padding: var(--space-6) 0 calc(var(--space-5) - 8px);
@@ -219,14 +217,14 @@
     .hero-side p + p { margin-top: 20px; }
 
     .section {
-      padding: 64px 0; /* reduced vertical space */
+      padding: 64px 0;
       border-top: 1px solid var(--line);
     }
 
     .lede {
       max-width: 760px;
       color: var(--muted);
-      margin-bottom: 20px; /* tighter spacing */
+      margin-bottom: 20px;
     }
 
     .about-display {
@@ -410,7 +408,7 @@
     }
 
     .closing {
-      padding: 64px 0 56px; /* tighter closing section */
+      padding: 64px 0 56px;
       text-align: center;
       border-top: 1px solid var(--line);
     }
@@ -562,49 +560,6 @@
       .form-grid { grid-template-columns: 1fr; }
       .contact-grid { padding: 28px; }
     }
-      .form-grid { grid-template-columns: 1fr; }
-      .contact-grid { padding: 28px; }
-    }
-      .mobile-menu.show { display: flex; }
-      .section, .closing { padding: 72px 0; }
-      .hero { min-height: auto; padding-top: 48px; }
-      .brand { font-size: 1.16rem; }
-      .hero-copy,
-      .lede,
-      .city-content p,
-      .principle p,
-      .statement-copy,
-      .closing p,
-      .hero-side,
-      .about-copy p,
-      .field,
-      textarea { font-size: 0.98rem; }
-      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .form-grid { grid-template-columns: 1fr; }
-      .contact-grid { padding: 28px; }
-    }
-      .nav {
-        min-height: 64px;
-        justify-content: flex-start;
-      }
-      .nav-links { display: none; }
-      .section, .closing { padding: 72px 0; }
-      .hero { min-height: auto; padding-top: 48px; }
-      .brand { font-size: 1.16rem; }
-      .hero-copy,
-      .lede,
-      .city-content p,
-      .principle p,
-      .statement-copy,
-      .closing p,
-      .hero-side,
-      .about-copy p,
-      .field,
-      textarea { font-size: 0.98rem; }
-      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .form-grid { grid-template-columns: 1fr; }
-      .contact-grid { padding: 28px; }
-    }
   </style>
 </head>
 <body>
@@ -641,8 +596,6 @@
             Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible, and hiring decisions carry weight.<br><br>We focus on deep market understanding, direct access, and precise delivery across engineering, product, and leadership.
           </p>
         </div>
-
-        
       </div>
     </section>
 
@@ -801,28 +754,28 @@
             <h2>Start a conversation.</h2>
             <p class="lede" style="margin-bottom:0; max-width: 620px;">Discuss a mandate, a market move, or a hiring challenge.</p>
 
-            <div class="form-grid">
-              <input class="field" type="text" placeholder="Name" />
-              <input class="field" type="email" placeholder="Email" />
-              <input class="field" type="text" placeholder="Company" style="grid-column: 1 / -1;" />
-              <textarea placeholder="How can we help?"></textarea>
-            </div>
-
-            <button class="button">Send</button>
+            <form class="form-grid" action="https://formspree.io/f/xaqldbzv" method="POST">
+              <input class="field" type="text" name="name" placeholder="Name" required />
+              <input class="field" type="email" name="email" placeholder="Email" required />
+              <input class="field" type="text" name="company" placeholder="Company" style="grid-column: 1 / -1;" />
+              <textarea name="message" placeholder="How can we help?" required></textarea>
+              <input type="hidden" name="_subject" value="New Kalpa website enquiry" />
+              <button class="button" type="submit">Send</button>
+            </form>
           </div>
 
           <div class="contact-meta">
             <div class="meta-block">
               <small>Email</small>
-              <div>contact@kalpa.co</div>
+              <div><a href="mailto:contact@kalpa.co">contact@kalpa.co</a></div>
             </div>
             <div class="meta-block">
               <small>Phone</small>
-              <div>+44 20 1234 5678</div>
+              <div><a href="tel:+442012345678">+44 20 1234 5678</a></div>
             </div>
             <div class="meta-block">
               <small>LinkedIn</small>
-              <div>linkedin.com/company/kalpa</div>
+              <div><a href="https://www.linkedin.com/company/kalpa" target="_blank" rel="noopener noreferrer">linkedin.com/company/kalpa</a></div>
             </div>
           </div>
         </div>
