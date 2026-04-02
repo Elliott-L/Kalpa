@@ -7,30 +7,44 @@
   <style>
     :root {
       --bg: #050505;
-      --panel: #0b0b0b;
-      --panel-2: #101010;
-      --text: #f2f2ee;
-      --muted: #a7a79f;
-      --line: rgba(255,255,255,0.1);
-      --soft: rgba(255,255,255,0.04);
-      --soft-2: rgba(255,255,255,0.02);
-      --accent: #d0c5a4;
+      --surface: #0a0a0a;
+      --surface-2: #0f0f0f;
+      --text: #f1eee7;
+      --text-soft: #ddd7ca;
+      --muted: #a39f95;
+      --accent: #cdbf97;
+      --line: rgba(255,255,255,0.09);
+      --line-soft: rgba(255,255,255,0.05);
+      --card: rgba(255,255,255,0.03);
+      --radius: 22px;
+      --radius-sm: 14px;
       --max: 1240px;
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 40px;
+      --space-5: 64px;
+      --space-6: 88px;
+      --label-size: 0.78rem;
+      --body-size: 1.02rem;
+      --body-line: 1.65;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 28%), var(--bg);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 28%), var(--bg);
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: var(--body-line);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
+    p { margin: 0; }
 
     .shell {
       width: min(var(--max), calc(100% - 48px));
@@ -42,8 +56,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(10px);
-      background: rgba(5,5,5,0.75);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(5,5,5,0.76);
+      border-bottom: 1px solid var(--line-soft);
     }
 
     .nav {
@@ -54,17 +68,18 @@
     }
 
     .brand {
-      font-size: 1.45rem;
+      font-size: 1.42rem;
+      font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 600;
+      color: var(--text);
     }
 
     .nav-links {
       display: flex;
       gap: 28px;
+      font-size: 0.94rem;
       color: var(--muted);
-      font-size: 0.95rem;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -73,54 +88,128 @@
       min-height: calc(100vh - 73px);
       display: grid;
       align-items: center;
-      padding: 76px 0 56px;
+      padding: var(--space-6) 0 calc(var(--space-5) - 8px);
     }
 
-    .hero-grid {
+    .hero-grid,
+    .about-grid,
+    .statement {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 60px;
-      align-items: end;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
     }
 
-    .eyebrow {
+    .hero-grid { align-items: end; grid-template-columns: 1.08fr 0.92fr; }
+
+    .eyebrow,
+    .section-label,
+    .city-sub,
+    .meta-block small {
       display: inline-block;
-      margin-bottom: 20px;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-size: 0.78rem;
+      font-size: var(--label-size);
+      line-height: 1.4;
     }
+
+    .eyebrow,
+    .section-label { margin-bottom: 20px; }
 
     h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 500;
-      font-size: clamp(3.8rem, 8vw, 7.2rem);
+      font-size: clamp(3.8rem, 8vw, 7.1rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
+      color: var(--text);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.95rem, 3vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .hero-copy,
+    .lede,
+    .city-content p,
+    .principle p,
+    .statement-copy,
+    .closing p,
+    .hero-side,
+    .field,
+    textarea {
+      font-size: var(--body-size);
+      line-height: var(--body-line);
     }
 
     .hero-copy {
       margin-top: 28px;
       max-width: 760px;
-      font-size: 1.16rem;
-      color: #d8d8d2;
+      color: var(--text-soft);
     }
 
-    .hero-copy strong {
-      font-weight: 500;
-      color: var(--text);
-    }
+    .hero-copy strong { color: var(--text); font-weight: 500; }
 
     .hero-side {
       border-left: 1px solid var(--line);
       padding-left: 28px;
       color: var(--muted);
-      font-size: 0.98rem;
+      max-width: 520px;
+      justify-self: end;
     }
 
-    .hero-side p { margin: 0 0 22px; }
+    .hero-side p + p { margin-top: 20px; }
+
+    .section {
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .lede {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 34px;
+    }
+
+    .about-display {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+
+    .about-copy {
+      padding-top: 34px;
+      max-width: 900px;
+      justify-self: end;
+    }
+
+    .about-copy p {
+      color: var(--text-soft);
+      font-size: 1.045rem;
+      line-height: 1.62;
+      font-weight: 500;
+      max-width: 880px;
+    }
+
+    .about-copy p + p { margin-top: 28px; }
 
     .capability-strip {
       border-top: 1px solid var(--line);
@@ -131,13 +220,12 @@
     .capability-grid {
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 0;
     }
 
     .capability-item {
       padding: 34px 20px 36px;
       text-align: center;
-      border-left: 1px solid rgba(255,255,255,0.04);
+      border-left: 1px solid var(--line-soft);
     }
 
     .capability-item:first-child { border-left: 0; }
@@ -145,260 +233,166 @@
     .capability-line {
       width: 58px;
       height: 1px;
-      background: rgba(208,197,164,0.8);
+      background: rgba(205,191,151,0.8);
       margin: 0 auto 18px;
     }
 
     .capability-item span {
       display: block;
+      color: var(--text);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 0.92rem;
-      line-height: 1.5;
-      color: var(--text);
+      line-height: 1.55;
     }
 
-    .section {
-      padding: 88px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-label {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-    }
-
-    .lede {
-      margin: 0 0 34px;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.03rem;
-    }
-
-    .split {
+    .split,
+    .principles,
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 26px;
     }
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .contact-grid { grid-template-columns: 1fr 0.9fr; gap: 44px; }
+
+    .card,
+    .principle,
+    .contact-grid {
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .card {
       padding: 30px;
     }
 
     .card h3 {
-      margin: 0 0 18px;
-      font-size: 1rem;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
       font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .list {
       display: grid;
-      gap: 14px;
+      gap: 0;
     }
 
     .list div {
       padding: 14px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: #dfdfd9;
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .list div:first-child { border-top: 0; padding-top: 0; }
-
-    .reach-head {
-      margin-bottom: 36px;
+    .list div:first-child {
+      border-top: 0;
+      padding-top: 0;
     }
+
+    .reach-head { margin-bottom: 36px; }
 
     .city-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0;
-      border: 1px solid var(--line);
       overflow: hidden;
-      border-radius: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
     }
 
     .city-card {
-      background: #080808;
+      background: var(--surface);
       border-left: 1px solid rgba(255,255,255,0.08);
     }
 
     .city-card:first-child { border-left: 0; }
 
     .city-image {
-      height: 240px;
       position: relative;
-      overflow: hidden;
+      height: 240px;
       background-size: cover;
       background-position: center;
+      overflow: hidden;
     }
 
     .city-image::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.66));
     }
 
     .london { background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80'); }
     .newyork { background-image: url('https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80'); }
     .hongkong { background-image: url('https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&w=1200&q=80'); }
 
-    .city-content {
-      padding: 28px 28px 30px;
-    }
+    .city-content { padding: 28px 28px 30px; }
 
     .city-content h3 {
       margin: 0 0 6px;
       font-size: 1.15rem;
-      font-weight: 500;
     }
 
-    .city-sub {
-      margin-bottom: 18px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.76rem;
-    }
+    .city-sub { margin-bottom: 18px; }
 
-    .city-content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .about-display {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin: 0;
-    }
-
-    .about-copy p {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 720px;
-    }
-
-    .about-firms {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #dfdfd9;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 22px;
-      font-size: 0.96rem;
-    }
-
-    .principles {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
+    .city-content p { color: var(--muted); }
 
     .principle {
-      border: 1px solid var(--line);
-      border-radius: 20px;
       padding: 24px;
-      background: var(--soft);
       min-height: 170px;
     }
 
-    .principle h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
+    .principle p { color: var(--muted); }
 
-    .principle p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .statement {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: start;
-    }
+    .statement { grid-template-columns: 1.02fr 0.98fr; }
 
     .statement-quote {
+      margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.9rem, 4vw, 3.3rem);
+      font-size: clamp(1.95rem, 4vw, 3.3rem);
       line-height: 1.08;
       letter-spacing: -0.03em;
-      margin: 0;
+      color: var(--text);
     }
 
     .statement-copy {
+      max-width: 560px;
       color: var(--muted);
-      font-size: 1rem;
-      max-width: 540px;
+      justify-self: end;
     }
 
     .closing {
-      text-align: center;
       padding: 92px 0 84px;
+      text-align: center;
       border-top: 1px solid var(--line);
     }
 
     .closing-mark {
       width: 60px;
       height: 1px;
-      background: rgba(208,197,164,0.8);
       margin: 0 auto 28px;
+      background: rgba(205,191,151,0.8);
     }
 
     .closing h2 {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto 18px;
-      font-size: clamp(2rem, 3.5vw, 3.5rem);
-      line-height: 1.08;
     }
 
     .closing p {
-      margin: 0 auto;
       max-width: 760px;
+      margin: 0 auto;
       color: var(--muted);
-      font-size: 1.08rem;
     }
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 44px;
       align-items: start;
       padding: 40px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid var(--line);
-      border-radius: 24px;
     }
 
     .form-grid {
@@ -413,11 +407,14 @@
       width: 100%;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
+      border-radius: var(--radius-sm);
       color: var(--text);
       padding: 16px 18px;
-      font: inherit;
+      font-family: inherit;
     }
+
+    .field::placeholder,
+    textarea::placeholder { color: var(--muted); }
 
     textarea {
       min-height: 150px;
@@ -426,15 +423,15 @@
     }
 
     .button {
-      margin-top: 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-width: 140px;
+      margin-top: 18px;
       padding: 15px 24px;
-      border-radius: 999px;
       border: 0;
-      background: #ece8de;
+      border-radius: 999px;
+      background: #ece6d9;
       color: #090909;
       font: inherit;
       font-weight: 600;
@@ -444,53 +441,54 @@
     .contact-meta {
       display: grid;
       gap: 26px;
-      color: var(--muted);
       padding-top: 64px;
-    }
-
-    .meta-block small {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.74rem;
+      color: var(--muted);
     }
 
     .meta-block div {
       color: var(--text);
       font-size: 1.05rem;
+      line-height: 1.55;
     }
 
     footer {
       padding: 28px 0 40px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.46);
       font-size: 0.92rem;
     }
 
     @media (max-width: 1180px) {
       .capability-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .city-grid { grid-template-columns: 1fr; }
-      .city-card { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+      .city-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
       .city-card:first-child { border-top: 0; }
     }
 
     @media (max-width: 980px) {
       .hero-grid,
-      .split,
       .about-grid,
+      .split,
       .principles,
       .statement,
       .contact-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
 
       .hero-side {
+        justify-self: start;
+        max-width: none;
         border-left: 0;
         border-top: 1px solid var(--line);
         padding-left: 0;
         padding-top: 22px;
       }
+
+      .about-copy,
+      .statement-copy { justify-self: start; max-width: none; padding-top: 0; }
 
       .contact-meta { padding-top: 8px; }
     }
@@ -500,11 +498,21 @@
       .nav { min-height: 64px; }
       .nav-links { gap: 16px; font-size: 0.9rem; }
       .section, .closing { padding: 72px 0; }
-      .hero { padding-top: 48px; min-height: auto; }
-      .brand { font-size: 1.18rem; }
-      .hero-copy { font-size: 1.04rem; }
+      .hero { min-height: auto; padding-top: 48px; }
+      .brand { font-size: 1.16rem; }
+      .hero-copy,
+      .lede,
+      .city-content p,
+      .principle p,
+      .statement-copy,
+      .closing p,
+      .hero-side,
+      .about-copy p,
+      .field,
+      textarea { font-size: 0.98rem; }
       .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .form-grid { grid-template-columns: 1fr; }
+      .contact-grid { padding: 28px; }
     }
   </style>
 </head>
@@ -513,9 +521,9 @@
     <div class="shell nav">
       <a class="brand" href="#top">Kalpa</a>
       <nav class="nav-links">
+        <a href="#about">About</a>
         <a href="#coverage">Coverage</a>
         <a href="#reach">Global Reach</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -533,13 +541,22 @@
         </div>
 
         <aside class="hero-side">
-          <p>
-            Built for firms where technology is tightly linked to investment performance, execution, infrastructure, and edge.
-          </p>
-          <p>
-            Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion, and real market reach.
-          </p>
+          <p>Built for firms where technology is tightly linked to investment performance, execution, infrastructure, and edge.</p>
+          <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion, and real market reach.</p>
         </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="shell about-grid">
+        <div>
+          <div class="section-label">About Kalpa</div>
+          <p class="about-display">At the intersection of trading, technology, and performance.</p>
+        </div>
+        <div class="about-copy">
+          <p>Kalpa is a specialist search firm focused on investment and trading technology. We work with firms where the quality of engineering, product, and technical leadership can shape execution, platform strength, research capability, and business performance.</p>
+          <p>Our focus is narrow by design. Deep specialisation creates better judgement around market structure, role calibration, technical context, and where exceptional capability actually sits.</p>
+        </div>
       </div>
     </section>
 
@@ -559,9 +576,7 @@
       <div class="shell">
         <div class="section-label">Coverage</div>
         <h2>Focused coverage across investment and trading technology.</h2>
-        <p class="lede">
-          The scope is intentionally narrow enough to be credible and broad enough to reflect how modern investment platforms, execution environments, and research-led technology teams are built.
-        </p>
+        <p class="lede">The scope is intentionally narrow enough to be credible and broad enough to reflect how modern investment platforms, execution environments, and research-led technology teams are built.</p>
 
         <div class="split">
           <div class="card">
@@ -630,30 +645,11 @@
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="shell about-grid">
-        <div>
-          <div class="section-label">About Kalpa</div>
-          <p class="about-display">At the intersection of trading, technology, and performance.</p>
-        </div>
-        <div class="about-copy" style="display:flex; flex-direction:column; justify-content:flex-start; padding-top:40px;">
-          <p style="color:#ffffff; font-weight:500; font-size:1.05rem;">
-            Kalpa is a specialist search firm focused on investment and trading technology. We work with firms where the quality of engineering, product, and technical leadership can shape execution, platform strength, research capability, and business performance.
-          </p>
-          <p style="color:#ffffff; font-weight:500; font-size:1.05rem;">
-            Our focus is narrow by design. Deep specialisation creates better judgement around market structure, role calibration, technical context, and where exceptional capability actually sits.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <section id="approach" class="section">
       <div class="shell">
         <div class="section-label">Approach</div>
         <h2>Built around access, judgement, and signal.</h2>
-        <p class="lede">
-          Kalpa is not designed around volume. The model is deliberate: understand the market properly, map it precisely, and engage the right people directly.
-        </p>
+        <p class="lede">Kalpa is not designed around volume. The model is deliberate: understand the market properly, map it precisely, and engage the right people directly.</p>
 
         <div class="principles">
           <div class="principle">
@@ -683,9 +679,7 @@
           <p class="statement-quote">We operate inside the market — not around it.</p>
         </div>
         <div class="statement-copy">
-          <p>
-            The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from knowing where capability sits, how talent moves, and when access matters most.
-          </p>
+          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from knowing where capability sits, how talent moves, and when access matters most.</p>
         </div>
       </div>
     </section>
@@ -704,9 +698,7 @@
           <div>
             <div class="section-label">Contact</div>
             <h2>Start a conversation.</h2>
-            <p class="lede" style="margin-bottom:0; max-width: 620px;">
-              Discuss a mandate, a market move, or a hiring challenge.
-            </p>
+            <p class="lede" style="margin-bottom:0; max-width: 620px;">Discuss a mandate, a market move, or a hiring challenge.</p>
 
             <div class="form-grid">
               <input class="field" type="text" placeholder="Name" />
