@@ -261,7 +261,7 @@
 
     .capability-grid {
       display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .capability-item {
@@ -501,7 +501,7 @@
     }
 
     @media (max-width: 1180px) {
-      .capability-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .city-grid { grid-template-columns: 1fr; }
       .city-card {
         border-left: 0;
@@ -558,7 +558,10 @@
       .about-copy p,
       .field,
       textarea { font-size: 0.98rem; }
-      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .capability-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .contact-grid { padding: 28px; }
+    }
       .form-grid { grid-template-columns: 1fr; }
       .contact-grid { padding: 28px; }
     }
@@ -664,6 +667,7 @@
         <div class="capability-item"><div class="capability-line"></div><span>Trading Infrastructure</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Data &amp; Machine Learning</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Execution Technology</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Quant Research &amp; Engineering</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Core Engineering</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Product &amp; Technical Leadership</span></div>
       </div>
