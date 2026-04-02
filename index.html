@@ -85,7 +85,7 @@
     .nav-links a:hover { color: var(--text); }
 
     .hero {
-      min-height: calc(100vh - 73px);
+      min-height: auto; /* remove excessive hero height */
       display: grid;
       align-items: center;
       padding: var(--space-6) 0 calc(var(--space-5) - 8px);
@@ -177,14 +177,14 @@
     .hero-side p + p { margin-top: 20px; }
 
     .section {
-      padding: var(--space-6) 0;
+      padding: 64px 0; /* reduced vertical space */
       border-top: 1px solid var(--line);
     }
 
     .lede {
       max-width: 760px;
       color: var(--muted);
-      margin-bottom: 34px;
+      margin-bottom: 20px; /* tighter spacing */
     }
 
     .about-display {
@@ -209,7 +209,7 @@
       max-width: 880px;
     }
 
-    .about-copy p + p { margin-top: 28px; }
+    .about-copy p + p { margin-top: 20px; }
 
     .capability-strip {
       border-top: 1px solid var(--line);
@@ -295,7 +295,7 @@
       padding-top: 0;
     }
 
-    .reach-head { margin-bottom: 36px; }
+    .reach-head { margin-bottom: 24px; }
 
     .city-grid {
       display: grid;
@@ -368,7 +368,7 @@
     }
 
     .closing {
-      padding: 92px 0 84px;
+      padding: 64px 0 56px; /* tighter closing section */
       text-align: center;
       border-top: 1px solid var(--line);
     }
@@ -496,8 +496,11 @@
 
     @media (max-width: 720px) {
       .shell { width: min(var(--max), calc(100% - 28px)); }
-      .nav { min-height: 64px; }
-      .nav-links { gap: 16px; font-size: 0.9rem; }
+      .nav {
+        min-height: 64px;
+        justify-content: flex-start;
+      }
+      .nav-links { display: none; }
       .section, .closing { padding: 72px 0; }
       .hero { min-height: auto; padding-top: 48px; }
       .brand { font-size: 1.16rem; }
