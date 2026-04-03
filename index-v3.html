@@ -126,10 +126,10 @@
     }
 
     .hero {
-      min-height: auto;
+      min-height: calc(100vh - 72px);
       display: grid;
       align-items: center;
-      padding: var(--space-6) 0 calc(var(--space-5) - 8px);
+      padding: 40px 0;
     }
 
     .hero-grid,
@@ -167,7 +167,7 @@
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 500;
-      font-size: clamp(3.8rem, 8vw, 7.1rem);
+      font-size: clamp(3.2rem, 6.5vw, 5.8rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
       color: var(--text);
@@ -206,7 +206,7 @@
     }
 
     .hero-copy {
-      margin-top: 28px;
+      margin-top: 18px;
       max-width: 800px;
       color: var(--text-soft);
     }
@@ -555,6 +555,16 @@
       color: var(--accent);
     }
 
+    @media (max-height: 820px) {
+      h1 {
+        font-size: clamp(2.8rem, 5.5vw, 5rem);
+      }
+
+      .hero-copy {
+        margin-top: 14px;
+      }
+    }
+
     @media (max-width: 1180px) {
       .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .city-grid { grid-template-columns: 1fr; }
@@ -574,6 +584,10 @@
       .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .hero {
+        min-height: auto;
       }
 
       .hero-side {
