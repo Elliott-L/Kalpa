@@ -649,6 +649,24 @@
       .capability-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .contact-grid { padding: 28px; }
+
+      .city-grid {
+        border-radius: var(--radius);
+      }
+
+      .city-card:first-child .city-image {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .city-card .city-image {
+        border-radius: 0;
+      }
+
+      .city-card:last-child .city-image {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
   </style>
 </head>
@@ -895,10 +913,25 @@
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('mobileMenu');
 
+    function isMobileView() {
+      return window.innerWidth <= 720;
+    }
+
+    function closeMobileMenu() {
+      menu.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
     toggle.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('show');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+
+    window.addEventListener('scroll', () => {
+      if (isMobileView() && menu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
