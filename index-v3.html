@@ -125,6 +125,10 @@
       font-size: 1rem;
     }
 
+    #top {
+      scroll-margin-top: 84px;
+    }
+
     .hero {
       min-height: calc(100vh - 72px);
       display: grid;
@@ -621,6 +625,10 @@
       .menu-toggle { display: flex; margin-left: auto; }
       .mobile-menu.show { display: flex; }
 
+      #top {
+        scroll-margin-top: 76px;
+      }
+
       .section,
       .closing {
         padding: 72px 0;
@@ -651,21 +659,16 @@
       .contact-grid { padding: 28px; }
 
       .city-grid {
-        border-radius: var(--radius);
+        border-radius: 0;
+        overflow: visible;
       }
 
-      .city-card:first-child .city-image {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+      .city-card {
+        overflow: hidden;
       }
 
       .city-card .city-image {
         border-radius: 0;
-      }
-
-      .city-card:last-child .city-image {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
       }
     }
   </style>
