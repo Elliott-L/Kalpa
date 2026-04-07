@@ -70,11 +70,15 @@
     }
 
     .brand {
-      font-size: 1.42rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-transform: none;
       color: var(--text);
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .nav-links {
@@ -639,7 +643,7 @@
         padding-top: 48px;
       }
 
-      .brand { font-size: 1.16rem; }
+      .brand { font-size: 1.28rem; }
 
       .hero-copy,
       .lede,
@@ -676,7 +680,7 @@
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#top">Kalpa</a>
+      <a class="brand" href="#top">Kalpa.</a>
 
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
         <span></span>
