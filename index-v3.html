@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kalpa — Specialist search across investment and trading technology</title>
+  <title>Kalpa - Specialist search across research, trading, and investment technology</title>
   <style>
     :root {
       --bg: #050505;
@@ -70,11 +70,15 @@
     }
 
     .brand {
-      font-size: 1.42rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-transform: none;
       color: var(--text);
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .nav-links {
@@ -125,11 +129,15 @@
       font-size: 1rem;
     }
 
+    #top {
+      scroll-margin-top: 84px;
+    }
+
     .hero {
-      min-height: auto;
+      min-height: calc(100vh - 72px);
       display: grid;
       align-items: center;
-      padding: var(--space-6) 0 calc(var(--space-5) - 8px);
+      padding: 40px 0;
     }
 
     .hero-grid,
@@ -167,10 +175,11 @@
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 500;
-      font-size: clamp(3.8rem, 8vw, 7.1rem);
+      font-size: clamp(3.2rem, 6.5vw, 5.8rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
       color: var(--text);
+      max-width: 980px;
     }
 
     h2 {
@@ -205,8 +214,8 @@
     }
 
     .hero-copy {
-      margin-top: 28px;
-      max-width: 760px;
+      margin-top: 18px;
+      max-width: 800px;
       color: var(--text-soft);
     }
 
@@ -554,6 +563,16 @@
       color: var(--accent);
     }
 
+    @media (max-height: 820px) {
+      h1 {
+        font-size: clamp(2.8rem, 5.5vw, 5rem);
+      }
+
+      .hero-copy {
+        margin-top: 14px;
+      }
+    }
+
     @media (max-width: 1180px) {
       .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .city-grid { grid-template-columns: 1fr; }
@@ -573,6 +592,10 @@
       .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .hero {
+        min-height: auto;
       }
 
       .hero-side {
@@ -606,6 +629,10 @@
       .menu-toggle { display: flex; margin-left: auto; }
       .mobile-menu.show { display: flex; }
 
+      #top {
+        scroll-margin-top: 76px;
+      }
+
       .section,
       .closing {
         padding: 72px 0;
@@ -616,7 +643,7 @@
         padding-top: 48px;
       }
 
-      .brand { font-size: 1.16rem; }
+      .brand { font-size: 1.28rem; }
 
       .hero-copy,
       .lede,
@@ -634,13 +661,26 @@
       .capability-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .contact-grid { padding: 28px; }
+
+      .city-grid {
+        border-radius: 0;
+        overflow: visible;
+      }
+
+      .city-card {
+        overflow: hidden;
+      }
+
+      .city-card .city-image {
+        border-radius: 0;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#top">Kalpa</a>
+      <a class="brand" href="#top">Kalpa.</a>
 
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
         <span></span>
@@ -669,10 +709,10 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow">Specialist search</span>
-          <h1>Investment and trading technology.</h1>
+          <h1>Research, trading, and investment technology.</h1>
           <p class="hero-copy">
             Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible, and hiring decisions carry weight.<br><br>
-            We focus on deep market understanding, direct access, and precise delivery across engineering, product, and leadership.
+            We focus on the systems behind alpha - across research, compute infrastructure, data platforms, execution technology, and leadership.
           </p>
         </div>
       </div>
@@ -685,8 +725,8 @@
           <p class="about-display">At the intersection of financial markets, technology, and talent.</p>
         </div>
         <div class="about-copy">
-          <p>Kalpa is a specialist search firm focused on investment and trading technology. We work with firms where the quality of engineering, product, and technical leadership can shape execution, platform strength, research capability, and business performance.</p>
-          <p>Our focus is narrow by design &amp; built for firms where technology is tightly linked to investment performance, execution, infrastructure, and edge.</p>
+          <p>Kalpa is a specialist search firm focused on research, trading, and investment technology. We work with firms where the quality of engineering, product, and technical leadership shapes research capability, execution performance, platform depth, and long-term edge.</p>
+          <p>Our focus is narrow by design and built for firms where technology is tightly linked to investment outcomes - from quantitative research environments and compute platforms to market-facing trading systems and data-intensive infrastructure.</p>
           <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion, and real market reach.</p>
         </div>
       </div>
@@ -694,45 +734,46 @@
 
     <section class="capability-strip">
       <div class="shell capability-grid">
-        <div class="capability-item"><div class="capability-line"></div><span>Low Latency Systems</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Quantitative Platforms</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Trading Infrastructure</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Data &amp; Machine Learning</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Execution Technology</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Quant Research &amp; Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Core Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Product &amp; Technical Leadership</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Compute &amp; Cluster Infrastructure</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Data, AI &amp; Modelling Platforms</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Execution &amp; Trading Systems</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Distributed Systems &amp; Platform Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Market Data Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Low Latency Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Technical, Product, Platform &amp; Executive Leadership</span></div>
       </div>
     </section>
 
     <section id="coverage" class="section">
       <div class="shell">
         <div class="section-label">Coverage</div>
-        <h2>Focused coverage across investment and trading technology.</h2>
-        <p class="lede">The scope is intentionally narrow enough to be credible and broad enough to reflect how modern investment platforms, execution environments, and research-led technology teams are built.</p>
+        <h2>Built to connect investment and trading technology firms with the talent that drives performance.</h2>
+        <p class="lede">Today’s firms are not built around a single trading stack. They are built across research, data, compute, modelling infrastructure, execution, and leadership. Kalpa’s coverage reflects that reality.</p>
 
         <div class="split">
           <div class="card">
             <h3>Markets</h3>
             <div class="list">
-              <div>Hedge Funds</div>
-              <div>Quant Trading Firms</div>
-              <div>Asset Managers</div>
-              <div>Proprietary Trading Firms</div>
-              <div>Market Makers</div>
-              <div>Technology-Driven Investment Platforms</div>
+              <div>Multi-Manager &amp; Platform Hedge Funds</div>
+              <div>Systematic &amp; Quantitative Trading Firms</div>
+              <div>Discretionary Investment Firms</div>
+              <div>Proprietary Trading &amp; Liquidity Providers</div>
+              <div>Execution &amp; Market Infrastructure</div>
+              <div>Crypto &amp; Digital Asset Trading Firms</div>
+              <div>Data, Research & AI Platforms</div>
             </div>
           </div>
 
           <div class="card">
-            <h3>Roles</h3>
+            <h3>Core Hiring Areas</h3>
             <div class="list">
-              <div>Quantitative Engineering</div>
-              <div>Platform &amp; Infrastructure</div>
-              <div>Applied AI / Machine Learning</div>
-              <div>Trading Systems</div>
-              <div>Product</div>
-              <div>Technical Leadership</div>
+              <div>Quantitative Research &amp; Engineering</div>
+              <div>Distributed Systems, Platform &amp; Infrastructure</div>
+              <div>Compute, Cluster &amp; HPC Environments</div>
+              <div>Data, AI / ML &amp; Modelling Platforms</div>
+              <div>Trading Systems &amp; Execution Technology</div>
+              <div>Technical, Product, Platform &amp; Executive Leadership</div>
             </div>
           </div>
         </div>
@@ -744,7 +785,7 @@
         <div class="reach-head">
           <div class="section-label">Global Reach</div>
           <h2>Embedded in key financial centres.</h2>
-          <p class="lede">Kalpa recruits where the most competitive trading and investment firms build their technology teams.</p>
+          <p class="lede">Kalpa recruits where the most competitive investment and trading firms build their research, engineering, and leadership teams.</p>
         </div>
 
         <div class="city-grid">
@@ -753,7 +794,7 @@
             <div class="city-content">
               <h3>London</h3>
               <div class="city-sub">United Kingdom</div>
-              <p>Europe’s deepest concentration of hedge funds, systematic trading firms, market makers, and technology-led asset managers. High competition for platform, low-latency, and quantitative engineering talent.</p>
+              <p>Europe’s deepest concentration of hedge funds, systematic trading firms, market makers, and technology-led asset managers. High competition for quantitative engineering, platform, data, and low latency talent.</p>
             </div>
           </article>
 
@@ -762,7 +803,7 @@
             <div class="city-content">
               <h3>New York</h3>
               <div class="city-sub">United States</div>
-              <p>The largest investment technology market in the world, with constant demand across execution, infrastructure, research platforms, data engineering, and senior technical leadership.</p>
+              <p>The largest investment technology market in the world, with constant demand across research platforms, compute infrastructure, execution systems, data engineering, and senior technical leadership.</p>
             </div>
           </article>
 
@@ -771,7 +812,7 @@
             <div class="city-content">
               <h3>Hong Kong</h3>
               <div class="city-sub">Asia Pacific</div>
-              <p>A critical hub for firms building APAC trading capability, platform depth, and quantitative infrastructure — with growing demand for specialist engineering and technical leadership talent.</p>
+              <p>A critical hub for firms building APAC trading capability, quantitative infrastructure, and regional technology leadership - with growing demand for specialist engineering, data, and platform talent.</p>
             </div>
           </article>
         </div>
@@ -782,7 +823,7 @@
       <div class="shell">
         <div class="section-label">Approach</div>
         <h2>Built around access, judgement, and signal.</h2>
-        <p class="lede">Kalpa is not designed around volume. The model is deliberate: understand the market properly, map it precisely, and engage the right people directly.</p>
+        <p class="lede">Kalpa is not designed around volume. The model is deliberate: understand where the market is going, map capability properly, and engage the right people directly.</p>
 
         <div class="principles">
           <div class="principle">
@@ -812,7 +853,7 @@
           <p class="statement-quote">We operate inside the market - not around it.</p>
         </div>
         <div class="statement-copy">
-          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from knowing where capability sits, how talent moves, and when access matters most.</p>
+          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from understanding how modern investment firms are built, where capability sits, how talent moves, and when access matters most.</p>
         </div>
       </div>
     </section>
@@ -820,7 +861,7 @@
     <section class="closing">
       <div class="shell">
         <div class="closing-mark"></div>
-        <h2>Kalpa partners with a small number of firms where technology talent is a true competitive advantage.</h2>
+        <h2>Kalpa partners with firms where research and technology talent is a true competitive advantage.</h2>
         <p>Connected to the right firms. Known by the right people.</p>
       </div>
     </section>
@@ -863,7 +904,7 @@
   </main>
 
   <footer>
-    <div class="shell footer-main">Kalpa - Specialist search across investment and trading technology.</div>
+    <div class="shell footer-main">Kalpa - Specialist search across research, trading, and investment technology.</div>
     <div class="shell footer-legal">
       <div class="footer-legal-links">
         <a href="./privacy.html">Privacy Policy</a>
@@ -871,7 +912,7 @@
         <a href="./terms.html">Terms of Use</a>
       </div>
       <div>
-        Kalpa Ltd · Registered in England &amp; Wales · Company No. XXXXXXX
+        Kalpa Group Ltd · Registered in England &amp; Wales · Company No. XXXXXXX
       </div>
     </div>
   </footer>
@@ -880,10 +921,25 @@
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('mobileMenu');
 
+    function isMobileView() {
+      return window.innerWidth <= 720;
+    }
+
+    function closeMobileMenu() {
+      menu.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
     toggle.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('show');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+
+    window.addEventListener('scroll', () => {
+      if (isMobileView() && menu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
