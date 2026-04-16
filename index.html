@@ -352,7 +352,7 @@
     }
 
     .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
     .contact-grid { grid-template-columns: 1fr 0.9fr; gap: 44px; }
 
     .card,
@@ -723,7 +723,6 @@
     <div class="shell nav">
       <a class="brand-wrap" href="#top">
         <span class="brand">Kalpa.</span>
-        <span class="brand-tagline">Connected to the right firms. Known by the right people.</span>
       </a>
 
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
