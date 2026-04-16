@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=devFh, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kalpa - Specialist search across research, investment and trading technology</title>
   <style>
     :root {
@@ -726,14 +726,6 @@
       border-color: rgba(205,191,151,0.75);
       background: rgba(205,191,151,0.07);
     }
-      h1 {
-        font-size: clamp(2.8rem, 5.5vw, 5rem);
-      }
-
-      .hero-copy {
-        margin-top: 14px;
-      }
-    }
 
     @media (max-width: 1180px) {
       .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -808,6 +800,14 @@
       .brand { font-size: 1.28rem; }
       .brand-tagline { display: none; }
 
+      h1 {
+        font-size: clamp(2.8rem, 5.5vw, 5rem);
+      }
+
+      .hero-copy {
+        margin-top: 14px;
+      }
+
       .hero-copy,
       .lede,
       .city-content p,
@@ -826,17 +826,17 @@
       .contact-grid { padding: 28px; }
 
       .city-grid {
-        border-radius: 0;
-        overflow: visible;
-      }
-
-      .city-card {
+        grid-template-columns: 1fr;
+        border-radius: var(--radius);
         overflow: hidden;
       }
 
-      .city-card .city-image {
-        border-radius: 0;
+      .city-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
       }
+
+      .city-card:first-child { border-top: 0; }
     }
   </style>
 </head>
