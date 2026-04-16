@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=devFh, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kalpa - Specialist search across research, investment and trading technology</title>
   <style>
     :root {
@@ -11,7 +11,7 @@
       --surface-2: #0f0f0f;
       --text: #f1eee7;
       --text-soft: #ddd7ca;
-      --muted: #a39f95;F
+      --muted: #a39f95;
       --accent: #cdbf97;
       --line: rgba(255,255,255,0.09);
       --line-soft: rgba(255,255,255,0.05);
@@ -71,7 +71,7 @@
 
     .brand {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.5rem;
+      font-size: 1.9rem;
       font-weight: 500;
       letter-spacing: -0.02em;
       text-transform: none;
@@ -81,15 +81,56 @@
       text-rendering: optimizeLegibility;
     }
 
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-weight: 400;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      font-size: 0.94rem;
-      color: var(--muted);
+      gap: 0;
+      font-size: 0.88rem;
+      color: #c8c4bc;
+    }
+
+    .nav-links a {
+      padding: 0 14px;
     }
 
     .nav-links a:hover { color: var(--text); }
+
+    .nav-divider {
+      color: rgba(255,255,255,0.12);
+      font-size: 0.75rem;
+      user-select: none;
+    }
+
+    .nav-contact {
+      margin-left: 8px;
+      padding: 7px 18px !important;
+      border: 1px solid rgba(205,191,151,0.45);
+      border-radius: 999px;
+      color: #e8e2d6 !important;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-contact:hover {
+      border-color: rgba(205,191,151,0.8) !important;
+      color: var(--accent) !important;
+    }
 
     .menu-toggle {
       display: none;
@@ -261,9 +302,8 @@
 
     .about-copy p {
       color: var(--text-soft);
-      font-size: 1.045rem;
-      line-height: 1.62;
-      font-weight: 500;
+      font-size: var(--body-size);
+      line-height: var(--body-line);
       max-width: 880px;
     }
 
@@ -312,7 +352,7 @@
     }
 
     .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
     .contact-grid { grid-template-columns: 1fr 0.9fr; gap: 44px; }
 
     .card,
@@ -351,7 +391,47 @@
       padding-top: 0;
     }
 
-    .reach-head { margin-bottom: 24px; }
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .market-bubble {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 20px 22px;
+    }
+
+    .market-bubble-name {
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .market-bubble-tech {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .market-bubble-tech-label {
+      color: var(--accent);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 720px) {
+      .markets-grid { grid-template-columns: 1fr; }
+    }
 
     .city-grid {
       display: grid;
@@ -563,7 +643,129 @@
       color: var(--accent);
     }
 
-    @media (max-height: 820px) {
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: wordReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-eyebrow-anim {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.05s;
+    }
+
+    .hero-copy-anim {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.75s;
+    }
+
+    @keyframes typingDot {
+      0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    .mandate-chat {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 28px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .chat-messages {
+      padding: 28px 28px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow-y: auto;
+      max-height: 340px;
+      min-height: 240px;
+    }
+
+    .chat-msg p {
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.62;
+    }
+
+    .chat-msg--ai { align-self: flex-start; max-width: 88%; }
+    .chat-msg--ai p { color: #ddd7ca; }
+    .chat-msg--user { align-self: flex-end; max-width: 80%; }
+    .chat-msg--user p { color: #a39f95; }
+
+    .chat-typing {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    .chat-typing span {
+      width: 5px;
+      height: 5px;
+      background: #a39f95;
+      border-radius: 50%;
+      animation: typingDot 1.2s infinite;
+    }
+
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    .chat-input-row {
+      display: flex;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 24px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #f1eee7;
+      font-size: 0.97rem;
+      font-family: inherit;
+      outline: none;
+      line-height: 1.5;
+    }
+
+    .chat-input::placeholder { color: #3a3730; }
+
+    .chat-send {
+      background: none;
+      border: 1px solid rgba(205,191,151,0.35);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #cdbf97;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .chat-send:hover {
+      border-color: rgba(205,191,151,0.75);
+      background: rgba(205,191,151,0.07);
+    }
       h1 {
         font-size: clamp(2.8rem, 5.5vw, 5rem);
       }
@@ -615,6 +817,12 @@
       }
 
       .contact-meta { padding-top: 8px; }
+      .city-grid { grid-template-columns: 1fr; }
+      .city-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .city-card:first-child { border-top: 0; }
     }
 
     @media (max-width: 720px) {
@@ -644,6 +852,7 @@
       }
 
       .brand { font-size: 1.28rem; }
+      .brand-tagline { display: none; }
 
       .hero-copy,
       .lede,
@@ -663,6 +872,7 @@
       .contact-grid { padding: 28px; }
 
       .city-grid {
+        grid-template-columns: 1fr;
         border-radius: 0;
         overflow: visible;
       }
@@ -680,7 +890,9 @@
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#top">Kalpa.</a>
+      <a class="brand-wrap" href="#top">
+        <span class="brand">Kalpa.</span>
+      </a>
 
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
         <span></span>
@@ -690,9 +902,11 @@
 
       <nav class="nav-links">
         <a href="#about">About</a>
+        <span class="nav-divider">|</span>
         <a href="#coverage">Coverage</a>
+        <span class="nav-divider">|</span>
         <a href="#reach">Global Reach</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-contact">Contact</a>
       </nav>
 
       <div class="mobile-menu" id="mobileMenu">
@@ -711,8 +925,8 @@
           <span class="eyebrow">Specialist search</span>
           <h1>Research, investment &amp; trading technology.</h1>
           <p class="hero-copy">
-            Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible, and hiring decisions carry weight.<br><br>
-            We focus on the systems behind alpha - across research, compute infrastructure, data platforms, execution technology, and leadership.
+            Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible and hiring decisions carry weight.<br><br>
+            We focus on the systems behind alpha across research, compute infrastructure, data platforms, execution technology and leadership.
           </p>
         </div>
       </div>
@@ -725,9 +939,9 @@
           <p class="about-display">At the intersection of financial markets, technology, and talent.</p>
         </div>
         <div class="about-copy">
-          <p>Kalpa is a specialist search firm focused on research, trading, and investment technology. We work with firms where the quality of engineering, product, and technical leadership shapes research capability, execution performance, platform depth, and long-term edge.</p>
-          <p>Our focus is narrow by design and built for firms where technology is tightly linked to investment outcomes - from quantitative research environments and compute platforms to market-facing trading systems and data-intensive infrastructure.</p>
-          <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion, and real market reach.</p>
+          <p>Kalpa is a specialist search firm focused on research, trading and investment technology. We work with firms where the quality of engineering, product and technical leadership shapes research capability, execution performance, platform depth and long-term edge.</p>
+          <p>Our focus is narrow by design and built for firms where technology is tightly linked to investment outcomes — from quantitative research environments and compute platforms to market-facing trading systems and data-intensive infrastructure.</p>
+          <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion and real market reach.</p>
         </div>
       </div>
     </section>
@@ -735,13 +949,13 @@
     <section class="capability-strip">
       <div class="shell capability-grid">
         <div class="capability-item"><div class="capability-line"></div><span>Quant Research &amp; Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Compute &amp; Cluster Infrastructure</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>HPC, Cluster &amp; ML Infrastructure</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Data, AI &amp; Modelling Platforms</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Execution &amp; Trading Systems</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Distributed Systems &amp; Platform Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Market Data Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Low Latency Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Technical, Product, Platform &amp; Executive Leadership</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Platform &amp; Distributed Systems</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Real-Time Market Data</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Low-Latency &amp; Performance Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Technical, Product &amp; Platform Leadership</span></div>
       </div>
     </section>
 
@@ -749,39 +963,53 @@
       <div class="shell">
         <div class="section-label">Coverage</div>
         <h2>Built to connect investment and trading technology firms with the talent that drives performance.</h2>
-        <p class="lede">Today’s firms are not built around a single trading stack. They are built across research, data, compute, modelling infrastructure, execution, and leadership. Kalpa’s coverage reflects that reality.</p>
+        <p class="lede">Today's firms are not built around a single trading stack. They are built across research, data, compute, modelling infrastructure, execution and leadership. Kalpa's coverage reflects that reality.</p>
 
-        <div class="split">
-          <div class="card">
-            <h3>Markets</h3>
-            <div class="list">
-              <div>Multi-Manager &amp; Platform Hedge Funds</div>
-              <div>Systematic &amp; Quantitative Investment Managers</div>
-              <div>Discretionary Investment Managers</div>
-              <div>Proprietary Trading, Market Making &amp; Liquidity Providers</div>
-              <div>Investment Banks &amp; Dealer Trading Businesses</div>
-              <div>Exchanges, Clearing Houses &amp; Market Infrastructure</div>
-              <div>Execution, Connectivity &amp; Trading Platform Vendors</div>
-              <div>Market Data &amp; AI Platform Vendors</div>
-              <div>Crypto &amp; Digital Assets</div>
-            </div>
+        <h3 style="font-size: 0.98rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin: 0 0 4px;">Markets</h3>
+        <div class="markets-grid">
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Multi-Manager &amp; Platform Hedge Funds</div>
+            <div class="market-bubble-tech">Real-time execution pipelines, unified data platforms and distributed computing clusters for multi-strategy operations.</div>
           </div>
 
-          <div class="card">
-            <h3>Core Hiring Areas</h3>
-            <div class="list">
-              <div>Quantitative Research &amp; Engineering</div>
-              <div>Data, AI/ML &amp; Modelling Platforms</div>
-              <div>Trading Systems &amp; Execution Technology</div>
-              <div>Low-Latency &amp; High-Frequency Systems</div>
-              <div>Distributed Systems &amp; Platform Engineering</div>
-              <div>Compute, Cluster &amp; HPC Infrastructure</div>
-              <div>Market Data</div>
-              <div>Risk Technology &amp; Infrastructure</div>
-              <div>Technical, Product &amp; Executive Leadership</div>
-            </div>
+          <div class="market-bubble">
+            <div class="market-bubble-name">Systematic &amp; Quantitative Investment Managers</div>
+            <div class="market-bubble-tech">C++/Rust migration, on-premises GPU clusters and alternative data processing infrastructure replacing AI research experiments.</div>
           </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Proprietary Trading, Market Making &amp; Liquidity Providers</div>
+            <div class="market-bubble-tech">Sub-microsecond optimisation through FPGA consolidation, kernel bypass networking and DPDK implementations.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Investment Banks &amp; Dealer Trading Businesses</div>
+            <div class="market-bubble-tech">Cloud-to-on-premises GPU migration, real-time risk systems and algorithmic execution platform rebuilds.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Exchanges, Clearing Houses &amp; Market Infrastructure</div>
+            <div class="market-bubble-tech">Distributed architecture migration, real-time settlement systems and high-throughput matching engine optimisation.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Execution, Connectivity &amp; Trading Platform Vendors</div>
+            <div class="market-bubble-tech">FIX protocol evolution, cross-venue execution optimisation and real-time analytics integration.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Market Data &amp; AI Platform Vendors</div>
+            <div class="market-bubble-tech">Real-time normalisation engines, streaming analytics platforms and ML feature store infrastructure.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Crypto &amp; Digital Assets</div>
+            <div class="market-bubble-tech">Institutional-grade custody systems, systematic trading infrastructure and regulatory technology builds.</div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
@@ -799,25 +1027,25 @@
             <div class="city-content">
               <h3>London</h3>
               <div class="city-sub">United Kingdom</div>
-              <p>Europe’s deepest concentration of hedge funds, systematic trading firms, market makers, and technology-led asset managers. High competition for quantitative engineering, platform, data, and low latency talent.</p>
+              <p>Europe's deepest concentration of hedge funds, systematic trading firms, market makers, and technology-led asset managers. High competition for quantitative engineering, platform, data, and low latency talent.</p>
             </div>
           </article>
 
           <article class="city-card">
             <div class="city-image newyork"></div>
             <div class="city-content">
-              <h3>New York</h3>
+              <h3>New York &amp; Chicago</h3>
               <div class="city-sub">United States</div>
-              <p>The largest investment technology market in the world, with constant demand across research platforms, compute infrastructure, execution systems, data engineering, and senior technical leadership.</p>
+              <p>The world's deepest investment technology market, spanning the largest hedge funds, prop trading firms, and execution venues. Sustained demand for quantitative engineering, research infrastructure, compute platforms, and senior technical leadership across both cities.</p>
             </div>
           </article>
 
           <article class="city-card">
             <div class="city-image hongkong"></div>
             <div class="city-content">
-              <h3>Hong Kong</h3>
+              <h3>Hong Kong &amp; Singapore</h3>
               <div class="city-sub">Asia Pacific</div>
-              <p>A critical hub for firms building APAC trading capability, quantitative infrastructure, and regional technology leadership - with growing demand for specialist engineering, data, and platform talent.</p>
+              <p>The two dominant hubs for institutional trading and investment technology across APAC. Growing demand for quantitative and systematic engineering talent, platform leadership, and data infrastructure as firms expand regional capability and build out dedicated technology functions.</p>
             </div>
           </article>
         </div>
