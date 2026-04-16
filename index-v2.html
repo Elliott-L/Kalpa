@@ -276,7 +276,13 @@
     .hero-side p + p { margin-top: 20px; }
 
     .section {
-      padding: 84px 0 64px;
+      padding: 64px 0;
+    }
+
+    @media (min-width: 721px) {
+      .section {
+        padding-top: 84px;
+      }
     }
 
     .lede {
@@ -840,7 +846,6 @@
       .section,
       .closing {
         padding: 72px 0;
-        scroll-margin-top: 76px;
       }
 
       .hero {
