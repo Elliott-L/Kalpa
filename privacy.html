@@ -1,204 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Kalpa</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:      #1B2A4A;
-      --gold:      #B8983F;
-      --gold-lt:   #F5EDD6;
-      --body:      #1F2937;
-      --muted:     #6B7280;
-      --border:    #E5E7EB;
-      --bg:        #FAFAF8;
-      --white:     #FFFFFF;
-      --tbl-head:  #EDF1F7;
-      --red:       #9B1C1C;
+      --bg: #050505;
+      --surface: #0a0a0a;
+      --text: #f1eee7;
+      --text-soft: #ddd7ca;
+      --muted: #a39f95;
+      --accent: #cdbf97;
+      --line: rgba(255,255,255,0.09);
+      --line-soft: rgba(255,255,255,0.05);
+      --max: 1240px;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--body);
       background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TOP BAR ── */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--text); }
+
+    .shell { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    /* NAV */
     .topbar {
-      background: var(--navy);
-      padding: 14px 48px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(5,5,5,0.85);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-height: 72px;
     }
-    .topbar-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      text-decoration: none;
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1;
     }
-    .topbar-link {
-      font-size: 13px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
+    .back-link {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
     }
-    .topbar-link:hover { color: var(--gold); }
+    .back-link:hover { color: var(--text); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      background: var(--navy);
-      padding: 64px 48px 52px;
-      border-bottom: 3px solid var(--gold);
+      padding: 64px 0 52px;
+      border-bottom: 1px solid var(--line);
     }
     .hero-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      display: inline-block;
+      color: var(--accent);
       text-transform: uppercase;
-      color: var(--gold);
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
       margin-bottom: 16px;
     }
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.15;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text);
       margin-bottom: 16px;
     }
     .hero-meta {
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      font-weight: 300;
+      font-size: 0.88rem;
+      color: var(--muted);
     }
 
-    /* ── LAYOUT ── */
+    /* LAYOUT */
     .layout {
       display: grid;
       grid-template-columns: 220px 1fr;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
       gap: 0 64px;
       align-items: start;
+      padding: 48px 0 96px;
     }
 
-    /* ── SIDEBAR NAV ── */
+    /* SIDEBAR */
     .sidebar {
       position: sticky;
-      top: 32px;
-      padding: 40px 0 40px;
+      top: 96px;
     }
     .sidebar-title {
-      font-size: 10px;
+      font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--line);
     }
     .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
     .sidebar nav a {
-      font-size: 13px;
-      font-weight: 400;
+      font-size: 0.82rem;
       color: var(--muted);
-      text-decoration: none;
-      padding: 5px 0 5px 12px;
+      padding: 4px 0 4px 12px;
       border-left: 2px solid transparent;
       transition: all 0.18s;
       line-height: 1.4;
     }
     .sidebar nav a:hover,
     .sidebar nav a.active {
-      color: var(--navy);
-      border-left-color: var(--gold);
+      color: var(--text);
+      border-left-color: var(--accent);
     }
 
-    /* ── CONTENT ── */
-    .content {
-      padding: 48px 0 96px;
-    }
+    /* CONTENT */
+    .content { min-width: 0; }
 
     .intro {
-      padding: 28px 32px;
-      border-left: 3px solid var(--gold);
-      background: var(--gold-lt);
-      border-radius: 0 6px 6px 0;
+      padding: 24px 28px;
+      border-left: 2px solid var(--accent);
+      background: rgba(205,191,151,0.05);
+      border-radius: 0 8px 8px 0;
       margin-bottom: 48px;
     }
-    .intro p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--body);
-      margin-bottom: 10px;
-    }
-    .intro p:last-child { margin-bottom: 0; }
+    .intro p { color: var(--text-soft); font-size: 0.97rem; line-height: 1.7; }
+    .intro p + p { margin-top: 12px; }
 
-    section {
-      margin-bottom: 56px;
-      padding-top: 8px;
-    }
+    section { margin-bottom: 52px; padding-top: 8px; }
 
     .section-number {
-      font-size: 11px;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
       margin-bottom: 8px;
     }
 
     h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.3;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
     }
 
     h3 {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      letter-spacing: 0.02em;
-      margin: 24px 0 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      margin: 22px 0 8px;
+      text-transform: uppercase;
     }
 
     p {
-      font-size: 15px;
-      color: var(--body);
+      font-size: 0.97rem;
+      color: var(--text-soft);
       margin-bottom: 14px;
-      line-height: 1.75;
+      line-height: 1.72;
     }
 
-    ul {
-      margin: 8px 0 16px 0;
-      padding: 0;
-      list-style: none;
-    }
+    ul { margin: 8px 0 16px 0; list-style: none; }
     ul li {
-      font-size: 15px;
-      color: var(--body);
-      padding: 5px 0 5px 20px;
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      padding: 4px 0 4px 20px;
       position: relative;
       line-height: 1.65;
     }
@@ -206,567 +194,470 @@
       content: '–';
       position: absolute;
       left: 0;
-      color: var(--gold);
-      font-weight: 500;
+      color: var(--accent);
     }
 
     .address-block {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 22px;
       margin: 16px 0;
-      font-size: 14px;
-      line-height: 2;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.9;
     }
-    .address-block .placeholder {
-      color: var(--red);
-      font-style: italic;
-    }
+    .placeholder { color: rgba(205,100,100,0.85); font-style: italic; }
 
-    /* ── TABLES ── */
+    /* TABLES */
     .table-wrap {
       overflow-x: auto;
       margin: 20px 0;
-      border-radius: 8px;
-      border: 1px solid var(--border);
+      border-radius: 12px;
+      border: 1px solid var(--line);
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     thead th {
-      background: var(--tbl-head);
-      color: var(--navy);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
       font-weight: 500;
-      font-size: 13px;
-      letter-spacing: 0.02em;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       padding: 12px 16px;
       text-align: left;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 1px solid var(--line);
     }
-    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr { border-bottom: 1px solid var(--line-soft); }
     tbody tr:last-child { border-bottom: none; }
-    tbody tr:nth-child(even) { background: #FAFBFC; }
     td {
       padding: 12px 16px;
       vertical-align: top;
       line-height: 1.6;
-      color: var(--body);
+      color: var(--text-soft);
+      font-size: 0.9rem;
     }
-    td:first-child { font-weight: 400; color: var(--navy); }
+    td:first-child { color: var(--text); font-weight: 500; }
 
-    /* ── RIGHTS TABLE ── */
     .rights-tag {
       display: inline-block;
-      font-size: 11px;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
-      background: var(--navy);
-      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(205,191,151,0.12);
+      color: var(--accent);
       padding: 3px 8px;
-      border-radius: 3px;
+      border-radius: 4px;
+      border: 1px solid rgba(205,191,151,0.25);
     }
 
-    /* ── CONTACT BOX ── */
     .contact-box {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 8px;
-      padding: 28px 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px 28px;
       margin-top: 16px;
     }
-    .contact-box p {
-      color: rgba(255,255,255,0.65);
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-    .contact-box a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .contact-box .placeholder { color: rgba(255,100,100,0.85); font-style: italic; }
+    .contact-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; }
+    .contact-box strong { color: var(--text); }
 
-    /* ── ICO BOX ── */
     .ico-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 18px 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 20px;
       margin: 16px 0;
-      font-size: 14px;
-      line-height: 2;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.9;
     }
-    .ico-box a { color: var(--navy); font-weight: 500; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
-      background: var(--navy);
-      border-top: 3px solid var(--gold);
-      padding: 32px 48px;
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .footer-links {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
       gap: 12px;
     }
-    footer .footer-brand {
-      font-family: 'DM Serif Display', serif;
-      font-size: 16px;
-      color: var(--white);
-    }
-    footer .footer-meta {
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-    }
-    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
-    footer a:hover { color: var(--gold); }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-links span { color: rgba(255,255,255,0.2); font-size: 0.82rem; }
+    .footer-company { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
 
-    /* ── SCROLL SPY ── */
     @media (max-width: 800px) {
       .layout { grid-template-columns: 1fr; }
       .sidebar { display: none; }
-      .topbar, .hero, footer { padding-left: 24px; padding-right: 24px; }
-      .content { padding: 32px 0 64px; }
+      .shell { width: min(var(--max), calc(100% - 28px)); }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <a class="topbar-logo" href="/">Kalpa</a>
-    <a class="topbar-link" href="/">← Back to site</a>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="/">Kalpa.</a>
+      <a class="back-link" href="/">← Back to site</a>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="hero">
+      <div class="hero-label">Legal</div>
+      <h1>Privacy Policy</h1>
+      <div class="hero-meta">Kalpa Ltd &nbsp;·&nbsp; Effective date: 23 April 2026</div>
+    </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-label">Legal</div>
-    <h1>Privacy Policy</h1>
-    <div class="hero-meta">Kalpa Ltd &nbsp;·&nbsp; Effective date: 23 April 2026</div>
+  <div class="shell">
+    <div class="layout">
+
+      <aside class="sidebar">
+        <div class="sidebar-title">Contents</div>
+        <nav id="toc">
+          <a href="#s1">1. Who We Are</a>
+          <a href="#s2">2. Who This Applies To</a>
+          <a href="#s3">3. What Data We Collect</a>
+          <a href="#s4">4. How We Collect Data</a>
+          <a href="#s5">5. Why We Use Data</a>
+          <a href="#s6">6. AI &amp; Automated Processing</a>
+          <a href="#s7">7. Lawful Bases</a>
+          <a href="#s8">8. Legitimate Interests</a>
+          <a href="#s9">9. Sharing with Clients</a>
+          <a href="#s10">10. Other Sharing</a>
+          <a href="#s11">11. International Transfers</a>
+          <a href="#s12">12. Retention</a>
+          <a href="#s13">13. Your Rights</a>
+          <a href="#s14">14. Right to Object</a>
+          <a href="#s15">15. Security</a>
+          <a href="#s16">16. Third-Party Services</a>
+          <a href="#s17">17. Cookies</a>
+          <a href="#s18">18. Complaints</a>
+          <a href="#s19">19. Changes</a>
+          <a href="#s20">20. Contact Us</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+
+        <div class="intro">
+          <p>Kalpa Ltd ("Kalpa", "we", "us", "our") handles personal data with the same rigour and discretion we apply to every search mandate. This Privacy Policy explains how we collect, use, store, share, and otherwise process personal data when you visit our website, contact us, or engage with us in a professional, business, or recruitment context.</p>
+          <p>We are committed to the responsible use of personal data and to full compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. Where our work extends to individuals based in the European Union, the EU GDPR applies in respect of that processing.</p>
+        </div>
+
+        <section id="s1">
+          <div class="section-number">Section 1</div>
+          <h2>Who We Are</h2>
+          <p>Kalpa is a specialist search firm operating across investment and trading technology. We identify and connect exceptional technical talent — engineers, quant researchers, and adjacent specialists — with leading hedge funds, proprietary trading firms, and high-performance technology businesses.</p>
+          <div class="address-block">
+            <strong>Data controller</strong><br>
+            Kalpa Ltd<br>
+            Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a><br>
+            <span class="placeholder">Registered office: [to be inserted]</span><br>
+            <span class="placeholder">Company number: [to be inserted]</span>
+          </div>
+        </section>
+
+        <section id="s2">
+          <div class="section-number">Section 2</div>
+          <h2>Who This Privacy Policy Applies To</h2>
+          <p>This Privacy Policy applies to:</p>
+          <ul>
+            <li>visitors to our website;</li>
+            <li>individuals who contact us directly;</li>
+            <li>clients and prospective clients, including individuals within client organisations;</li>
+            <li>candidates and prospective candidates, including individuals we have identified through our own research and who have not yet been contacted by us;</li>
+            <li>referees, sources, and other professional contacts; and</li>
+            <li>other individuals whose personal data we process in the course of providing search and recruitment services.</li>
+          </ul>
+          <p>If you are a candidate whose data we hold but who has not yet been contacted by us, <a href="#s4">Section 4(b)</a> and <a href="#s13">Section 13</a> (Your Rights) are of particular relevance.</p>
+        </section>
+
+        <section id="s3">
+          <div class="section-number">Section 3</div>
+          <h2>What Personal Data We Collect</h2>
+          <p>We may collect and process the following categories of personal data, depending on the nature of our relationship with you:</p>
+          <h3>Identity and contact data</h3>
+          <ul><li>name, email address, telephone number, and professional contact details.</li></ul>
+          <h3>Professional and career data</h3>
+          <ul><li>employer, job title, seniority, career history, technical skills and specialisations, educational background, compensation history or expectations where relevant, and other information bearing on suitability for a specific role or mandate.</li></ul>
+          <h3>Communications and interaction data</h3>
+          <ul><li>records of emails, calls, meetings, introductions, referrals, notes, and professional assessments arising from our interactions with you or relating to you.</li></ul>
+          <h3>Inferred and interpreted data</h3>
+          <ul><li>professional assessments, summaries, and evaluations we create in the course of our work. These are created by us, sometimes with the assistance of AI-enabled tools, and are subject to human review before any consequential use (see <a href="#s6">Section 6</a>).</li></ul>
+          <h3>Website and enquiry data</h3>
+          <ul><li>information submitted through our website contact form or provided when you contact us directly.</li></ul>
+          <h3>Publicly available professional information</h3>
+          <ul><li>data drawn from professional profiles, publications, conference appearances, company websites, and similar sources relevant to the markets and roles we work across.</li></ul>
+          <p>We do not seek to collect special category personal data (such as health, disability, religion, political views, trade union membership, or racial or ethnic origin) and ask that you do not provide such information unless clearly necessary. Where special category data is inadvertently received, we will handle it in accordance with applicable law and delete it where no lawful basis for retention exists.</p>
+        </section>
+
+        <section id="s4">
+          <div class="section-number">Section 4</div>
+          <h2>How We Collect Personal Data</h2>
+          <p>We collect personal data through the following means:</p>
+          <h3>(a) Directly from you</h3>
+          <ul>
+            <li>when you complete our website contact form, send us an email, call us, or otherwise contact us directly;</li>
+            <li>during conversations, meetings, interviews, introductions, or other professional interactions; and</li>
+            <li>when you provide your details or CV in connection with a specific role or mandate.</li>
+          </ul>
+          <h3>(b) Through our own research</h3>
+          <p>A significant part of our work involves identifying candidates who have not approached us. We may collect personal data about you from publicly available professional sources, including professional networking platforms, company websites, publications, conference records, and other openly accessible professional information.</p>
+          <p>Where we hold data about you that was not collected directly from you, we will provide you with the information required by applicable law — including the source of the data and the purposes for which it is held — at the point of first contact, or as soon as reasonably practicable thereafter.</p>
+          <h3>(c) From third parties</h3>
+          <ul>
+            <li>from clients, colleagues, referees, and professional contacts who recommend or introduce individuals;</li>
+            <li>from service providers who support our website or business operations; and</li>
+            <li>from professional data sources and research platforms used in the course of our work.</li>
+          </ul>
+        </section>
+
+        <section id="s5">
+          <div class="section-number">Section 5</div>
+          <h2>Why We Use Personal Data</h2>
+          <p>We process personal data for the following purposes:</p>
+          <ul>
+            <li>responding to website enquiries and other communications;</li>
+            <li>providing search, recruitment, and advisory services;</li>
+            <li>identifying, researching, and approaching candidates relevant to specific mandates — as an initial, internal research step that informs whether contact is appropriate;</li>
+            <li>understanding and supporting client hiring requirements;</li>
+            <li>preparing, sharing, and discussing candidate profiles and materials with clients in the context of specific search engagements;</li>
+            <li>maintaining a professional network and market knowledge base relevant to the sectors and roles we cover;</li>
+            <li>managing and developing professional relationships with clients and candidates;</li>
+            <li>operating, managing, improving, and securing our business and website;</li>
+            <li>complying with legal, regulatory, and contractual obligations; and</li>
+            <li>establishing, exercising, or defending legal claims where necessary.</li>
+          </ul>
+        </section>
+
+        <section id="s6">
+          <div class="section-number">Section 6</div>
+          <h2>AI-Assisted and Automated Processing</h2>
+          <p>In the course of our work, we use AI-enabled tools to support research, summarisation, organisation, and analysis of professional information. This processing may include:</p>
+          <ul>
+            <li>identifying individuals who may be relevant to a specific search mandate, as an initial step in determining whether contact is appropriate;</li>
+            <li>summarising professional background, experience, and technical specialisation from available sources;</li>
+            <li>organising and maintaining our internal records and candidate database; and</li>
+            <li>drafting internal profile materials for use in our work.</li>
+          </ul>
+          <h3>Profiling</h3>
+          <p>Some of this processing constitutes profiling within the meaning of Article 4(4) of the UK GDPR — specifically, the automated evaluation of professional characteristics, experience, and apparent relevance to a mandate. We are transparent about this and have assessed that such processing is proportionate to our legitimate business purposes (see <a href="#s8">Section 8</a>).</p>
+          <h3>Human oversight</h3>
+          <p>We do not make solely automated decisions that produce legal or similarly significant effects on individuals. All AI-assisted outputs used in the furtherance of a search mandate are subject to meaningful human review before being acted upon or shared with clients.</p>
+          <h3>Lawful basis</h3>
+          <p>The lawful basis for AI-assisted processing is our legitimate interests in operating an effective search business (see <a href="#s7">Sections 7</a> and <a href="#s8">8</a>). We have assessed that this processing is proportionate and does not override the interests, rights, or freedoms of the individuals concerned, having regard to the professional context, the nature of the data processed, and the human oversight applied.</p>
+        </section>
+
+        <section id="s7">
+          <div class="section-number">Section 7</div>
+          <h2>Lawful Bases for Processing</h2>
+          <p>Depending on the context, we rely on one or more of the following lawful bases under the UK GDPR:</p>
+          <h3>Legitimate interests (Article 6(1)(f))</h3>
+          <p>This is our primary lawful basis for most processing activities, including sourcing and researching candidates, maintaining professional networks, sharing candidate information with clients in the context of active mandates, and using AI-assisted tools in our work. We have assessed that these interests are not overridden by the rights, interests, or freedoms of the individuals concerned.</p>
+          <h3>Contract (Article 6(1)(b))</h3>
+          <p>Where processing is necessary to take steps at your request prior to entering into a contract, or to perform a contract with you.</p>
+          <h3>Legal obligation (Article 6(1)(c))</h3>
+          <p>Where we are required to process personal data to comply with a legal or regulatory obligation.</p>
+          <h3>Consent (Article 6(1)(a))</h3>
+          <p>Where we ask for and obtain your consent for a specific processing activity. Where we rely on consent, you may withdraw it at any time by contacting us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.</p>
+        </section>
+
+        <section id="s8">
+          <div class="section-number">Section 8</div>
+          <h2>Our Legitimate Interests</h2>
+          <p>Where we rely on legitimate interests as our lawful basis, those interests include:</p>
+          <ul>
+            <li>operating and growing a specialist search and recruitment business;</li>
+            <li>building and maintaining professional networks and sector-specific market knowledge;</li>
+            <li>identifying and approaching individuals who may be relevant to a specific search mandate;</li>
+            <li>assessing professional relevance and fit for roles or mandates, as an initial internal step that informs whether contact is appropriate;</li>
+            <li>sharing candidate materials with clients in the context of specific, active engagements;</li>
+            <li>using AI-assisted tools to support research, summarisation, and analysis in connection with our services;</li>
+            <li>maintaining accurate internal records and communications; and</li>
+            <li>protecting our business, website, and users from misuse, fraud, or risk.</li>
+          </ul>
+          <p>We have documented our legitimate interests assessments and periodically review them. If you would like further information about the basis on which we rely on legitimate interests in a specific context, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
+          <p>We operate in a professional context where the identification and introduction of relevant individuals is a standard and expected part of the market. We take care to ensure our processing remains proportionate and respectful of those expectations.</p>
+        </section>
+
+        <section id="s9">
+          <div class="section-number">Section 9</div>
+          <h2>Sharing Candidate Data with Clients</h2>
+          <p>In the course of providing search services, we may share candidate profile materials and other personal data with clients or prospective clients. This is central to our business model and is addressed separately here given its significance to candidates.</p>
+          <p>We share candidate data with clients:</p>
+          <ul>
+            <li>only in connection with a specific, active search mandate;</li>
+            <li>at a stage in the process where doing so is proportionate to the purpose — generally after an initial assessment of relevance and, where practicable, having made or attempted contact with the candidate; and</li>
+            <li>subject to appropriate confidentiality obligations and data handling expectations communicated to clients.</li>
+          </ul>
+          <p>Clients who receive candidate data act as independent data controllers in respect of their own use of that information. Their handling of personal data is governed by their own privacy policies and applicable law.</p>
+        </section>
+
+        <section id="s10">
+          <div class="section-number">Section 10</div>
+          <h2>Who Else We Share Personal Data With</h2>
+          <p>In addition to clients (addressed in <a href="#s9">Section 9</a>), we may share personal data with:</p>
+          <ul>
+            <li>service providers and processors who support our business operations — including providers of website hosting, form handling, email infrastructure, document and communications tools, CRM systems, data research and sourcing platforms, and AI-assisted research tools — each engaged under appropriate contractual protections in accordance with Article 28 of the UK GDPR;</li>
+            <li>professional advisers, including legal, compliance, and accounting advisers, where reasonably necessary and subject to professional confidentiality obligations; and</li>
+            <li>courts, regulators, law enforcement, or other authorities where disclosure is required by law or is reasonably necessary to protect our rights or the rights of others.</li>
+          </ul>
+          <p>We do not sell personal data. We do not share personal data for third-party marketing purposes.</p>
+        </section>
+
+        <section id="s11">
+          <div class="section-number">Section 11</div>
+          <h2>International Data Transfers</h2>
+          <p>Kalpa operates globally. Personal data processed in connection with our services may be transferred to, accessed from, or processed in countries outside the United Kingdom, including countries where we operate or engage service providers.</p>
+          <p>Where we transfer personal data to countries that have not been the subject of UK adequacy regulations, we put in place appropriate safeguards in accordance with Chapter V of the UK GDPR. Depending on the destination and nature of the transfer, we rely on one or more of the following:</p>
+          <ul>
+            <li>adequacy regulations made under section 17A of the Data Protection Act 2018, where the destination country or territory has been assessed to offer adequate protection;</li>
+            <li>International Data Transfer Agreements (IDTAs) issued by the ICO, or the UK Addendum to the EU Standard Contractual Clauses, where no adequacy finding applies; or</li>
+            <li>other lawful transfer mechanisms available under UK data protection law.</li>
+          </ul>
+          <p>We conduct transfer risk assessments where required and apply supplementary measures where the legal framework of the destination country so requires.</p>
+          <p>If you would like information about the transfer mechanism applicable to your personal data, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
+        </section>
+
+        <section id="s12">
+          <div class="section-number">Section 12</div>
+          <h2>Retention of Personal Data</h2>
+          <p>We retain personal data only for as long as is necessary for the purposes for which it was collected, taking into account our legitimate business needs, applicable legal and regulatory obligations, and the reasonable expectations of the individuals concerned.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th style="width:38%">Category</th><th>Retention period</th></tr></thead>
+              <tbody>
+                <tr><td>Candidates engaged in an active search process</td><td>Up to 5 years from the date of last interaction, to support relationship management, record-keeping, and potential future mandates.</td></tr>
+                <tr><td>Candidates sourced but not yet contacted</td><td>Up to 5 years from the date of collection, subject to periodic review. Deleted or anonymised earlier where no active, documented purpose remains.</td></tr>
+                <tr><td>Candidates who have not progressed or who have exercised their right to object or erasure</td><td>Deleted or suppressed promptly following confirmation that no further processing purpose exists. A suppression record is retained to prevent re-processing.</td></tr>
+                <tr><td>Client contacts and professional relationships</td><td>Up to 5 years from the date of last interaction for relationship management and record purposes.</td></tr>
+                <tr><td>Website enquiries</td><td>Up to 12 months from the date of submission, unless the enquiry develops into an ongoing engagement.</td></tr>
+                <tr><td>Legal, compliance, and financial records</td><td>As required by applicable law, regulation, or professional obligation — typically up to 6 years for financial and contractual records under UK law.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Retention periods are reviewed periodically and may be updated to reflect changes in our business or applicable law. You may request erasure of your data at any time (see <a href="#s13">Section 13</a>). Where we are unable to comply in full — for example, due to a legal obligation — we will explain the reason. We may de-identify or aggregate data for internal research or analysis purposes, at which point it ceases to constitute personal data.</p>
+        </section>
+
+        <section id="s13">
+          <div class="section-number">Section 13</div>
+          <h2>Your Rights</h2>
+          <p>Subject to applicable law and the circumstances of the processing, you have the following rights in respect of your personal data:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th style="width:22%">Right</th><th>What it means</th></tr></thead>
+              <tbody>
+                <tr><td><span class="rights-tag">Access</span></td><td>The right to request a copy of the personal data we hold about you and information about how we use it.</td></tr>
+                <tr><td><span class="rights-tag">Rectification</span></td><td>The right to request correction of inaccurate or incomplete personal data.</td></tr>
+                <tr><td><span class="rights-tag">Erasure</span></td><td>The right to request deletion of your personal data in certain circumstances — for example, where it is no longer necessary for the purpose for which it was collected.</td></tr>
+                <tr><td><span class="rights-tag">Restriction</span></td><td>The right to request that we restrict our processing of your data in certain circumstances.</td></tr>
+                <tr><td><span class="rights-tag">Object</span></td><td>The right to object to processing based on legitimate interests. This right is particularly relevant to candidates whose data we hold through our own research. Where you object, we will cease processing unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</td></tr>
+                <tr><td><span class="rights-tag">Portability</span></td><td>The right to receive your personal data in a structured, commonly used, machine-readable format where processing is based on consent or contract and is carried out by automated means.</td></tr>
+                <tr><td><span class="rights-tag">Human review</span></td><td>The right to request human review of any AI-assisted assessment or output that has been used in a consequential decision relating to you.</td></tr>
+                <tr><td><span class="rights-tag">Withdraw consent</span></td><td>Where we rely on consent, the right to withdraw it at any time without affecting the lawfulness of prior processing.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>How to exercise your rights</h3>
+          <p>To exercise any of the above rights, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Please provide sufficient information to allow us to identify you and the data concerned. We will respond within one month of receipt of a valid request, extendable by a further two months in complex cases. We may ask you to verify your identity before acting on a request. There is no charge for exercising your rights in ordinary circumstances.</p>
+        </section>
+
+        <section id="s14">
+          <div class="section-number">Section 14</div>
+          <h2>Right to Object — Sourced Candidates</h2>
+          <p>If you are a candidate whose data we hold as a result of our own research — and who has not proactively contacted us — you have the right to object to our processing of your personal data under Article 21 of the UK GDPR.</p>
+          <p>You can exercise this right at any time, including at the point of first contact from us. Contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. On receipt of a valid objection, we will cease processing your data unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</p>
+          <p>We maintain a suppression list of individuals who have objected to our processing to ensure their data is not re-processed in future.</p>
+        </section>
+
+        <section id="s15">
+          <div class="section-number">Section 15</div>
+          <h2>Security</h2>
+          <p>We take appropriate technical and organisational measures to protect personal data against unauthorised or unlawful processing, accidental loss, destruction, damage, or unauthorised disclosure. These measures are designed to reflect the sensitivity of the data we process and the risks to individuals if security were to be compromised.</p>
+          <p>Access to personal data within Kalpa is limited to those with a legitimate need to access it in the course of their duties.</p>
+          <p>In the event of a personal data breach that is likely to result in a risk to individuals, we will notify the Information Commissioner's Office without undue delay and, where required, notify affected individuals directly.</p>
+        </section>
+
+        <section id="s16">
+          <div class="section-number">Section 16</div>
+          <h2>Third-Party Services and Website Functionality</h2>
+          <p>Our website and business operations make use of third-party service providers, which may include providers of website hosting and infrastructure, contact form processing, email services, document and communications platforms, CRM and candidate management systems, data research and enrichment platforms, and AI-assisted research tools.</p>
+          <p>Where these providers process personal data on our behalf, we engage them under written data processing agreements that impose obligations consistent with Article 28 of the UK GDPR. We do not authorise processors to use personal data for their own purposes.</p>
+          <p>Some providers operate under their own terms as independent controllers in respect of certain processing activities. Where that is the case, their own privacy policies govern that processing.</p>
+        </section>
+
+        <section id="s17">
+          <div class="section-number">Section 17</div>
+          <h2>Cookies and Analytics</h2>
+          <p>Our website may use cookies or similar technologies where necessary to operate, secure, or improve the website. We do not currently use non-essential tracking cookies or analytics tools without appropriate disclosure and, where required by law, consent.</p>
+          <p>If we introduce non-essential cookies, analytics, or similar tracking technologies in the future, we will update our website notices and obtain any required consents before deploying them.</p>
+        </section>
+
+        <section id="s18">
+          <div class="section-number">Section 18</div>
+          <h2>Complaints</h2>
+          <p>If you have a concern about how we handle your personal data, please contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a> and we will do our best to resolve it promptly.</p>
+          <p>You also have the right to lodge a complaint with the UK supervisory authority:</p>
+          <div class="ico-box">
+            <strong style="color:var(--text)">Information Commissioner's Office (ICO)</strong><br>
+            Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a><br>
+            Telephone: 0303 123 1113
+          </div>
+          <p>If you are based in an EU member state and consider that our processing of your data is governed by the EU GDPR, you may also have the right to complain to the supervisory authority in your country of residence.</p>
+        </section>
+
+        <section id="s19">
+          <div class="section-number">Section 19</div>
+          <h2>Changes to This Privacy Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or business operations. Any material changes will be posted on this page with an updated effective date. We will take reasonable steps to bring significant changes to your attention.</p>
+        </section>
+
+        <section id="s20">
+          <div class="section-number">Section 20</div>
+          <h2>Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy or about how we handle personal data, please contact:</p>
+          <div class="contact-box">
+            <p><strong>Kalpa Ltd</strong></p>
+            <p>Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a></p>
+            <p class="placeholder">Registered office: [to be inserted]</p>
+            <p class="placeholder">Company number: [to be inserted]</p>
+          </div>
+        </section>
+
+      </main>
+    </div>
   </div>
 
-  <!-- LAYOUT -->
-  <div class="layout">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-title">Contents</div>
-      <nav id="toc">
-        <a href="#s1">1. Who We Are</a>
-        <a href="#s2">2. Who This Applies To</a>
-        <a href="#s3">3. What Data We Collect</a>
-        <a href="#s4">4. How We Collect Data</a>
-        <a href="#s5">5. Why We Use Data</a>
-        <a href="#s6">6. AI &amp; Automated Processing</a>
-        <a href="#s7">7. Lawful Bases</a>
-        <a href="#s8">8. Legitimate Interests</a>
-        <a href="#s9">9. Sharing with Clients</a>
-        <a href="#s10">10. Other Sharing</a>
-        <a href="#s11">11. International Transfers</a>
-        <a href="#s12">12. Retention</a>
-        <a href="#s13">13. Your Rights</a>
-        <a href="#s14">14. Right to Object</a>
-        <a href="#s15">15. Security</a>
-        <a href="#s16">16. Third-Party Services</a>
-        <a href="#s17">17. Cookies</a>
-        <a href="#s18">18. Complaints</a>
-        <a href="#s19">19. Changes</a>
-        <a href="#s20">20. Contact Us</a>
-      </nav>
-    </aside>
-
-    <!-- CONTENT -->
-    <main class="content">
-
-      <div class="intro">
-        <p>Kalpa Ltd ("Kalpa", "we", "us", "our") handles personal data with the same rigour and discretion we apply to every search mandate. This Privacy Policy explains how we collect, use, store, share, and otherwise process personal data when you visit our website, contact us, or engage with us in a professional, business, or recruitment context.</p>
-        <p>We are committed to the responsible use of personal data and to full compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. Where our work extends to individuals based in the European Union, the EU GDPR applies in respect of that processing.</p>
-      </div>
-
-      <!-- 1 -->
-      <section id="s1">
-        <div class="section-number">Section 1</div>
-        <h2>Who We Are</h2>
-        <p>Kalpa is a specialist search firm operating across investment and trading technology. We identify and connect exceptional technical talent — engineers, quant researchers, and adjacent specialists — with leading hedge funds, proprietary trading firms, and high-performance technology businesses.</p>
-        <div class="address-block">
-          <strong>Data controller</strong><br>
-          Kalpa Ltd<br>
-          Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a><br>
-          <span class="placeholder">Registered office: [to be inserted]</span><br>
-          <span class="placeholder">Company number: [to be inserted]</span>
-        </div>
-      </section>
-
-      <!-- 2 -->
-      <section id="s2">
-        <div class="section-number">Section 2</div>
-        <h2>Who This Privacy Policy Applies To</h2>
-        <p>This Privacy Policy applies to:</p>
-        <ul>
-          <li>visitors to our website;</li>
-          <li>individuals who contact us directly;</li>
-          <li>clients and prospective clients, including individuals within client organisations;</li>
-          <li>candidates and prospective candidates, including individuals we have identified through our own research and who have not yet been contacted by us;</li>
-          <li>referees, sources, and other professional contacts; and</li>
-          <li>other individuals whose personal data we process in the course of providing search and recruitment services.</li>
-        </ul>
-        <p>If you are a candidate whose data we hold but who has not yet been contacted by us, <a href="#s4">Section 4(b)</a> and <a href="#s13">Section 13</a> (Your Rights) are of particular relevance.</p>
-      </section>
-
-      <!-- 3 -->
-      <section id="s3">
-        <div class="section-number">Section 3</div>
-        <h2>What Personal Data We Collect</h2>
-        <p>We may collect and process the following categories of personal data, depending on the nature of our relationship with you:</p>
-
-        <h3>Identity and contact data</h3>
-        <ul><li>name, email address, telephone number, and professional contact details.</li></ul>
-
-        <h3>Professional and career data</h3>
-        <ul><li>employer, job title, seniority, career history, technical skills and specialisations, educational background, compensation history or expectations where relevant, and other information bearing on suitability for a specific role or mandate.</li></ul>
-
-        <h3>Communications and interaction data</h3>
-        <ul><li>records of emails, calls, meetings, introductions, referrals, notes, and professional assessments arising from our interactions with you or relating to you.</li></ul>
-
-        <h3>Inferred and interpreted data</h3>
-        <ul><li>professional assessments, summaries, and evaluations we create in the course of our work. These are created by us, sometimes with the assistance of AI-enabled tools, and are subject to human review before any consequential use (see <a href="#s6">Section 6</a>).</li></ul>
-
-        <h3>Website and enquiry data</h3>
-        <ul><li>information submitted through our website contact form or provided when you contact us directly.</li></ul>
-
-        <h3>Publicly available professional information</h3>
-        <ul><li>data drawn from professional profiles, publications, conference appearances, company websites, and similar sources relevant to the markets and roles we work across.</li></ul>
-
-        <p>We do not seek to collect special category personal data (such as health, disability, religion, political views, trade union membership, or racial or ethnic origin) and ask that you do not provide such information unless clearly necessary. Where special category data is inadvertently received, we will handle it in accordance with applicable law and delete it where no lawful basis for retention exists.</p>
-      </section>
-
-      <!-- 4 -->
-      <section id="s4">
-        <div class="section-number">Section 4</div>
-        <h2>How We Collect Personal Data</h2>
-        <p>We collect personal data through the following means:</p>
-
-        <h3>(a) Directly from you</h3>
-        <ul>
-          <li>when you complete our website contact form, send us an email, call us, or otherwise contact us directly;</li>
-          <li>during conversations, meetings, interviews, introductions, or other professional interactions; and</li>
-          <li>when you provide your details or CV in connection with a specific role or mandate.</li>
-        </ul>
-
-        <h3>(b) Through our own research</h3>
-        <p>A significant part of our work involves identifying candidates who have not approached us. We may collect personal data about you from publicly available professional sources, including professional networking platforms, company websites, publications, conference records, and other openly accessible professional information.</p>
-        <p>Where we hold data about you that was not collected directly from you, we will provide you with the information required by applicable law — including the source of the data and the purposes for which it is held — at the point of first contact, or as soon as reasonably practicable thereafter.</p>
-
-        <h3>(c) From third parties</h3>
-        <ul>
-          <li>from clients, colleagues, referees, and professional contacts who recommend or introduce individuals;</li>
-          <li>from service providers who support our website or business operations; and</li>
-          <li>from professional data sources and research platforms used in the course of our work.</li>
-        </ul>
-      </section>
-
-      <!-- 5 -->
-      <section id="s5">
-        <div class="section-number">Section 5</div>
-        <h2>Why We Use Personal Data</h2>
-        <p>We process personal data for the following purposes:</p>
-        <ul>
-          <li>responding to website enquiries and other communications;</li>
-          <li>providing search, recruitment, and advisory services;</li>
-          <li>identifying, researching, and approaching candidates relevant to specific mandates — as an initial, internal research step that informs whether contact is appropriate;</li>
-          <li>understanding and supporting client hiring requirements;</li>
-          <li>preparing, sharing, and discussing candidate profiles and materials with clients in the context of specific search engagements;</li>
-          <li>maintaining a professional network and market knowledge base relevant to the sectors and roles we cover;</li>
-          <li>managing and developing professional relationships with clients and candidates;</li>
-          <li>operating, managing, improving, and securing our business and website;</li>
-          <li>complying with legal, regulatory, and contractual obligations; and</li>
-          <li>establishing, exercising, or defending legal claims where necessary.</li>
-        </ul>
-      </section>
-
-      <!-- 6 -->
-      <section id="s6">
-        <div class="section-number">Section 6</div>
-        <h2>AI-Assisted and Automated Processing</h2>
-        <p>In the course of our work, we use AI-enabled tools to support research, summarisation, organisation, and analysis of professional information. This processing may include:</p>
-        <ul>
-          <li>identifying individuals who may be relevant to a specific search mandate, as an initial step in determining whether contact is appropriate;</li>
-          <li>summarising professional background, experience, and technical specialisation from available sources;</li>
-          <li>organising and maintaining our internal records and candidate database; and</li>
-          <li>drafting internal profile materials for use in our work.</li>
-        </ul>
-
-        <h3>Profiling</h3>
-        <p>Some of this processing constitutes profiling within the meaning of Article 4(4) of the UK GDPR — specifically, the automated evaluation of professional characteristics, experience, and apparent relevance to a mandate. We are transparent about this and have assessed that such processing is proportionate to our legitimate business purposes (see <a href="#s8">Section 8</a>).</p>
-
-        <h3>Human oversight</h3>
-        <p>We do not make solely automated decisions that produce legal or similarly significant effects on individuals. All AI-assisted outputs used in the furtherance of a search mandate are subject to meaningful human review before being acted upon or shared with clients.</p>
-
-        <h3>Lawful basis</h3>
-        <p>The lawful basis for AI-assisted processing is our legitimate interests in operating an effective search business (see <a href="#s7">Sections 7</a> and <a href="#s8">8</a>). We have assessed that this processing is proportionate and does not override the interests, rights, or freedoms of the individuals concerned, having regard to the professional context, the nature of the data processed, and the human oversight applied.</p>
-      </section>
-
-      <!-- 7 -->
-      <section id="s7">
-        <div class="section-number">Section 7</div>
-        <h2>Lawful Bases for Processing</h2>
-        <p>Depending on the context, we rely on one or more of the following lawful bases under the UK GDPR:</p>
-
-        <h3>Legitimate interests (Article 6(1)(f))</h3>
-        <p>This is our primary lawful basis for most processing activities, including sourcing and researching candidates, maintaining professional networks, sharing candidate information with clients in the context of active mandates, and using AI-assisted tools in our work. We have assessed that these interests are not overridden by the rights, interests, or freedoms of the individuals concerned.</p>
-
-        <h3>Contract (Article 6(1)(b))</h3>
-        <p>Where processing is necessary to take steps at your request prior to entering into a contract, or to perform a contract with you.</p>
-
-        <h3>Legal obligation (Article 6(1)(c))</h3>
-        <p>Where we are required to process personal data to comply with a legal or regulatory obligation.</p>
-
-        <h3>Consent (Article 6(1)(a))</h3>
-        <p>Where we ask for and obtain your consent for a specific processing activity. Where we rely on consent, you may withdraw it at any time by contacting us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.</p>
-      </section>
-
-      <!-- 8 -->
-      <section id="s8">
-        <div class="section-number">Section 8</div>
-        <h2>Our Legitimate Interests</h2>
-        <p>Where we rely on legitimate interests as our lawful basis, those interests include:</p>
-        <ul>
-          <li>operating and growing a specialist search and recruitment business;</li>
-          <li>building and maintaining professional networks and sector-specific market knowledge;</li>
-          <li>identifying and approaching individuals who may be relevant to a specific search mandate;</li>
-          <li>assessing professional relevance and fit for roles or mandates, as an initial internal step that informs whether contact is appropriate;</li>
-          <li>sharing candidate materials with clients in the context of specific, active engagements;</li>
-          <li>using AI-assisted tools to support research, summarisation, and analysis in connection with our services;</li>
-          <li>maintaining accurate internal records and communications; and</li>
-          <li>protecting our business, website, and users from misuse, fraud, or risk.</li>
-        </ul>
-        <p>We have documented our legitimate interests assessments and periodically review them. If you would like further information about the basis on which we rely on legitimate interests in a specific context, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
-        <p>We operate in a professional context where the identification and introduction of relevant individuals is a standard and expected part of the market. We take care to ensure our processing remains proportionate and respectful of those expectations.</p>
-      </section>
-
-      <!-- 9 -->
-      <section id="s9">
-        <div class="section-number">Section 9</div>
-        <h2>Sharing Candidate Data with Clients</h2>
-        <p>In the course of providing search services, we may share candidate profile materials and other personal data with clients or prospective clients. This is central to our business model and is addressed separately here given its significance to candidates.</p>
-        <p>We share candidate data with clients:</p>
-        <ul>
-          <li>only in connection with a specific, active search mandate;</li>
-          <li>at a stage in the process where doing so is proportionate to the purpose — generally after an initial assessment of relevance and, where practicable, having made or attempted contact with the candidate; and</li>
-          <li>subject to appropriate confidentiality obligations and data handling expectations communicated to clients.</li>
-        </ul>
-        <p>Clients who receive candidate data act as independent data controllers in respect of their own use of that information. Their handling of personal data is governed by their own privacy policies and applicable law.</p>
-      </section>
-
-      <!-- 10 -->
-      <section id="s10">
-        <div class="section-number">Section 10</div>
-        <h2>Who Else We Share Personal Data With</h2>
-        <p>In addition to clients (addressed in <a href="#s9">Section 9</a>), we may share personal data with:</p>
-        <ul>
-          <li>service providers and processors who support our business operations — including providers of website hosting, form handling, email infrastructure, document and communications tools, CRM systems, data research and sourcing platforms, and AI-assisted research tools — each engaged under appropriate contractual protections in accordance with Article 28 of the UK GDPR;</li>
-          <li>professional advisers, including legal, compliance, and accounting advisers, where reasonably necessary and subject to professional confidentiality obligations; and</li>
-          <li>courts, regulators, law enforcement, or other authorities where disclosure is required by law or is reasonably necessary to protect our rights or the rights of others.</li>
-        </ul>
-        <p>We do not sell personal data. We do not share personal data for third-party marketing purposes.</p>
-      </section>
-
-      <!-- 11 -->
-      <section id="s11">
-        <div class="section-number">Section 11</div>
-        <h2>International Data Transfers</h2>
-        <p>Kalpa operates globally. Personal data processed in connection with our services may be transferred to, accessed from, or processed in countries outside the United Kingdom, including countries where we operate or engage service providers.</p>
-        <p>Where we transfer personal data to countries that have not been the subject of UK adequacy regulations, we put in place appropriate safeguards in accordance with Chapter V of the UK GDPR. Depending on the destination and nature of the transfer, we rely on one or more of the following:</p>
-        <ul>
-          <li>adequacy regulations made under section 17A of the Data Protection Act 2018, where the destination country or territory has been assessed to offer adequate protection;</li>
-          <li>International Data Transfer Agreements (IDTAs) issued by the ICO, or the UK Addendum to the EU Standard Contractual Clauses, where no adequacy finding applies; or</li>
-          <li>other lawful transfer mechanisms available under UK data protection law.</li>
-        </ul>
-        <p>We conduct transfer risk assessments where required and apply supplementary measures where the legal framework of the destination country so requires.</p>
-        <p>If you would like information about the transfer mechanism applicable to your personal data, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
-      </section>
-
-      <!-- 12 -->
-      <section id="s12">
-        <div class="section-number">Section 12</div>
-        <h2>Retention of Personal Data</h2>
-        <p>We retain personal data only for as long as is necessary for the purposes for which it was collected, taking into account our legitimate business needs, applicable legal and regulatory obligations, and the reasonable expectations of the individuals concerned.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th style="width:38%">Category</th><th>Retention period</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Candidates engaged in an active search process</td>
-                <td>Up to 5 years from the date of last interaction, to support relationship management, record-keeping, and potential future mandates.</td>
-              </tr>
-              <tr>
-                <td>Candidates sourced but not yet contacted</td>
-                <td>Up to 5 years from the date of collection, subject to periodic review. Deleted or anonymised earlier where no active, documented purpose remains.</td>
-              </tr>
-              <tr>
-                <td>Candidates who have not progressed or who have exercised their right to object or erasure</td>
-                <td>Deleted or suppressed promptly following confirmation that no further processing purpose exists. A suppression record is retained to prevent re-processing.</td>
-              </tr>
-              <tr>
-                <td>Client contacts and professional relationships</td>
-                <td>Up to 5 years from the date of last interaction for relationship management and record purposes.</td>
-              </tr>
-              <tr>
-                <td>Website enquiries</td>
-                <td>Up to 12 months from the date of submission, unless the enquiry develops into an ongoing engagement.</td>
-              </tr>
-              <tr>
-                <td>Legal, compliance, and financial records</td>
-                <td>As required by applicable law, regulation, or professional obligation — typically up to 6 years for financial and contractual records under UK law.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Retention periods are reviewed periodically and may be updated to reflect changes in our business or applicable law. You may request erasure of your data at any time (see <a href="#s13">Section 13</a>). Where we are unable to comply in full — for example, due to a legal obligation — we will explain the reason. We may de-identify or aggregate data for internal research or analysis purposes, at which point it ceases to constitute personal data.</p>
-      </section>
-
-      <!-- 13 -->
-      <section id="s13">
-        <div class="section-number">Section 13</div>
-        <h2>Your Rights</h2>
-        <p>Subject to applicable law and the circumstances of the processing, you have the following rights in respect of your personal data:</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th style="width:22%">Right</th><th>What it means</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="rights-tag">Access</span></td>
-                <td>The right to request a copy of the personal data we hold about you and information about how we use it.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Rectification</span></td>
-                <td>The right to request correction of inaccurate or incomplete personal data.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Erasure</span></td>
-                <td>The right to request deletion of your personal data in certain circumstances — for example, where it is no longer necessary for the purpose for which it was collected.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Restriction</span></td>
-                <td>The right to request that we restrict our processing of your data in certain circumstances.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Object</span></td>
-                <td>The right to object to processing based on legitimate interests. This right is particularly relevant to candidates whose data we hold through our own research. Where you object, we will cease processing unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Portability</span></td>
-                <td>The right to receive your personal data in a structured, commonly used, machine-readable format where processing is based on consent or contract and is carried out by automated means.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Human review</span></td>
-                <td>The right to request human review of any AI-assisted assessment or output that has been used in a consequential decision relating to you.</td>
-              </tr>
-              <tr>
-                <td><span class="rights-tag">Withdraw consent</span></td>
-                <td>Where we rely on consent, the right to withdraw it at any time without affecting the lawfulness of prior processing.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>How to exercise your rights</h3>
-        <p>To exercise any of the above rights, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Please provide sufficient information to allow us to identify you and the data concerned. We will respond within one month of receipt of a valid request, extendable by a further two months in complex cases. We may ask you to verify your identity before acting on a request. There is no charge for exercising your rights in ordinary circumstances.</p>
-      </section>
-
-      <!-- 14 -->
-      <section id="s14">
-        <div class="section-number">Section 14</div>
-        <h2>Right to Object — Sourced Candidates</h2>
-        <p>If you are a candidate whose data we hold as a result of our own research — and who has not proactively contacted us — you have the right to object to our processing of your personal data under Article 21 of the UK GDPR.</p>
-        <p>You can exercise this right at any time, including at the point of first contact from us. Contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. On receipt of a valid objection, we will cease processing your data unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</p>
-        <p>We maintain a suppression list of individuals who have objected to our processing to ensure their data is not re-processed in future.</p>
-      </section>
-
-      <!-- 15 -->
-      <section id="s15">
-        <div class="section-number">Section 15</div>
-        <h2>Security</h2>
-        <p>We take appropriate technical and organisational measures to protect personal data against unauthorised or unlawful processing, accidental loss, destruction, damage, or unauthorised disclosure. These measures are designed to reflect the sensitivity of the data we process and the risks to individuals if security were to be compromised.</p>
-        <p>Access to personal data within Kalpa is limited to those with a legitimate need to access it in the course of their duties.</p>
-        <p>In the event of a personal data breach that is likely to result in a risk to individuals, we will notify the Information Commissioner's Office without undue delay and, where required, notify affected individuals directly.</p>
-      </section>
-
-      <!-- 16 -->
-      <section id="s16">
-        <div class="section-number">Section 16</div>
-        <h2>Third-Party Services and Website Functionality</h2>
-        <p>Our website and business operations make use of third-party service providers, which may include providers of website hosting and infrastructure, contact form processing, email services, document and communications platforms, CRM and candidate management systems, data research and enrichment platforms, and AI-assisted research tools.</p>
-        <p>Where these providers process personal data on our behalf, we engage them under written data processing agreements that impose obligations consistent with Article 28 of the UK GDPR. We do not authorise processors to use personal data for their own purposes.</p>
-        <p>Some providers operate under their own terms as independent controllers in respect of certain processing activities. Where that is the case, their own privacy policies govern that processing.</p>
-      </section>
-
-      <!-- 17 -->
-      <section id="s17">
-        <div class="section-number">Section 17</div>
-        <h2>Cookies and Analytics</h2>
-        <p>Our website may use cookies or similar technologies where necessary to operate, secure, or improve the website. We do not currently use non-essential tracking cookies or analytics tools without appropriate disclosure and, where required by law, consent.</p>
-        <p>If we introduce non-essential cookies, analytics, or similar tracking technologies in the future, we will update our website notices and obtain any required consents before deploying them.</p>
-      </section>
-
-      <!-- 18 -->
-      <section id="s18">
-        <div class="section-number">Section 18</div>
-        <h2>Complaints</h2>
-        <p>If you have a concern about how we handle your personal data, please contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a> and we will do our best to resolve it promptly.</p>
-        <p>You also have the right to lodge a complaint with the UK supervisory authority:</p>
-        <div class="ico-box">
-          <strong>Information Commissioner's Office (ICO)</strong><br>
-          Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a><br>
-          Telephone: 0303 123 1113
-        </div>
-        <p>If you are based in an EU member state and consider that our processing of your data is governed by the EU GDPR, you may also have the right to complain to the supervisory authority in your country of residence.</p>
-      </section>
-
-      <!-- 19 -->
-      <section id="s19">
-        <div class="section-number">Section 19</div>
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or business operations. Any material changes will be posted on this page with an updated effective date. We will take reasonable steps to bring significant changes to your attention.</p>
-      </section>
-
-      <!-- 20 -->
-      <section id="s20">
-        <div class="section-number">Section 20</div>
-        <h2>Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy or about how we handle personal data, please contact:</p>
-        <div class="contact-box">
-          <p><strong style="color:#fff;font-size:15px">Kalpa Ltd</strong></p>
-          <p>Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a></p>
-          <p class="placeholder">Registered office: [to be inserted]</p>
-          <p class="placeholder">Company number: [to be inserted]</p>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-brand">Kalpa</div>
-    <div class="footer-meta">
-      &copy; 2026 Kalpa Ltd &nbsp;·&nbsp;
-      <a href="mailto:contact@kalpa.co">contact@kalpa.co</a> &nbsp;·&nbsp;
-      <a href="/">kalpa.co</a>
+    <div class="shell footer-inner">
+      <div class="footer-brand">Kalpa.</div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/terms.html">Terms of Use</a>
+      </div>
+      <div class="footer-company">Kalpa Group Ltd · Registered in England &amp; Wales · Company No. XXXXXXX</div>
     </div>
   </footer>
 
   <script>
-    // Scroll spy
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('#toc a');
     const observer = new IntersectionObserver(entries => {
