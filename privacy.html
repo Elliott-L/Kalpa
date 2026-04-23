@@ -658,6 +658,9 @@
   </footer>
 
   <script>
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('#toc a');
     const observer = new IntersectionObserver(entries => {
