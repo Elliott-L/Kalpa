@@ -4,55 +4,336 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Use — Kalpa</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --surface: #0a0a0a;
+      --text: #f1eee7;
+      --text-soft: #ddd7ca;
+      --muted: #a39f95;
+      --accent: #cdbf97;
+      --line: rgba(255,255,255,0.09);
+      --line-soft: rgba(255,255,255,0.05);
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--text); }
+
+    .shell { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(5,5,5,0.85);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+    }
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .back-link {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--text); }
+
+    .hero {
+      padding: 64px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-label {
+      display: inline-block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 64px;
+      align-items: start;
+      padding: 48px 0 96px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 96px;
+    }
+    .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .sidebar nav a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 4px 0 4px 12px;
+      border-left: 2px solid transparent;
+      transition: all 0.18s;
+      line-height: 1.4;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: var(--text);
+      border-left-color: var(--accent);
+    }
+
+    .content { min-width: 0; }
+
+    .intro {
+      padding: 24px 28px;
+      border-left: 2px solid var(--accent);
+      background: rgba(205,191,151,0.05);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 48px;
+    }
+    .intro p { color: var(--text-soft); font-size: 0.97rem; line-height: 1.7; }
+
+    section { margin-bottom: 48px; padding-top: 8px; }
+
+    .section-number {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    p {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+      line-height: 1.72;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-links span { color: rgba(255,255,255,0.2); font-size: 0.82rem; }
+    .footer-company { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
+
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .shell { width: min(var(--max), calc(100% - 28px)); }
+    }
+  </style>
 </head>
 <body>
 
-<div class="wrap">
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="./index.html">Kalpa.</a>
+      <a class="back-link" href="./index.html">← Back to site</a>
+    </div>
+  </header>
 
-  <a href="/" class="toplink">← Back to site</a>
-
-  <span class="eyebrow">Legal</span>
-  <h1>Terms of Use</h1>
-  <p class="last-updated">Last updated: April 2025</p>
-
-  <p>By accessing or using this website, you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
-
-  <h2>1. Information only</h2>
-  <p>This website is provided for general information purposes only. Nothing on this website constitutes legal, financial, investment, employment, or other professional advice.</p>
-
-  <h2>2. No reliance</h2>
-  <p>While we aim to keep the information on this website accurate and up to date, we make no representation or warranty, express or implied, that the content is complete, accurate, or current. Any reliance you place on the website is at your own risk.</p>
-
-  <h2>3. No offer or contract</h2>
-  <p>Use of this website does not create a contractual relationship between you and Kalpa. A contract will only arise where expressly agreed in writing.</p>
-
-  <h2>4. Intellectual property</h2>
-  <p>Unless otherwise stated, all content on this website, including text, branding, layout, and design, is owned by or licensed to Kalpa and is protected by applicable intellectual property laws.</p>
-  <p>You may view this website for your own personal or internal business use, but you may not reproduce, republish, distribute, modify, or exploit any part of it without prior written permission.</p>
-
-  <h2>5. Third-party links</h2>
-  <p>This website may contain links to third-party websites. These links are provided for convenience only. We do not control and are not responsible for the content, availability, or privacy practices of those websites.</p>
-
-  <h2>6. Website availability</h2>
-  <p>We do not guarantee that this website will always be available, uninterrupted, secure, or free from errors or viruses.</p>
-
-  <h2>7. Limitation of liability</h2>
-  <p>To the fullest extent permitted by law, Kalpa excludes all liability for any loss or damage arising out of or in connection with your use of, or inability to use, this website or reliance on its content.</p>
-
-  <h2>8. Changes</h2>
-  <p>We may update or change this website and these Terms of Use at any time without notice. Continued use of the site after any update means you accept the revised terms.</p>
-
-  <h2>9. Governing law</h2>
-  <p>These Terms of Use are governed by the laws of England and Wales, and the courts of England and Wales will have exclusive jurisdiction.</p>
-
-  <h2>10. Contact</h2>
-  <p>If you have any questions about these Terms of Use, contact <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
-
-  <div class="footer-note">
-    &copy; 2025 Kalpa. All rights reserved.
+  <div class="shell">
+    <div class="hero">
+      <div class="hero-label">Legal</div>
+      <h1>Terms of Use</h1>
+      <div class="hero-meta">Kalpa Ltd &nbsp;·&nbsp; Last updated: April 2025</div>
+    </div>
   </div>
 
-</div>
+  <div class="shell">
+    <div class="layout">
+
+      <aside class="sidebar">
+        <div class="sidebar-title">Contents</div>
+        <nav id="toc">
+          <a href="#s1">1. Information Only</a>
+          <a href="#s2">2. No Reliance</a>
+          <a href="#s3">3. No Offer or Contract</a>
+          <a href="#s4">4. Intellectual Property</a>
+          <a href="#s5">5. Third-Party Links</a>
+          <a href="#s6">6. Website Availability</a>
+          <a href="#s7">7. Limitation of Liability</a>
+          <a href="#s8">8. Changes</a>
+          <a href="#s9">9. Governing Law</a>
+          <a href="#s10">10. Contact</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+
+        <div class="intro">
+          <p>By accessing or using this website, you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
+        </div>
+
+        <section id="s1">
+          <div class="section-number">Section 1</div>
+          <h2>Information Only</h2>
+          <p>This website is provided for general information purposes only. Nothing on this website constitutes legal, financial, investment, employment, or other professional advice.</p>
+        </section>
+
+        <section id="s2">
+          <div class="section-number">Section 2</div>
+          <h2>No Reliance</h2>
+          <p>While we aim to keep the information on this website accurate and up to date, we make no representation or warranty, express or implied, that the content is complete, accurate, or current. Any reliance you place on the website is at your own risk.</p>
+        </section>
+
+        <section id="s3">
+          <div class="section-number">Section 3</div>
+          <h2>No Offer or Contract</h2>
+          <p>Use of this website does not create a contractual relationship between you and Kalpa. A contract will only arise where expressly agreed in writing.</p>
+        </section>
+
+        <section id="s4">
+          <div class="section-number">Section 4</div>
+          <h2>Intellectual Property</h2>
+          <p>Unless otherwise stated, all content on this website, including text, branding, layout, and design, is owned by or licensed to Kalpa and is protected by applicable intellectual property laws.</p>
+          <p>You may view this website for your own personal or internal business use, but you may not reproduce, republish, distribute, modify, or exploit any part of it without prior written permission.</p>
+        </section>
+
+        <section id="s5">
+          <div class="section-number">Section 5</div>
+          <h2>Third-Party Links</h2>
+          <p>This website may contain links to third-party websites. These links are provided for convenience only. We do not control and are not responsible for the content, availability, or privacy practices of those websites.</p>
+        </section>
+
+        <section id="s6">
+          <div class="section-number">Section 6</div>
+          <h2>Website Availability</h2>
+          <p>We do not guarantee that this website will always be available, uninterrupted, secure, or free from errors or viruses.</p>
+        </section>
+
+        <section id="s7">
+          <div class="section-number">Section 7</div>
+          <h2>Limitation of Liability</h2>
+          <p>To the fullest extent permitted by law, Kalpa excludes all liability for any loss or damage arising out of or in connection with your use of, or inability to use, this website or reliance on its content.</p>
+        </section>
+
+        <section id="s8">
+          <div class="section-number">Section 8</div>
+          <h2>Changes</h2>
+          <p>We may update or change this website and these Terms of Use at any time without notice. Continued use of the site after any update means you accept the revised terms.</p>
+        </section>
+
+        <section id="s9">
+          <div class="section-number">Section 9</div>
+          <h2>Governing Law</h2>
+          <p>These Terms of Use are governed by the laws of England and Wales, and the courts of England and Wales will have exclusive jurisdiction.</p>
+        </section>
+
+        <section id="s10">
+          <div class="section-number">Section 10</div>
+          <h2>Contact</h2>
+          <p>If you have any questions about these Terms of Use, contact <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">Kalpa.</div>
+      <div class="footer-links">
+        <a href="./privacy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="./terms.html">Terms of Use</a>
+      </div>
+      <div class="footer-company">Kalpa Group Ltd · Registered in England &amp; Wales · Company No. XXXXXXX</div>
+    </div>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('#toc a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`#toc a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>
