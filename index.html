@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050505'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='20' font-weight='500' fill='%23cdbf97'>K</text></svg>" />
   <title>Kalpa - Specialist search across research, investment and trading technology</title>
   <style>
     :root {
@@ -652,136 +653,9 @@
       color: rgba(255,255,255,0.28);
     }
 
-    @keyframes wordReveal {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(28px);
-      animation: wordReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .hero-eyebrow-anim {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation-delay: 0.05s;
-    }
-
-    .hero-copy-anim {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation-delay: 0.75s;
-    }
-
-    @keyframes typingDot {
-      0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
-      30% { opacity: 1; transform: translateY(-3px); }
-    }
-
-    .mandate-chat {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 18px;
-      overflow: hidden;
-      margin-top: 28px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .chat-messages {
-      padding: 28px 28px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      overflow-y: auto;
-      max-height: 340px;
-      min-height: 240px;
-    }
-
-    .chat-msg p {
-      margin: 0;
-      font-size: 0.97rem;
-      line-height: 1.62;
-    }
-
-    .chat-msg--ai { align-self: flex-start; max-width: 88%; }
-    .chat-msg--ai p { color: #ddd7ca; }
-    .chat-msg--user { align-self: flex-end; max-width: 80%; }
-    .chat-msg--user p { color: #a39f95; }
-
-    .chat-typing {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      padding: 6px 0;
-    }
-
-    .chat-typing span {
-      width: 5px;
-      height: 5px;
-      background: #a39f95;
-      border-radius: 50%;
-      animation: typingDot 1.2s infinite;
-    }
-
-    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-
-    .chat-input-row {
-      display: flex;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 16px 24px;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .chat-input {
-      flex: 1;
-      background: none;
-      border: none;
-      color: #f1eee7;
-      font-size: 0.97rem;
-      font-family: inherit;
-      outline: none;
-      line-height: 1.5;
-    }
-
-    .chat-input::placeholder { color: #3a3730; }
-
-    .chat-send {
-      background: none;
-      border: 1px solid rgba(205,191,151,0.35);
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #cdbf97;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .chat-send:hover {
-      border-color: rgba(205,191,151,0.75);
-      background: rgba(205,191,151,0.07);
-    }
-      h1 {
-        font-size: clamp(2.8rem, 5.5vw, 5rem);
-      }
-
-      .hero-copy {
-        margin-top: 14px;
-      }
+    @media (max-height: 820px) {
+      h1 { font-size: clamp(2.8rem, 5.5vw, 5rem); }
+      .hero-copy { margin-top: 14px; }
     }
 
     @media (max-width: 1180px) {
@@ -945,7 +819,7 @@
       <div class="shell about-grid">
         <div>
           <div class="section-label">About Kalpa</div>
-          <p class="about-display">At the intersection of financial markets, technology, and talent.</p>
+          <p class="about-display">At the intersection of financial markets, technology and talent.</p>
         </div>
         <div class="about-copy">
           <p>Kalpa is a specialist search firm focused on research, trading and investment technology. We work with firms where the quality of engineering, product and technical leadership shapes research capability, execution performance, platform depth and long-term edge.</p>
@@ -962,9 +836,9 @@
         <div class="capability-item"><div class="capability-line"></div><span>Low-Latency &amp; HFT Systems</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Trading &amp; Execution Infrastructure</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Compute, GPU &amp; Hardware</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Real-Time Market Data</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Market Data &amp; Data Engineering</span></div>
         <div class="capability-item"><div class="capability-line"></div><span>Distributed Systems &amp; Platform Engineering</span></div>
-        <div class="capability-item"><div class="capability-line"></div><span>Data Engineering &amp; Research Platforms</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Research &amp; Model Infrastructure</span></div>
       </div>
     </section>
 
@@ -979,32 +853,32 @@
 
           <div class="market-bubble">
             <div class="market-bubble-name">Proprietary Trading &amp; Market Making</div>
-            <div class="market-bubble-tech">High-frequency, low-latency trading systems, market data pipelines and execution infrastructure where microseconds matter — from kernel bypass networking and FPGA optimisation to order routing across traditional and digital markets.</div>
+            <div class="market-bubble-tech">High-frequency, low-latency trading systems, market data pipelines and execution infrastructure where microseconds matter - from kernel bypass networking and FPGA optimisation to order routing across traditional and digital markets.</div>
           </div>
 
           <div class="market-bubble">
             <div class="market-bubble-name">Systematic &amp; Quantitative Hedge Funds</div>
-            <div class="market-bubble-tech">Quant research and production systems — signal generation, data pipelines, backtesting frameworks, high-performance compute and modern research workflows incorporating machine learning and LLM tooling.</div>
+            <div class="market-bubble-tech">Quant research and production systems - signal generation, data pipelines, backtesting frameworks, high-performance compute and modern research workflows incorporating machine learning and LLM tooling.</div>
           </div>
 
           <div class="market-bubble">
             <div class="market-bubble-name">Multi-Manager Platforms</div>
-            <div class="market-bubble-tech">Multi-strategy, pod-based platforms built on shared data, risk and execution systems — unified infrastructure supporting independent teams developing and deploying strategies across asset classes.</div>
+            <div class="market-bubble-tech">Multi-strategy, pod-based platforms built on shared data, risk and execution systems. Unified infrastructure supporting independent teams developing and deploying strategies across asset classes - increasingly built around AI-driven workflows and real-time data layers.</div>
           </div>
 
           <div class="market-bubble">
             <div class="market-bubble-name">Investment Banks</div>
-            <div class="market-bubble-tech">Front-office quant, electronic trading and technology functions at tier-1 investment banks — algorithmic trading systems, principal flow infrastructure and cross-asset markets operating at scale.</div>
+            <div class="market-bubble-tech">Front-office quant, electronic trading and technology functions at tier-1 investment banks. Modular execution platforms, API-driven trading architecture, algorithmic systems and the principal flow infrastructure underpinning modern dealer businesses.</div>
           </div>
 
           <div class="market-bubble">
-            <div class="market-bubble-name">Exchanges &amp; Market Infrastructure</div>
-            <div class="market-bubble-tech">Matching engines, clearing and settlement systems and high-throughput distributed architecture — where supply meets demand.</div>
+            <div class="market-bubble-name">Asset Managers</div>
+            <div class="market-bubble-tech">Quantitative and systematic asset managers investing heavily in technology transformation - from AI-driven research workflows and cloud data infrastructure to platform modernisation and the ML and quant engineering talent building the next generation of investment technology at institutional scale.</div>
           </div>
 
           <div class="market-bubble">
-            <div class="market-bubble-name">Trading Technology Vendors</div>
-            <div class="market-bubble-tech">Execution platforms, market data infrastructure, alternative data and AI-driven research tooling — the systems and platforms quantitative trading firms and hedge funds rely on to research, build and operate trading strategies.</div>
+            <div class="market-bubble-name">Trading Technology &amp; Market Infrastructure</div>
+            <div class="market-bubble-tech">OMS, EMS, risk platforms, market data infrastructure, alternative data, AI and analytics tooling, compute and hardware - and the exchanges, trading venues and market infrastructure providers that the rest of the industry depends on.</div>
           </div>
 
         </div>
@@ -1054,7 +928,7 @@
     <section id="approach" class="section">
       <div class="shell">
         <div class="section-label">Approach</div>
-        <h2>Built around access, judgement, and signal.</h2>
+        <h2>Built around access, judgement and signal.</h2>
         <p class="lede">The model is deliberate: understand where the market is going, map capability properly and engage the right people directly.</p>
 
         <div class="principles">
@@ -1072,7 +946,7 @@
           </div>
           <div class="principle">
             <h3>Leadership-aligned</h3>
-            <p>Built to work closely with leadership on mandates where judgement, discretion, and quality matter.</p>
+            <p>Built to work closely with leadership on mandates where judgement, discretion and quality matter.</p>
           </div>
         </div>
       </div>
@@ -1085,7 +959,7 @@
           <p class="statement-quote">We operate inside the market - not around it.</p>
         </div>
         <div class="statement-copy">
-          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from understanding how modern investment firms are built, where capability sits, how talent moves, and when access matters most.</p>
+          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from understanding how modern investment firms are built, where capability sits, how talent moves and when access matters most.</p>
         </div>
       </div>
     </section>
