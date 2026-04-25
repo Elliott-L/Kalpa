@@ -3,281 +3,615 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Kalpa</title>
+  <title>Kalpa - Specialist search across research, investment and trading technology</title>
   <style>
     :root {
       --bg: #050505;
       --surface: #0a0a0a;
+      --surface-2: #0f0f0f;
       --text: #f1eee7;
       --text-soft: #ddd7ca;
       --muted: #a39f95;
       --accent: #cdbf97;
       --line: rgba(255,255,255,0.09);
       --line-soft: rgba(255,255,255,0.05);
+      --card: rgba(255,255,255,0.03);
+      --radius: 22px;
+      --radius-sm: 14px;
       --max: 1240px;
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 40px;
+      --space-5: 64px;
+      --space-6: 88px;
+      --label-size: 0.78rem;
+      --body-size: 1.02rem;
+      --body-line: 1.65;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      margin: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 28%), var(--bg);
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: var(--body-line);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0; }
 
-    .shell { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .shell {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-    /* NAV */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(10px);
-      background: rgba(5,5,5,0.85);
+      background: rgba(5,5,5,0.76);
       border-bottom: 1px solid var(--line-soft);
     }
+
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 72px;
+      position: relative;
     }
+
     .brand {
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.9rem;
       font-weight: 500;
       letter-spacing: -0.02em;
+      text-transform: none;
       color: var(--text);
       line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .back-link {
-      font-size: 0.88rem;
-      color: var(--muted);
-      transition: color 0.2s ease;
-    }
-    .back-link:hover { color: var(--text); }
 
-    /* HERO */
-    .hero {
-      padding: 64px 0 52px;
-      border-bottom: 1px solid var(--line);
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .hero-label {
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 0.88rem;
+      color: #c8c4bc;
+    }
+
+    .nav-links a {
+      padding: 0 14px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-divider {
+      color: rgba(255,255,255,0.12);
+      font-size: 0.75rem;
+      user-select: none;
+    }
+
+    .nav-contact {
+      margin-left: 8px;
+      padding: 7px 18px !important;
+      border: 1px solid rgba(205,191,151,0.45);
+      border-radius: 999px;
+      color: #e8e2d6 !important;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-contact:hover {
+      border-color: rgba(205,191,151,0.8) !important;
+      color: var(--accent) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      display: block;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 72px;
+      right: 0;
+      width: 100%;
+      background: rgba(5,5,5,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: none;
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+      z-index: 10;
+    }
+
+    .mobile-menu a {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    #top {
+      scroll-margin-top: 84px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .statement {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .hero-grid {
+      align-items: end;
+      grid-template-columns: 1.08fr 0.92fr;
+    }
+
+    .eyebrow,
+    .section-label,
+    .city-sub,
+    .meta-block small {
       display: inline-block;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .hero-meta {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    /* LAYOUT */
-    .layout {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 0 64px;
-      align-items: start;
-      padding: 48px 0 96px;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      position: sticky;
-      top: 96px;
-    }
-    .sidebar-title {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-    }
-    .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
-    .sidebar nav a {
-      font-size: 0.82rem;
-      color: var(--muted);
-      padding: 4px 0 4px 12px;
-      border-left: 2px solid transparent;
-      transition: all 0.18s;
+      font-size: var(--label-size);
       line-height: 1.4;
     }
-    .sidebar nav a:hover,
-    .sidebar nav a.active {
-      color: var(--text);
-      border-left-color: var(--accent);
+
+    .eyebrow,
+    .section-label {
+      margin-bottom: 20px;
     }
 
-    /* CONTENT */
-    .content { min-width: 0; }
-
-    .intro {
-      padding: 24px 28px;
-      border-left: 2px solid var(--accent);
-      background: rgba(205,191,151,0.05);
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 48px;
-    }
-    .intro p { color: var(--text-soft); font-size: 0.97rem; line-height: 1.7; }
-    .intro p + p { margin-top: 12px; }
-
-    section { margin-bottom: 52px; padding-top: 8px; }
-
-    .section-number {
-      font-size: 0.72rem;
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
       font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+      font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      max-width: 980px;
     }
 
     h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.55rem;
+      margin: 0 0 14px;
+      font-size: clamp(1.95rem, 3vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       font-weight: 500;
       color: var(--text);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
     }
 
     h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .hero-copy,
+    .lede,
+    .city-content p,
+    .principle p,
+    .statement-copy,
+    .closing p,
+    .hero-side,
+    .field,
+    textarea {
+      font-size: var(--body-size);
+      line-height: var(--body-line);
+    }
+
+    .hero-copy {
+      margin-top: 18px;
+      max-width: 800px;
+      color: var(--text-soft);
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-side {
+      border-left: 1px solid var(--line);
+      padding-left: 28px;
+      color: var(--muted);
+      max-width: 520px;
+      justify-self: end;
+    }
+
+    .hero-side p + p { margin-top: 20px; }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    @media (min-width: 721px) {
+      .section {
+        padding-top: 84px;
+      }
+    }
+
+    .lede {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .about-display {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+
+    .about-copy {
+      padding-top: 34px;
+      max-width: 900px;
+      justify-self: end;
+    }
+
+    .about-copy p {
+      color: var(--text-soft);
+      font-size: var(--body-size);
+      line-height: var(--body-line);
+      max-width: 880px;
+    }
+
+    .about-copy p + p { margin-top: 20px; }
+
+    .capability-strip {
+      background: #070707;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .capability-item {
+      padding: 34px 20px 36px;
+      text-align: center;
+      border-left: 1px solid var(--line-soft);
+    }
+
+    .capability-item:first-child { border-left: 0; }
+
+    .capability-line {
+      width: 58px;
+      height: 1px;
+      background: rgba(205,191,151,0.8);
+      margin: 0 auto 18px;
+    }
+
+    .capability-item span {
+      display: block;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .split,
+    .principles,
+    .contact-grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
+    .contact-grid { grid-template-columns: 1fr 0.9fr; gap: 44px; }
+
+    .card,
+    .principle,
+    .contact-grid {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .card { padding: 30px; }
+
+    .card h3 {
+      margin-bottom: 18px;
+      font-size: 0.98rem;
       font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.04em;
-      margin: 22px 0 8px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    p {
-      font-size: 0.97rem;
-      color: var(--text-soft);
-      margin-bottom: 14px;
-      line-height: 1.72;
+    .list {
+      display: grid;
+      gap: 0;
     }
 
-    ul { margin: 8px 0 16px 0; list-style: none; }
-    ul li {
-      font-size: 0.97rem;
+    .list div {
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
       color: var(--text-soft);
-      padding: 4px 0 4px 20px;
-      position: relative;
-      line-height: 1.65;
-    }
-    ul li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .address-block {
+    .list div:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .market-bubble {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
       background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 18px 22px;
-      margin: 16px 0;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      line-height: 1.9;
+      padding: 20px 22px;
     }
-    .placeholder { color: rgba(205,100,100,0.85); font-style: italic; }
 
-    /* TABLES */
-    .table-wrap {
-      overflow-x: auto;
-      margin: 20px 0;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-    }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    thead th {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
+    .market-bubble-name {
+      font-size: 0.97rem;
       font-weight: 500;
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 8px;
     }
-    tbody tr { border-bottom: 1px solid var(--line-soft); }
-    tbody tr:last-child { border-bottom: none; }
-    td {
-      padding: 12px 16px;
-      vertical-align: top;
-      line-height: 1.6;
-      color: var(--text-soft);
-      font-size: 0.9rem;
-    }
-    td:first-child { color: var(--text); font-weight: 500; }
 
-    .rights-tag {
-      display: inline-block;
+    .market-bubble-tech {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .market-bubble-tech-label {
+      color: var(--accent);
       font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      background: rgba(205,191,151,0.12);
-      color: var(--accent);
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(205,191,151,0.25);
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
     }
 
-    .contact-box {
-      background: rgba(255,255,255,0.03);
+    @media (max-width: 720px) {
+      .markets-grid { grid-template-columns: 1fr; }
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 24px 28px;
-      margin-top: 16px;
+      border-radius: var(--radius);
     }
-    .contact-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; }
-    .contact-box strong { color: var(--text); }
 
-    .ico-box {
+    .city-card {
+      background: var(--surface);
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .city-card:first-child { border-left: 0; }
+
+    .city-image {
+      position: relative;
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .city-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.66));
+    }
+
+    .london { background-image: url('./images/london.png'); }
+    .newyork { background-image: url('./images/newyork.png'); }
+    .hongkong { background-image: url('./images/hongkong.png'); }
+
+    .city-content { padding: 28px 28px 30px; }
+
+    .city-content h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+
+    .city-sub { margin-bottom: 18px; }
+
+    .city-content p { color: var(--muted); }
+
+    .principle {
+      padding: 24px;
+      min-height: 170px;
+    }
+
+    .principle p { color: var(--muted); }
+
+    .statement { grid-template-columns: 1.02fr 0.98fr; }
+
+    .statement-quote {
+      margin: 0;
+      font-size: clamp(1.95rem, 4vw, 3.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .statement-copy {
+      max-width: 560px;
+      color: var(--muted);
+      justify-self: end;
+      padding-top: 48px;
+    }
+
+    .closing {
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+
+    .closing-mark {
+      width: 60px;
+      height: 1px;
+      margin: 0 auto 28px;
+      background: rgba(205,191,151,0.8);
+    }
+
+    .closing h2 {
+      max-width: 920px;
+      margin: 0 auto 18px;
+    }
+
+    .closing p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      align-items: start;
+      padding: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .field,
+    textarea {
+      width: 100%;
       background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin: 16px 0;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      line-height: 1.9;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      padding: 16px 18px;
+      font-family: inherit;
+      font-size: var(--body-size);
+      line-height: var(--body-line);
     }
 
-    /* FOOTER */
+    .field::placeholder,
+    textarea::placeholder { color: var(--muted); }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      margin-top: 18px;
+      padding: 15px 24px;
+      border: 0;
+      border-radius: 999px;
+      background: #ece6d9;
+      color: #090909;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .contact-meta {
+      display: grid;
+      gap: 26px;
+      padding-top: 64px;
+      color: var(--muted);
+    }
+
+    .meta-block div {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    .meta-block a {
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .meta-block a:hover {
+      color: var(--accent);
+    }
+
     footer {
       padding: 28px 0 36px;
       border-top: 1px solid var(--line);
     }
+
     .footer-inner {
       display: flex;
       flex-direction: column;
@@ -285,370 +619,526 @@
       gap: 10px;
       text-align: center;
     }
+
     .footer-brand {
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.3rem;
       color: var(--text);
       letter-spacing: -0.02em;
     }
-    .footer-links {
+
+    .footer-legal-links {
       display: flex;
       align-items: center;
       gap: 12px;
+      justify-content: center;
     }
-    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-links span { color: rgba(255,255,255,0.2); font-size: 0.82rem; }
-    .footer-company { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
 
-    @media (max-width: 800px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
+    .footer-legal-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-links a:hover { color: var(--accent); }
+
+    .footer-legal-links span {
+      color: rgba(255,255,255,0.2);
+      font-size: 0.82rem;
+    }
+
+    .footer-company {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: wordReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-eyebrow-anim {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.05s;
+    }
+
+    .hero-copy-anim {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.75s;
+    }
+
+    @keyframes typingDot {
+      0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    .mandate-chat {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 28px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .chat-messages {
+      padding: 28px 28px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow-y: auto;
+      max-height: 340px;
+      min-height: 240px;
+    }
+
+    .chat-msg p {
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.62;
+    }
+
+    .chat-msg--ai { align-self: flex-start; max-width: 88%; }
+    .chat-msg--ai p { color: #ddd7ca; }
+    .chat-msg--user { align-self: flex-end; max-width: 80%; }
+    .chat-msg--user p { color: #a39f95; }
+
+    .chat-typing {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    .chat-typing span {
+      width: 5px;
+      height: 5px;
+      background: #a39f95;
+      border-radius: 50%;
+      animation: typingDot 1.2s infinite;
+    }
+
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    .chat-input-row {
+      display: flex;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 24px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #f1eee7;
+      font-size: 0.97rem;
+      font-family: inherit;
+      outline: none;
+      line-height: 1.5;
+    }
+
+    .chat-input::placeholder { color: #3a3730; }
+
+    .chat-send {
+      background: none;
+      border: 1px solid rgba(205,191,151,0.35);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #cdbf97;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .chat-send:hover {
+      border-color: rgba(205,191,151,0.75);
+      background: rgba(205,191,151,0.07);
+    }
+      h1 {
+        font-size: clamp(2.8rem, 5.5vw, 5rem);
+      }
+
+      .hero-copy {
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .city-grid { grid-template-columns: 1fr; }
+      .city-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .city-card:first-child { border-top: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .split,
+      .principles,
+      .statement,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-side {
+        justify-self: start;
+        max-width: none;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 22px;
+      }
+
+      .about-copy,
+      .statement-copy {
+        justify-self: start;
+        max-width: none;
+        padding-top: 0;
+      }
+
+      .contact-meta { padding-top: 8px; }
+      .city-grid { grid-template-columns: 1fr; }
+      .city-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .city-card:first-child { border-top: 0; }
+    }
+
+    @media (max-width: 720px) {
       .shell { width: min(var(--max), calc(100% - 28px)); }
+
+      .nav {
+        min-height: 64px;
+        justify-content: space-between;
+      }
+
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; margin-left: auto; }
+      .mobile-menu.show { display: flex; }
+
+      #top {
+        scroll-margin-top: 76px;
+      }
+
+      .section,
+      .closing {
+        padding: 72px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 48px;
+      }
+
+      .brand { font-size: 1.28rem; }
+      .brand-tagline { display: none; }
+
+      .hero-copy,
+      .lede,
+      .city-content p,
+      .principle p,
+      .statement-copy,
+      .closing p,
+      .hero-side,
+      .about-copy p,
+      .field,
+      textarea {
+        font-size: 0.98rem;
+      }
+
+      .capability-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .contact-grid { padding: 28px; }
+
+      .city-grid {
+        grid-template-columns: 1fr;
+        border-radius: 0;
+        overflow: visible;
+      }
+
+      .city-card {
+        overflow: hidden;
+      }
+
+      .city-card .city-image {
+        border-radius: 0;
+      }
     }
   </style>
 </head>
 <body>
-
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="./index.html">Kalpa.</a>
-      <a class="back-link" href="./index.html">← Back to site</a>
+      <a class="brand-wrap" href="#top">
+        <span class="brand">Kalpa.</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <span class="nav-divider">|</span>
+        <a href="#coverage">Coverage</a>
+        <span class="nav-divider">|</span>
+        <a href="#reach">Global Reach</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#reach">Global Reach</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </header>
 
-  <div class="shell">
-    <div class="hero">
-      <div class="hero-label">Legal</div>
-      <h1>Privacy Policy</h1>
-      <div class="hero-meta">Kalpa Ltd &nbsp;·&nbsp; Effective date: 23 April 2026</div>
-    </div>
-  </div>
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Specialist search</span>
+          <h1>Research, investment &amp; trading technology.</h1>
+          <p class="hero-copy">
+            Kalpa operates in a narrow, high-conviction part of the market where talent is hard to access, movement is rarely visible and hiring decisions carry weight.<br><br>
+            We focus on the systems behind alpha — low-latency trading, market data, quant research and high-performance compute.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <div class="shell">
-    <div class="layout">
+    <section id="about" class="section">
+      <div class="shell about-grid">
+        <div>
+          <div class="section-label">About Kalpa</div>
+          <p class="about-display">At the intersection of financial markets, technology, and talent.</p>
+        </div>
+        <div class="about-copy">
+          <p>Kalpa is a specialist search firm focused on research, trading and investment technology. We work with firms where the quality of engineering, product and technical leadership shapes research capability, execution performance, platform depth and long-term edge.</p>
+          <p>Our focus is narrow by design and built for firms where technology is tightly linked to investment outcomes — from quantitative research environments and compute platforms to market-facing trading systems and data-intensive infrastructure.</p>
+          <p>Quietly positioned. Selectively engaged. Structured around mandates that require judgement, discretion and real market reach.</p>
+        </div>
+      </div>
+    </section>
 
-      <aside class="sidebar">
-        <div class="sidebar-title">Contents</div>
-        <nav id="toc">
-          <a href="#s1">1. Who We Are</a>
-          <a href="#s2">2. Who This Applies To</a>
-          <a href="#s3">3. What Data We Collect</a>
-          <a href="#s4">4. How We Collect Data</a>
-          <a href="#s5">5. Why We Use Data</a>
-          <a href="#s6">6. AI &amp; Automated Processing</a>
-          <a href="#s7">7. Lawful Bases</a>
-          <a href="#s8">8. Legitimate Interests</a>
-          <a href="#s9">9. Sharing with Clients</a>
-          <a href="#s10">10. Other Sharing</a>
-          <a href="#s11">11. International Transfers</a>
-          <a href="#s12">12. Retention</a>
-          <a href="#s13">13. Your Rights</a>
-          <a href="#s14">14. Right to Object</a>
-          <a href="#s15">15. Security</a>
-          <a href="#s16">16. Third-Party Services</a>
-          <a href="#s17">17. Cookies</a>
-          <a href="#s18">18. Complaints</a>
-          <a href="#s19">19. Changes</a>
-          <a href="#s20">20. Contact Us</a>
-        </nav>
-      </aside>
+    <section class="capability-strip">
+      <div class="shell capability-grid">
+        <div class="capability-item"><div class="capability-line"></div><span>Quant Research &amp; Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Artificial Intelligence &amp; Machine Learning</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Low-Latency &amp; HFT Systems</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Trading &amp; Execution Infrastructure</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Compute, GPU &amp; Hardware</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Real-Time Market Data</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Distributed Systems &amp; Platform Engineering</span></div>
+        <div class="capability-item"><div class="capability-line"></div><span>Data Engineering &amp; Research Platforms</span></div>
+      </div>
+    </section>
 
-      <main class="content">
+    <section id="coverage" class="section">
+      <div class="shell">
+        <div class="section-label">Coverage</div>
+        <h2>Built to connect investment and trading technology firms with the talent that drives performance.</h2>
+        <p class="lede">Hiring is more selective. Top talent is harder to access and more impactful than ever. The gap between good and great is widening. Kalpa's coverage reflects that reality.</p>
 
-        <div class="intro">
-          <p>Kalpa Ltd ("Kalpa", "we", "us", "our") handles personal data with the same rigour and discretion we apply to every search mandate. This Privacy Policy explains how we collect, use, store, share, and otherwise process personal data when you visit our website, contact us, or engage with us in a professional, business, or recruitment context.</p>
-          <p>We are committed to the responsible use of personal data and to full compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. Where our work extends to individuals based in the European Union, the EU GDPR applies in respect of that processing.</p>
+        <h3 style="font-size: 0.98rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin: 0 0 4px;">Markets</h3>
+        <div class="markets-grid">
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Proprietary Trading &amp; Market Making</div>
+            <div class="market-bubble-tech">High-frequency, low-latency trading systems, market data pipelines and execution infrastructure where microseconds matter — from kernel bypass networking and FPGA optimisation to order routing across traditional and digital markets.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Systematic &amp; Quantitative Hedge Funds</div>
+            <div class="market-bubble-tech">Quant research and production systems — signal generation, data pipelines, backtesting frameworks, high-performance compute and modern research workflows incorporating machine learning and LLM tooling.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Multi-Manager Platforms</div>
+            <div class="market-bubble-tech">Multi-strategy, pod-based platforms built on shared data, risk and execution systems — unified infrastructure supporting independent teams developing and deploying strategies across asset classes.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Investment Banks</div>
+            <div class="market-bubble-tech">Front-office quant, electronic trading and technology functions at tier-1 investment banks — algorithmic trading systems, principal flow infrastructure and cross-asset markets operating at scale.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Exchanges &amp; Market Infrastructure</div>
+            <div class="market-bubble-tech">Matching engines, clearing and settlement systems and high-throughput distributed architecture — where supply meets demand.</div>
+          </div>
+
+          <div class="market-bubble">
+            <div class="market-bubble-name">Trading Technology Vendors</div>
+            <div class="market-bubble-tech">Execution platforms, market data infrastructure, alternative data and AI-driven research tooling — the systems and platforms quantitative trading firms and hedge funds rely on to research, build and operate trading strategies.</div>
+          </div>
+
         </div>
 
-        <section id="s1">
-          <div class="section-number">Section 1</div>
-          <h2>Who We Are</h2>
-          <p>Kalpa is a specialist search firm operating across investment and trading technology. We identify and connect exceptional technical talent — engineers, quant researchers, and adjacent specialists — with leading hedge funds, proprietary trading firms, and high-performance technology businesses.</p>
-          <div class="address-block">
-            <strong>Data controller</strong><br>
-            Kalpa Ltd<br>
-            Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a><br>
-            <span class="placeholder">Registered office: [to be inserted]</span><br>
-            <span class="placeholder">Company number: [to be inserted]</span>
+      </div>
+    </section>
+
+    <section id="reach" class="section">
+      <div class="shell">
+        <div class="reach-head">
+          <div class="section-label">Global Reach</div>
+          <h2>Embedded in key financial centres.</h2>
+          <p class="lede">Where the most competitive investment and trading firms build their research, engineering and leadership teams.</p>
+        </div>
+
+        <div class="city-grid">
+          <article class="city-card">
+            <div class="city-image london"></div>
+            <div class="city-content">
+              <h3>London</h3>
+              <div class="city-sub">United Kingdom</div>
+              <p>Europe's deepest concentration of hedge funds, systematic trading firms, market makers and technology-led asset managers. High competition for quantitative engineering, platform, data and low latency talent.</p>
+            </div>
+          </article>
+
+          <article class="city-card">
+            <div class="city-image newyork"></div>
+            <div class="city-content">
+              <h3>New York &amp; Chicago</h3>
+              <div class="city-sub">United States</div>
+              <p>The world's deepest investment technology market, spanning the largest hedge funds, prop trading firms and execution venues. Sustained demand for quantitative engineering, research infrastructure, compute platforms and senior technical leadership across both cities.</p>
+            </div>
+          </article>
+
+          <article class="city-card">
+            <div class="city-image hongkong"></div>
+            <div class="city-content">
+              <h3>Hong Kong &amp; Singapore</h3>
+              <div class="city-sub">Asia Pacific</div>
+              <p>The two dominant hubs for institutional trading and investment technology across APAC. Growing demand for quantitative and systematic engineering talent, platform leadership and data infrastructure as firms expand regional capability and build out dedicated technology functions.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="section">
+      <div class="shell">
+        <div class="section-label">Approach</div>
+        <h2>Built around access, judgement, and signal.</h2>
+        <p class="lede">The model is deliberate: understand where the market is going, map capability properly and engage the right people directly.</p>
+
+        <div class="principles">
+          <div class="principle">
+            <h3>Market-led</h3>
+            <p>Searches begin with real market context, not generic briefs or recycled candidate flow.</p>
           </div>
-        </section>
-
-        <section id="s2">
-          <div class="section-number">Section 2</div>
-          <h2>Who This Privacy Policy Applies To</h2>
-          <p>This Privacy Policy applies to:</p>
-          <ul>
-            <li>visitors to our website;</li>
-            <li>individuals who contact us directly;</li>
-            <li>clients and prospective clients, including individuals within client organisations;</li>
-            <li>candidates and prospective candidates, including individuals we have identified through our own research and who have not yet been contacted by us;</li>
-            <li>referees, sources, and other professional contacts; and</li>
-            <li>other individuals whose personal data we process in the course of providing search and recruitment services.</li>
-          </ul>
-          <p>If you are a candidate whose data we hold but who has not yet been contacted by us, <a href="#s4">Section 4(b)</a> and <a href="#s13">Section 13</a> (Your Rights) are of particular relevance.</p>
-        </section>
-
-        <section id="s3">
-          <div class="section-number">Section 3</div>
-          <h2>What Personal Data We Collect</h2>
-          <p>We may collect and process the following categories of personal data, depending on the nature of our relationship with you:</p>
-          <h3>Identity and contact data</h3>
-          <ul><li>name, email address, telephone number, and professional contact details.</li></ul>
-          <h3>Professional and career data</h3>
-          <ul><li>employer, job title, seniority, career history, technical skills and specialisations, educational background, compensation history or expectations where relevant, and other information bearing on suitability for a specific role or mandate.</li></ul>
-          <h3>Communications and interaction data</h3>
-          <ul><li>records of emails, calls, meetings, introductions, referrals, notes, and professional assessments arising from our interactions with you or relating to you.</li></ul>
-          <h3>Inferred and interpreted data</h3>
-          <ul><li>professional assessments, summaries, and evaluations we create in the course of our work. These are created by us, sometimes with the assistance of AI-enabled tools, and are subject to human review before any consequential use (see <a href="#s6">Section 6</a>).</li></ul>
-          <h3>Website and enquiry data</h3>
-          <ul><li>information submitted through our website contact form or provided when you contact us directly.</li></ul>
-          <h3>Publicly available professional information</h3>
-          <ul><li>data drawn from professional profiles, publications, conference appearances, company websites, and similar sources relevant to the markets and roles we work across.</li></ul>
-          <p>We do not seek to collect special category personal data (such as health, disability, religion, political views, trade union membership, or racial or ethnic origin) and ask that you do not provide such information unless clearly necessary. Where special category data is inadvertently received, we will handle it in accordance with applicable law and delete it where no lawful basis for retention exists.</p>
-        </section>
-
-        <section id="s4">
-          <div class="section-number">Section 4</div>
-          <h2>How We Collect Personal Data</h2>
-          <p>We collect personal data through the following means:</p>
-          <h3>(a) Directly from you</h3>
-          <ul>
-            <li>when you complete our website contact form, send us an email, call us, or otherwise contact us directly;</li>
-            <li>during conversations, meetings, interviews, introductions, or other professional interactions; and</li>
-            <li>when you provide your details or CV in connection with a specific role or mandate.</li>
-          </ul>
-          <h3>(b) Through our own research</h3>
-          <p>A significant part of our work involves identifying candidates who have not approached us. We may collect personal data about you from publicly available professional sources, including professional networking platforms, company websites, publications, conference records, and other openly accessible professional information.</p>
-          <p>Where we hold data about you that was not collected directly from you, we will provide you with the information required by applicable law — including the source of the data and the purposes for which it is held — at the point of first contact, or as soon as reasonably practicable thereafter.</p>
-          <h3>(c) From third parties</h3>
-          <ul>
-            <li>from clients, colleagues, referees, and professional contacts who recommend or introduce individuals;</li>
-            <li>from service providers who support our website or business operations; and</li>
-            <li>from professional data sources and research platforms used in the course of our work.</li>
-          </ul>
-        </section>
-
-        <section id="s5">
-          <div class="section-number">Section 5</div>
-          <h2>Why We Use Personal Data</h2>
-          <p>We process personal data for the following purposes:</p>
-          <ul>
-            <li>responding to website enquiries and other communications;</li>
-            <li>providing search, recruitment, and advisory services;</li>
-            <li>identifying, researching, and approaching candidates relevant to specific mandates — as an initial, internal research step that informs whether contact is appropriate;</li>
-            <li>understanding and supporting client hiring requirements;</li>
-            <li>preparing, sharing, and discussing candidate profiles and materials with clients in the context of specific search engagements;</li>
-            <li>maintaining a professional network and market knowledge base relevant to the sectors and roles we cover;</li>
-            <li>managing and developing professional relationships with clients and candidates;</li>
-            <li>operating, managing, improving, and securing our business and website;</li>
-            <li>complying with legal, regulatory, and contractual obligations; and</li>
-            <li>establishing, exercising, or defending legal claims where necessary.</li>
-          </ul>
-        </section>
-
-        <section id="s6">
-          <div class="section-number">Section 6</div>
-          <h2>AI-Assisted and Automated Processing</h2>
-          <p>In the course of our work, we use AI-enabled tools to support research, summarisation, organisation, and analysis of professional information. This processing may include:</p>
-          <ul>
-            <li>identifying individuals who may be relevant to a specific search mandate, as an initial step in determining whether contact is appropriate;</li>
-            <li>summarising professional background, experience, and technical specialisation from available sources;</li>
-            <li>organising and maintaining our internal records and candidate database; and</li>
-            <li>drafting internal profile materials for use in our work.</li>
-          </ul>
-          <h3>Profiling</h3>
-          <p>Some of this processing constitutes profiling within the meaning of Article 4(4) of the UK GDPR — specifically, the automated evaluation of professional characteristics, experience, and apparent relevance to a mandate. We are transparent about this and have assessed that such processing is proportionate to our legitimate business purposes (see <a href="#s8">Section 8</a>).</p>
-          <h3>Human oversight</h3>
-          <p>We do not make solely automated decisions that produce legal or similarly significant effects on individuals. All AI-assisted outputs used in the furtherance of a search mandate are subject to meaningful human review before being acted upon or shared with clients.</p>
-          <h3>Lawful basis</h3>
-          <p>The lawful basis for AI-assisted processing is our legitimate interests in operating an effective search business (see <a href="#s7">Sections 7</a> and <a href="#s8">8</a>). We have assessed that this processing is proportionate and does not override the interests, rights, or freedoms of the individuals concerned, having regard to the professional context, the nature of the data processed, and the human oversight applied.</p>
-        </section>
-
-        <section id="s7">
-          <div class="section-number">Section 7</div>
-          <h2>Lawful Bases for Processing</h2>
-          <p>Depending on the context, we rely on one or more of the following lawful bases under the UK GDPR:</p>
-          <h3>Legitimate interests (Article 6(1)(f))</h3>
-          <p>This is our primary lawful basis for most processing activities, including sourcing and researching candidates, maintaining professional networks, sharing candidate information with clients in the context of active mandates, and using AI-assisted tools in our work. We have assessed that these interests are not overridden by the rights, interests, or freedoms of the individuals concerned.</p>
-          <h3>Contract (Article 6(1)(b))</h3>
-          <p>Where processing is necessary to take steps at your request prior to entering into a contract, or to perform a contract with you.</p>
-          <h3>Legal obligation (Article 6(1)(c))</h3>
-          <p>Where we are required to process personal data to comply with a legal or regulatory obligation.</p>
-          <h3>Consent (Article 6(1)(a))</h3>
-          <p>Where we ask for and obtain your consent for a specific processing activity. Where we rely on consent, you may withdraw it at any time by contacting us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.</p>
-        </section>
-
-        <section id="s8">
-          <div class="section-number">Section 8</div>
-          <h2>Our Legitimate Interests</h2>
-          <p>Where we rely on legitimate interests as our lawful basis, those interests include:</p>
-          <ul>
-            <li>operating and growing a specialist search and recruitment business;</li>
-            <li>building and maintaining professional networks and sector-specific market knowledge;</li>
-            <li>identifying and approaching individuals who may be relevant to a specific search mandate;</li>
-            <li>assessing professional relevance and fit for roles or mandates, as an initial internal step that informs whether contact is appropriate;</li>
-            <li>sharing candidate materials with clients in the context of specific, active engagements;</li>
-            <li>using AI-assisted tools to support research, summarisation, and analysis in connection with our services;</li>
-            <li>maintaining accurate internal records and communications; and</li>
-            <li>protecting our business, website, and users from misuse, fraud, or risk.</li>
-          </ul>
-          <p>We have documented our legitimate interests assessments and periodically review them. If you would like further information about the basis on which we rely on legitimate interests in a specific context, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
-          <p>We operate in a professional context where the identification and introduction of relevant individuals is a standard and expected part of the market. We take care to ensure our processing remains proportionate and respectful of those expectations.</p>
-        </section>
-
-        <section id="s9">
-          <div class="section-number">Section 9</div>
-          <h2>Sharing Candidate Data with Clients</h2>
-          <p>In the course of providing search services, we may share candidate profile materials and other personal data with clients or prospective clients. This is central to our business model and is addressed separately here given its significance to candidates.</p>
-          <p>We share candidate data with clients:</p>
-          <ul>
-            <li>only in connection with a specific, active search mandate;</li>
-            <li>at a stage in the process where doing so is proportionate to the purpose — generally after an initial assessment of relevance and, where practicable, having made or attempted contact with the candidate; and</li>
-            <li>subject to appropriate confidentiality obligations and data handling expectations communicated to clients.</li>
-          </ul>
-          <p>Clients who receive candidate data act as independent data controllers in respect of their own use of that information. Their handling of personal data is governed by their own privacy policies and applicable law.</p>
-        </section>
-
-        <section id="s10">
-          <div class="section-number">Section 10</div>
-          <h2>Who Else We Share Personal Data With</h2>
-          <p>In addition to clients (addressed in <a href="#s9">Section 9</a>), we may share personal data with:</p>
-          <ul>
-            <li>service providers and processors who support our business operations — including providers of website hosting, form handling, email infrastructure, document and communications tools, CRM systems, data research and sourcing platforms, and AI-assisted research tools — each engaged under appropriate contractual protections in accordance with Article 28 of the UK GDPR;</li>
-            <li>professional advisers, including legal, compliance, and accounting advisers, where reasonably necessary and subject to professional confidentiality obligations; and</li>
-            <li>courts, regulators, law enforcement, or other authorities where disclosure is required by law or is reasonably necessary to protect our rights or the rights of others.</li>
-          </ul>
-          <p>We do not sell personal data. We do not share personal data for third-party marketing purposes.</p>
-        </section>
-
-        <section id="s11">
-          <div class="section-number">Section 11</div>
-          <h2>International Data Transfers</h2>
-          <p>Kalpa operates globally. Personal data processed in connection with our services may be transferred to, accessed from, or processed in countries outside the United Kingdom, including countries where we operate or engage service providers.</p>
-          <p>Where we transfer personal data to countries that have not been the subject of UK adequacy regulations, we put in place appropriate safeguards in accordance with Chapter V of the UK GDPR. Depending on the destination and nature of the transfer, we rely on one or more of the following:</p>
-          <ul>
-            <li>adequacy regulations made under section 17A of the Data Protection Act 2018, where the destination country or territory has been assessed to offer adequate protection;</li>
-            <li>International Data Transfer Agreements (IDTAs) issued by the ICO, or the UK Addendum to the EU Standard Contractual Clauses, where no adequacy finding applies; or</li>
-            <li>other lawful transfer mechanisms available under UK data protection law.</li>
-          </ul>
-          <p>We conduct transfer risk assessments where required and apply supplementary measures where the legal framework of the destination country so requires.</p>
-          <p>If you would like information about the transfer mechanism applicable to your personal data, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>.</p>
-        </section>
-
-        <section id="s12">
-          <div class="section-number">Section 12</div>
-          <h2>Retention of Personal Data</h2>
-          <p>We retain personal data only for as long as is necessary for the purposes for which it was collected, taking into account our legitimate business needs, applicable legal and regulatory obligations, and the reasonable expectations of the individuals concerned.</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th style="width:38%">Category</th><th>Retention period</th></tr></thead>
-              <tbody>
-                <tr><td>Candidates engaged in an active search process</td><td>Up to 5 years from the date of last interaction, to support relationship management, record-keeping, and potential future mandates.</td></tr>
-                <tr><td>Candidates sourced but not yet contacted</td><td>Up to 5 years from the date of collection, subject to periodic review. Deleted or anonymised earlier where no active, documented purpose remains.</td></tr>
-                <tr><td>Candidates who have not progressed or who have exercised their right to object or erasure</td><td>Deleted or suppressed promptly following confirmation that no further processing purpose exists. A suppression record is retained to prevent re-processing.</td></tr>
-                <tr><td>Client contacts and professional relationships</td><td>Up to 5 years from the date of last interaction for relationship management and record purposes.</td></tr>
-                <tr><td>Website enquiries</td><td>Up to 12 months from the date of submission, unless the enquiry develops into an ongoing engagement.</td></tr>
-                <tr><td>Legal, compliance, and financial records</td><td>As required by applicable law, regulation, or professional obligation — typically up to 6 years for financial and contractual records under UK law.</td></tr>
-              </tbody>
-            </table>
+          <div class="principle">
+            <h3>Direct access</h3>
+            <p>We engage individuals who are rarely visible through standard channels and often not actively in-market.</p>
           </div>
-          <p>Retention periods are reviewed periodically and may be updated to reflect changes in our business or applicable law. You may request erasure of your data at any time (see <a href="#s13">Section 13</a>). Where we are unable to comply in full — for example, due to a legal obligation — we will explain the reason. We may de-identify or aggregate data for internal research or analysis purposes, at which point it ceases to constitute personal data.</p>
-        </section>
-
-        <section id="s13">
-          <div class="section-number">Section 13</div>
-          <h2>Your Rights</h2>
-          <p>Subject to applicable law and the circumstances of the processing, you have the following rights in respect of your personal data:</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th style="width:22%">Right</th><th>What it means</th></tr></thead>
-              <tbody>
-                <tr><td><span class="rights-tag">Access</span></td><td>The right to request a copy of the personal data we hold about you and information about how we use it.</td></tr>
-                <tr><td><span class="rights-tag">Rectification</span></td><td>The right to request correction of inaccurate or incomplete personal data.</td></tr>
-                <tr><td><span class="rights-tag">Erasure</span></td><td>The right to request deletion of your personal data in certain circumstances — for example, where it is no longer necessary for the purpose for which it was collected.</td></tr>
-                <tr><td><span class="rights-tag">Restriction</span></td><td>The right to request that we restrict our processing of your data in certain circumstances.</td></tr>
-                <tr><td><span class="rights-tag">Object</span></td><td>The right to object to processing based on legitimate interests. This right is particularly relevant to candidates whose data we hold through our own research. Where you object, we will cease processing unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</td></tr>
-                <tr><td><span class="rights-tag">Portability</span></td><td>The right to receive your personal data in a structured, commonly used, machine-readable format where processing is based on consent or contract and is carried out by automated means.</td></tr>
-                <tr><td><span class="rights-tag">Human review</span></td><td>The right to request human review of any AI-assisted assessment or output that has been used in a consequential decision relating to you.</td></tr>
-                <tr><td><span class="rights-tag">Withdraw consent</span></td><td>Where we rely on consent, the right to withdraw it at any time without affecting the lawfulness of prior processing.</td></tr>
-              </tbody>
-            </table>
+          <div class="principle">
+            <h3>Selective delivery</h3>
+            <p>A small number of high-quality introductions, presented with clarity rather than noise.</p>
           </div>
-          <h3>How to exercise your rights</h3>
-          <p>To exercise any of the above rights, contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. Please provide sufficient information to allow us to identify you and the data concerned. We will respond within one month of receipt of a valid request, extendable by a further two months in complex cases. We may ask you to verify your identity before acting on a request. There is no charge for exercising your rights in ordinary circumstances.</p>
-        </section>
-
-        <section id="s14">
-          <div class="section-number">Section 14</div>
-          <h2>Right to Object — Sourced Candidates</h2>
-          <p>If you are a candidate whose data we hold as a result of our own research — and who has not proactively contacted us — you have the right to object to our processing of your personal data under Article 21 of the UK GDPR.</p>
-          <p>You can exercise this right at any time, including at the point of first contact from us. Contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a>. On receipt of a valid objection, we will cease processing your data unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms.</p>
-          <p>We maintain a suppression list of individuals who have objected to our processing to ensure their data is not re-processed in future.</p>
-        </section>
-
-        <section id="s15">
-          <div class="section-number">Section 15</div>
-          <h2>Security</h2>
-          <p>We take appropriate technical and organisational measures to protect personal data against unauthorised or unlawful processing, accidental loss, destruction, damage, or unauthorised disclosure. These measures are designed to reflect the sensitivity of the data we process and the risks to individuals if security were to be compromised.</p>
-          <p>Access to personal data within Kalpa is limited to those with a legitimate need to access it in the course of their duties.</p>
-          <p>In the event of a personal data breach that is likely to result in a risk to individuals, we will notify the Information Commissioner's Office without undue delay and, where required, notify affected individuals directly.</p>
-        </section>
-
-        <section id="s16">
-          <div class="section-number">Section 16</div>
-          <h2>Third-Party Services and Website Functionality</h2>
-          <p>Our website and business operations make use of third-party service providers, which may include providers of website hosting and infrastructure, contact form processing, email services, document and communications platforms, CRM and candidate management systems, data research and enrichment platforms, and AI-assisted research tools.</p>
-          <p>Where these providers process personal data on our behalf, we engage them under written data processing agreements that impose obligations consistent with Article 28 of the UK GDPR. We do not authorise processors to use personal data for their own purposes.</p>
-          <p>Some providers operate under their own terms as independent controllers in respect of certain processing activities. Where that is the case, their own privacy policies govern that processing.</p>
-        </section>
-
-        <section id="s17">
-          <div class="section-number">Section 17</div>
-          <h2>Cookies and Analytics</h2>
-          <p>Our website may use cookies or similar technologies where necessary to operate, secure, or improve the website. We do not currently use non-essential tracking cookies or analytics tools without appropriate disclosure and, where required by law, consent.</p>
-          <p>If we introduce non-essential cookies, analytics, or similar tracking technologies in the future, we will update our website notices and obtain any required consents before deploying them.</p>
-        </section>
-
-        <section id="s18">
-          <div class="section-number">Section 18</div>
-          <h2>Complaints</h2>
-          <p>If you have a concern about how we handle your personal data, please contact us at <a href="mailto:contact@kalpa.co">contact@kalpa.co</a> and we will do our best to resolve it promptly.</p>
-          <p>You also have the right to lodge a complaint with the UK supervisory authority:</p>
-          <div class="ico-box">
-            <strong style="color:var(--text)">Information Commissioner's Office (ICO)</strong><br>
-            Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a><br>
-            Telephone: 0303 123 1113
+          <div class="principle">
+            <h3>Leadership-aligned</h3>
+            <p>Built to work closely with leadership on mandates where judgement, discretion, and quality matter.</p>
           </div>
-          <p>If you are based in an EU member state and consider that our processing of your data is governed by the EU GDPR, you may also have the right to complain to the supervisory authority in your country of residence.</p>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section id="s19">
-          <div class="section-number">Section 19</div>
-          <h2>Changes to This Privacy Policy</h2>
-          <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or business operations. Any material changes will be posted on this page with an updated effective date. We will take reasonable steps to bring significant changes to your attention.</p>
-        </section>
+    <section class="section">
+      <div class="shell statement">
+        <div>
+          <div class="section-label">Positioning</div>
+          <p class="statement-quote">We operate inside the market - not around it.</p>
+        </div>
+        <div class="statement-copy">
+          <p>The strongest hiring outcomes in this part of the market rarely come from broad processes. They come from understanding how modern investment firms are built, where capability sits, how talent moves, and when access matters most.</p>
+        </div>
+      </div>
+    </section>
 
-        <section id="s20">
-          <div class="section-number">Section 20</div>
-          <h2>Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy or about how we handle personal data, please contact:</p>
-          <div class="contact-box">
-            <p><strong>Kalpa Ltd</strong></p>
-            <p>Email: <a href="mailto:contact@kalpa.co">contact@kalpa.co</a></p>
-            <p class="placeholder">Registered office: [to be inserted]</p>
-            <p class="placeholder">Company number: [to be inserted]</p>
+    <section class="closing">
+      <div class="shell">
+        <div class="closing-mark"></div>
+        <h2>Kalpa partners with firms where research and technology talent is a true competitive advantage.</h2>
+        <p>Connected to the right firms. Known by the right people.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="shell">
+        <div class="contact-grid">
+          <div>
+            <div class="section-label">Contact</div>
+            <h2>Get in touch.</h2>
+            <p class="lede" style="margin-bottom:0; max-width: 620px;">Making a key hire, exploring the market or wanting industry insight?</p>
+
+            <form class="form-grid" action="https://formspree.io/f/xaqldbzv" method="POST">
+              <input class="field" type="text" name="name" placeholder="Name" required />
+              <input class="field" type="email" name="email" placeholder="Email" required />
+              <input class="field" type="text" name="company" placeholder="Company" style="grid-column: 1 / -1;" />
+              <textarea name="message" placeholder="How can we help?" required></textarea>
+              <input type="hidden" name="_subject" value="New Kalpa website enquiry" />
+              <button class="button" type="submit">Send</button>
+            </form>
           </div>
-        </section>
 
-      </main>
-    </div>
-  </div>
+          <div class="contact-meta">
+            <div class="meta-block">
+              <small>Email</small>
+              <div><a href="mailto:contact@kalpa.co">contact@kalpa.co</a></div>
+            </div>
+            <div class="meta-block">
+              <small>Phone</small>
+              <div><a href="tel:+442012345678">+44 20 1234 5678</a></div>
+            </div>
+            <div class="meta-block">
+              <small>LinkedIn</small>
+              <div><a href="https://www.linkedin.com/company/kalpa" target="_blank" rel="noopener noreferrer">linkedin.com/company/kalpa</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="shell footer-inner">
       <div class="footer-brand">Kalpa.</div>
-      <div class="footer-links">
+      <div class="footer-legal-links">
         <a href="./privacy.html">Privacy Policy</a>
         <span>·</span>
         <a href="./terms.html">Terms of Use</a>
@@ -658,22 +1148,28 @@
   </footer>
 
   <script>
-    history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('mobileMenu');
 
-    const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('#toc a');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          links.forEach(l => l.classList.remove('active'));
-          const active = document.querySelector(`#toc a[href="#${e.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-20% 0px -70% 0px' });
-    sections.forEach(s => observer.observe(s));
+    function isMobileView() {
+      return window.innerWidth <= 720;
+    }
+
+    function closeMobileMenu() {
+      menu.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    window.addEventListener('scroll', () => {
+      if (isMobileView() && menu.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    }, { passive: true });
   </script>
-
 </body>
 </html>
