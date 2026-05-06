@@ -23,7 +23,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 .elink:hover{border-color:#999;color:#1a1a1a}
 .toc{background:#f2f0eb;border-radius:10px;padding:20px 24px;margin-bottom:3rem}
 .toc-title{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:12px;font-weight:600}
-.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-flow:column;grid-template-rows:repeat(8,auto);gap:4px 24px}
+.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-flow:column;grid-template-rows:repeat(7,auto);gap:4px 24px}
 .toc-item{font-size:13px;color:#555;padding:3px 0;text-decoration:none}
 .toc-item:hover{color:#1a1a1a}
 .toc-n{font-size:11px;color:#aaa;margin-right:4px}
@@ -154,7 +154,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 .kalpa-wordmark{font-size:16px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.03em}
 .kalpa-wordmark:hover{color:#ccc}
 .kalpa-tag{font-size:11px;color:#666;letter-spacing:.05em;margin-left:14px}@media(max-width:600px){.kalpa-tag{display:none}}
-.kalpa-contact{font-size:11px;color:#555;letter-spacing:.03em}
+.kalpa-contact{font-size:11px;color:#fff;letter-spacing:.03em;text-decoration:none}
+a.kalpa-contact:hover{opacity:.75}
+a.cta-contact{text-decoration:none}
+a.cta-contact:hover{text-decoration:underline}
+a.footer-mail{color:#fff;text-decoration:none}
+a.footer-mail:hover{opacity:.75}
 .kalpa-rule{height:2px;background:#0f0f0f}
 .kalpa-footer{background:#0f0f0f;padding:14px 2rem;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#555;margin-top:0}
 .kalpa-footer strong{color:#fff;font-weight:600}
@@ -167,9 +172,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <div class="kalpa-header">
   <div style="display:flex;align-items:center">
     <a href="https://elliott-l.github.io/Kalpa/index-v3.html" target="_blank" class="kalpa-wordmark">Kalpa</a>
-    <span class="kalpa-tag">Specialist search &middot; Research, investment &amp; trading technology</span>
   </div>
-  <span class="kalpa-contact">&#69;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#116;&#101;&#99;&#104;&#46;&#97;&#115;&#115;&#111;&#99;&#105;&#97;&#116;&#101;&#115;</span>
+  <a class="kalpa-contact" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;&#63;&#115;&#117;&#98;&#106;&#101;&#99;&#116;&#61;&#69;&#108;&#121;&#111;&#115;%20&#65;&#73;">&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;</a>
 </div>
 <div class="kalpa-rule"></div>
 
@@ -177,13 +181,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <div class="doc">
 
 <div class="cover">
-  <div class="cover-kicker">Private candidate briefing &middot; Confidential &middot; April 2026</div>
+  <div class="cover-kicker">Private candidate briefing &middot; Confidential &middot; May 2026</div>
   <h1 class="cover-title">Founding Software Engineer</h1>
   <p class="cover-sub">Elyos AI &middot; London &middot; On-site &middot; Series A</p>
   <div class="cover-pills">
     <span class="pill pill-g">$16M raised &middot; Jan 2026</span>
     <span class="pill pill-g">~30% MoM growth</span>
-    <span class="pill pill-b">Competetive base + 0.3–0.5% equity</span>
+    <span class="pill pill-b">Competitive base + 0.3–0.5% equity</span>
     <span class="pill pill-b">London &middot; On-site &middot; Full-time</span>
     <span class="pill pill-p">Blackbird &middot; YC &middot; Pi Labs</span>
   </div>
@@ -208,29 +212,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     <a class="toc-item" href="#s11"><span class="toc-n">10</span> Compensation &amp; upside</a>
     <a class="toc-item" href="#s12"><span class="toc-n">11</span> Location &amp; logistics</a>
     <a class="toc-item" href="#s13"><span class="toc-n">12</span> Customers &amp; case studies</a>
-    <a class="toc-item" href="#s14"><span class="toc-n">13</span> Growth opportunity</a>
-    <a class="toc-item" href="#s15"><span class="toc-n">14</span> Why you might want to explore further</a>
-    <a class="toc-item" href="#s16"><span class="toc-n">15</span> Interview process</a>
+    <a class="toc-item" href="#s15"><span class="toc-n">13</span> Why you might want to explore further</a>
+    <a class="toc-item" href="#s16"><span class="toc-n">14</span> Interview process</a>
   </div>
 </div>
 
 <div class="sec" id="s1">
   <div class="sec-hd"><div class="sec-num">1</div><div class="sec-title">A window into Elyos AI</div></div>
   <div class="hook-block">
-    <p class="hook-text">Elyos AI has built something rare: a real AI product that retains customers, with 30% month-on-month revenue growth, and customers who can point to 80% call automation and 100% increases in out-of-hours bookings. It raised $13M Series A in January 2026. The engineering team is seven people and the system is getting genuinely hard to build. This role is for the engineer who has been constrained by their environment &mdash; who wants to own the architecture, train custom models, and see their work in production within days of writing it, alongside a CTO who built a 150-person engineering team from scratch and designed the entire architecture himself.</p>
+    <p class="hook-text">Elyos AI has built something rare: a real AI product that retains customers, with 30% month-on-month revenue growth, and customers who can point to 80% call automation and 100% increases in out-of-hours bookings. It raised $13M Series A in January 2026. The engineering team is seven people and the system is getting genuinely hard to build. This role is for the engineer who has been constrained by their environment &mdash; who wants to own the architecture, train custom models, and see their work in production within days of writing it, alongside a stellar, low-ego team with a relentless customer focus, solving genuinely interesting and hard problems.</p>
     <p class="hook-attr">This is not a features-within-a-defined-system role. The systems are still being invented.</p>
   </div>
 </div>
 
 <div class="sec" id="s2">
   <div class="sec-hd"><div class="sec-num">2</div><div class="sec-title">Company overview</div></div>
-  <p class="prose">Elyos AI builds fully autonomous AI agents for trades and field services businesses &mdash; plumbers, electricians, gas engineers, fire safety contractors. The agents answer inbound calls, handle outbound follow-up, book and reschedule jobs, take payments, manage engineer dispatch, and operate directly inside the customer&rsquo;s CRM. No human in the loop. Not call deflection. Replacement of the front-office team.</p>
-  <p class="prose" style="margin-top:10px">Business model is SaaS at ~&pound;3,000/month per customer (~$50K ACV). Elyos is typically the most expensive software its customers pay for &mdash; but more economically valuable than the CRM it integrates with, because it replaces the labour cost of the people who used to operate the CRM.</p>
+  <p class="prose">Elyos builds fully autonomous AI agents for trades and field services businesses &mdash; plumbers, electricians, gas engineers, fire safety contractors. Not chatbots. Not call deflection. Voice agents that pick up the phone, diagnose a fault, book the engineer, take payment, and write to the CRM &mdash; and know the difference between a gas emergency and a routine boiler service.</p>
+  <p class="prose" style="margin-top:10px">Built by people who&rsquo;ve lived the industry. Pip ran operations for 1,000+ field engineers at OVO Energy through the 2021/22 energy crisis. Panos spent years at Bulb. The problems that hit at utility scale &mdash; seasonal variability, no-access visits, first contact resolution, high cost to serve &mdash; hit smaller trades businesses just as hard, with worse tech and less margin to absorb the cost.</p>
+  <p class="prose" style="margin-top:10px">Customers come to Elyos because they&rsquo;re growing faster than they can staff. Every missed call is a missed job, and front-office hires are hard. The product is typically the most expensive software a customer pays for &mdash; and worth more than the CRM it integrates with. The CRM is the database. Elyos does the work.</p>
   <div class="metrics">
-    <div class="metric"><div class="metric-v">~$1.5M</div><div class="metric-l">ARR</div><div class="metric-s">Nov 2024, pre-Series A</div></div>
     <div class="metric"><div class="metric-v">~30%</div><div class="metric-l">MoM growth</div><div class="metric-s">Sustained 4&ndash;5 months</div></div>
-    <div class="metric"><div class="metric-v">81%</div><div class="metric-l">Gross margin</div><div class="metric-s">Target: 90% optimised</div></div>
-    <div class="metric"><div class="metric-v">$50K</div><div class="metric-l">ACV (USD)</div><div class="metric-s">~&pound;3K/month</div></div>
     <div class="metric"><div class="metric-v">~15</div><div class="metric-l">Total headcount</div><div class="metric-s">7&ndash;8 in engineering</div></div>
     <div class="metric"><div class="metric-v">$16M</div><div class="metric-l">Total raised</div><div class="metric-s">Blackbird &middot; YC &middot; Pi Labs</div></div>
   </div>
@@ -245,9 +246,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
   <div class="sec-hd"><div class="sec-num">3</div><div class="sec-title">Why this company is interesting</div></div>
   <p class="prose">The traction metrics are not projections &mdash; they are the current operating reality. Here is what they actually imply:</p>
   <div class="thesis-grid">
-    <div class="thesis-card"><div class="thesis-label">Strong retention signal</div><div class="thesis-claim">The product is non-optional, not nice-to-have</div><div class="thesis-why">When customers stay at &pound;3K/month, it means the product has replaced a cost line that doesn&rsquo;t come back. Elyos has eliminated the front-office team for its customers &mdash; not improved it. That is a structural dependency, not a feature preference.</div></div>
+    <div class="thesis-card"><div class="thesis-label">Customers stay</div><div class="thesis-claim">It compounds</div><div class="thesis-why">Every call sharpens the agent at that specific business &mdash; its SLAs, its engineer roster, its recurring fault patterns. The numbers move forward quarter on quarter: more calls answered, more jobs booked, more revenue captured out of hours. Customers don&rsquo;t churn because their numbers don&rsquo;t go backwards.</div></div>
     <div class="thesis-card"><div class="thesis-label">30% MoM growth signal</div><div class="thesis-claim">Market is pulling faster than the team can build</div><div class="thesis-why">This growth rate, sustained over 4&ndash;5 months, means demand is real and unit economics work. The constraint is engineering capacity &mdash; which is exactly what this hire addresses. This is not growth manufactured by discounting.</div></div>
-    <div class="thesis-card"><div class="thesis-label">Market timing</div><div class="thesis-claim">An underserved industry crossing a threshold</div><div class="thesis-why">Trades and field services is a &pound;100B+ global market segment. Most businesses are owner-operator SMBs who couldn&rsquo;t previously afford or operate AI infrastructure. The cost/capability curve has moved &mdash; Elyos built before the window closed. Competitors will follow.</div></div>
+    <div class="thesis-card"><div class="thesis-label">Market timing</div><div class="thesis-claim">An underserved industry crossing a threshold</div><div class="thesis-why">Trades and field services is a &pound;100B+ global market segment. Most businesses are owner-operator SMBs who couldn&rsquo;t previously afford or operate AI infrastructure. The cost/capability curve has moved, and Elyos is the first to build deep into the space &mdash; an AI agent designed for the trades from the ground up.</div></div>
     <div class="thesis-card"><div class="thesis-label">Defensibility</div><div class="thesis-claim">Proprietary orchestration + per-customer data is a moat</div><div class="thesis-why">Custom models, a state machine orchestration engine built for trades workflows, and deep per-customer data are not reproducible by chaining GPT-4 API calls. The longer Elyos operates, the more customer-specific the system becomes.</div></div>
   </div>
 </div>
@@ -279,7 +280,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <div class="rc-title">Genuine must-haves</div>
       <div class="rc-item">You build things that run in production. You&rsquo;ve worked with LLMs beyond the surface level &mdash; integrating them into real systems, handling the failure modes, and shipping something users actually depend on.</div>
       <div class="rc-item">Python is your primary language. You write it without thinking about it.</div>
-      <div class="rc-item">You think of yourself as a software engineer who works with AI &mdash; not an AI researcher who occasionally writes code.</div>
       <div class="rc-item">You&rsquo;re comfortable talking directly to customers &mdash; understanding what they actually need, translating it into a technical solution, and owning the outcome without a PM in between.</div>
       <div class="rc-item">You have strong opinions about what makes AI systems actually reliable in production &mdash; not just what makes a good demo.</div>
       <div class="rc-item">You bias toward shipping and iterating. You know when good enough is the right call.</div>
@@ -294,7 +294,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
   <div class="timeline" style="margin-top:16px">
     <div class="tl-item"><div class="tl-period">Day to day</div><div><div class="tl-title">Building and shipping across the full stack</div><div class="tl-desc">Python backend, cloud infra, CRM integrations, voice pipeline components. Pull requests go into a codebase running live calls with real businesses every day. The feedback loop is immediate.</div></div></div>
     <div class="tl-item"><div class="tl-period">Weekly</div><div><div class="tl-title">Direct customer interaction</div><div class="tl-desc">Working with field services businesses who are not technical. Translating &ldquo;our agents keep failing on out-of-hours calls during bank holidays&rdquo; into a specific fix. This is a core competency, not occasional context.</div></div></div>
-    <div class="tl-item"><div class="tl-period">Sprint</div><div><div class="tl-title">Working directly in customer environments</div><div class="tl-desc">Close collaboration with customers is part of how the product gets better &mdash; watching it run in the real world, understanding problems that don&rsquo;t surface in a dev environment, and shipping fixes quickly. This is how the best improvements get made.</div></div></div>
     <div class="tl-item"><div class="tl-period">Ongoing</div><div><div class="tl-title">Owning the quality of what you ship</div><div class="tl-desc">The systems that keep the product reliable are built and maintained by the same engineers who write the features. There&rsquo;s no separate QA layer. You own what you build &mdash; and you make it better over time.</div></div></div>
   </div>
 </div>
@@ -318,7 +317,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 
 <div class="sec" id="s7">
   <div class="sec-hd"><div class="sec-num">7</div><div class="sec-title">Team &amp; structure</div></div>
-  <p class="prose" style="margin-bottom:14px">The role reports to Panos (CTO) with day-to-day proximity to Matt Brown (Head of Engineering). The founding team combination &mdash; world-class engineering depth, direct domain expertise in the exact problem, commercial scale experience &mdash; is atypical for a 15-person company.</p>
+  <p class="prose" style="margin-bottom:14px">The role reports to Panos (CTO) with day-to-day proximity to Matt Brown (Head of Engineering).</p>
   <div class="founder-grid">
     <div class="fc">
       <div class="fc-av av-t">PS</div>
@@ -359,24 +358,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 
 <div class="sec" id="s8">
   <div class="sec-hd"><div class="sec-num">8</div><div class="sec-title">Culture &amp; ways of working</div></div>
-  <p class="prose">This is a company where seniority is earned by shipping, not accumulated by tenure. Decisions are made by whoever has the best understanding of the problem &mdash; typically the engineer closest to the customer. There is no process to manage, no roadmap to interpret, no sprint ceremony to protect. The job is to understand the operational problem and build the solution.</p>
-  <p class="prose" style="margin-top:10px">The team is physically together in London, full-time. That proximity is deliberate and is a direct input to the product velocity the company has achieved. It is the operating model, not a policy under review.</p>
-  <p class="prose" style="margin-top:10px">The culture is small-company serious: no ego, high ownership. AI tools are embraced rather than tolerated &mdash; bring your transcript. Panos built a 150-person engineering team and chose to go back to building &mdash; that sets the cultural temperature. The people who thrive here are motivated by the quality of the problem and the quality of the team, not by job security, title progression, or process maturity.</p>
+  <p class="prose">The team is small, fast-moving, and full of builders. Engineers own what they build &mdash; from the customer conversation through to what ships in production &mdash; with the autonomy that comes from a high-trust environment. Decisions happen quickly. Process is light. Expectations are high.</p>
+  <p class="prose" style="margin-top:10px">Working at a Series A startup means real stakes and real upside. The work is intense, the ambiguity is genuine, and the people who thrive here came looking for that &mdash; they want to build, ship, and own what they put in front of customers.</p>
 </div>
 
 <div class="sec" id="s9">
   <div class="sec-hd"><div class="sec-num">9</div><div class="sec-title">Who this is for</div></div>
   <div class="profile-block">
     <div class="profile-label">Does this sound like you?</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re probably a builder who has been in a technically ambitious environment that hasn&rsquo;t given you enough room.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re likely currently at a small-to-mid AI-native startup where you&rsquo;ve shipped something real &mdash; a voice agent, an LLM-powered workflow, a customer-facing AI product &mdash; and you can point to specific outcomes.</div>
+    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;ve shipped something real with AI &mdash; a voice agent, an LLM-powered workflow, a customer-facing AI product &mdash; and you can point to specific outcomes.</div>
     <div class="profile-item"><span class="profile-dash">&mdash;</span>You write Python without thinking about it.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You have strong opinions about what makes AI systems actually reliable in production &mdash; not just what makes a good demo.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You think of yourself as a software engineer who works with AI &mdash; not an AI researcher who occasionally writes code.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;ve probably built something on the side.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You use AI tools in your day-to-day work and you can explain and own every line they help you produce.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re comfortable with ambiguity resolved by doing rather than by waiting for clarity.</div>
-    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re motivated by the size of the problem and the quality of the team &mdash; not by process maturity, defined ownership boundaries, or the security of a large company&rsquo;s runway.</div>
+    <div class="profile-item"><span class="profile-dash">&mdash;</span>You have strong opinions about what makes AI systems reliable in production.</div>
+    <div class="profile-item"><span class="profile-dash">&mdash;</span>You use AI tools day to day and you can explain and own every line they help you produce.</div>
+    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re comfortable resolving ambiguity by doing rather than waiting for clarity.</div>
+    <div class="profile-item"><span class="profile-dash">&mdash;</span>You&rsquo;re motivated by the size of the problem and the quality of the team.</div>
   </div>
 </div>
 
@@ -385,13 +380,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
   <div class="comp-block">
     <div>
       <div class="comp-label">Base salary</div>
-      <div class="comp-val">&pound;150&ndash;170K</div>
-      <div class="comp-note">Confirmed public range. Higher packages considered for exceptional candidates &mdash; raise with us before discussing directly.</div>
+      <div class="comp-val">Competitive</div>
+      <div class="comp-note">All levels considered for exceptional candidates &mdash; raise with us before discussing directly.</div>
     </div>
     <div>
       <div class="comp-label">Equity</div>
-      <div class="comp-val">0.3–0.5%</div>
-      <div class="comp-note">Confirmed. Fully discretionary depending on overall package &mdash; equity and base are inversely correlated. At Series A with $16M raised and strong revenue growth, the upside is defensible.</div>
+      <div class="comp-val">0.3&ndash;0.5%</div>
     </div>
   </div>
   <div class="equity-note">Why the equity matters: Elyos raised $13M Series A on real economics &mdash; not a growth narrative. The customer base is proven, the margin is 81%, and customers stay. A founding engineer designation at this stage is qualitatively different from a Series D options grant at a company that hasn&rsquo;t found its business model.</div>
@@ -437,21 +431,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <div class="case-context">High-stakes environment where a missed call can mean a missed emergency. Requires the system to perform reliably under every edge case, at any time of day or night.</div>
     </div>
   </div>
-  <p class="prose" style="font-size:13px;color:#888;margin-top:6px">Additional customers include Custom Heat, H2 Property Services, AB Electrical, Hey Electrics, Aquila, SwitchedOn London, and Premier Heating. YC S23 batch. Endeavor Entrepreneur (Panos, 7th ScaleUp cohort).</p>
-</div>
-
-<div class="sec" id="s14">
-  <div class="sec-hd"><div class="sec-num">13</div><div class="sec-title">Growth opportunity</div></div>
-  <div class="growth-block">
-    <div class="growth-item"><div class="growth-icon">&#10003;</div><div><div class="growth-title">Technical depth in a genuinely hard domain</div><div class="growth-desc">Real-time voice AI, state machine orchestration, custom model training, quality systems at scale. Engineers who have built production voice agents with custom models are a small and increasingly valuable population.</div></div></div>
-    <div class="growth-item"><div class="growth-icon">&#10003;</div><div><div class="growth-title">Commercial and customer exposure from day one</div><div class="growth-desc">Direct interaction with customers translating operational problems into technical solutions is a rare skill. Most AI engineers at comparable companies have a PM as a buffer. Here there is no buffer. That is harder and more valuable.</div></div></div>
-    <div class="growth-item"><div class="growth-icon">&#10003;</div><div><div class="growth-title">Working directly under a CTO of unusual calibre</div><div class="growth-desc">Panos built a 150-person engineering team from scratch and chose to go back to being an individual contributor. The learning density from working directly with him is not available at most companies, regardless of stage.</div></div></div>
-    <div class="growth-item"><div class="growth-icon">&#10003;</div><div><div class="growth-title">Ownership of architecture that doesn&rsquo;t exist yet</div><div class="growth-desc">Platform standardisation, the next generation of the orchestration engine, the customer data layer &mdash; these are open problems the new hire will shape from the inside, not inherit as finished systems.</div></div></div>
-  </div>
 </div>
 
 <div class="sec" id="s15">
-  <div class="sec-hd"><div class="sec-num">14</div><div class="sec-title">Why you might want to explore further</div></div>
+  <div class="sec-hd"><div class="sec-num">13</div><div class="sec-title">Why you might want to explore further</div></div>
   <div class="reasons-block">
     <div class="reasons-label">Five things worth weighing seriously</div>
     <div class="reason-item"><span class="reason-num">1</span>The technical problem is genuinely hard &mdash; you will be building systems that don&rsquo;t exist off the shelf, not integrating APIs or building features inside a system someone else designed.</div>
@@ -463,12 +446,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 </div>
 
 <div class="sec" id="s16">
-  <div class="sec-hd"><div class="sec-num">15</div><div class="sec-title">Interview process</div></div>
+  <div class="sec-hd"><div class="sec-num">14</div><div class="sec-title">Interview process</div></div>
   <div class="process-track">
     <div class="ps"><div class="ps-dot">1</div><div class="ps-lbl">Role fit intro</div><div class="ps-sub">Nick Pedersen &middot; 30 min</div></div>
     <div class="ps"><div class="ps-dot">2</div><div class="ps-lbl">Take-home task</div><div class="ps-sub">45&ndash;90 min + Loom</div></div>
     <div class="ps"><div class="ps-dot">3</div><div class="ps-lbl">On-site session</div><div class="ps-sub">2.5 hours &middot; engineers</div></div>
-    <div class="ps"><div class="ps-dot">4</div><div class="ps-lbl">Culture alignment</div><div class="ps-sub">One founder &middot; rotating</div></div>
+    <div class="ps"><div class="ps-dot">4</div><div class="ps-lbl">Founder meeting</div><div class="ps-sub">One founder &middot; rotating</div></div>
   </div>
   <div class="task-detail">
     <div class="task-title">Stage 1 &mdash; role fit conversation (30 min)</div>
@@ -507,7 +490,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     </div>
   </div>
   <div class="task-detail">
-    <div class="task-title">Stage 4 &mdash; culture alignment (45&ndash;60 min)</div>
+    <div class="task-title">Stage 4 &mdash; founder meeting (45&ndash;60 min)</div>
     <div class="task-item">A conversation with one of the three founders &mdash; Panos, Pip, or Adrian. Less structured than the earlier stages, and deliberately so. This is about understanding how you think, what motivates you, and whether the environment is genuinely the right fit for where you want to go.</div>
     <div class="task-item">Expect questions about how you work, what you&rsquo;ve found hard, what kind of problems you&rsquo;re drawn to, and how you operate when things are ambiguous or moving fast.</div>
     <div class="task-item">It&rsquo;s also your opportunity to go deeper on anything about the company, the product, or the team that matters to you before making a decision.</div>
@@ -521,7 +504,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
   <div class="cta-block">
     <div class="cta-title">If you want to find out more &mdash; get in touch</div>
     <p class="cta-text">If this reads like the right kind of problem and the right kind of team, reach out and we can have a conversation. No preparation needed &mdash; it will be about your work, what you have shipped, and whether this is the right environment for you.</p>
-    <div class="cta-contact">&#69;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#116;&#101;&#99;&#104;&#46;&#97;&#115;&#115;&#111;&#99;&#105;&#97;&#116;&#101;&#115;</div>
+    <a class="cta-contact" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;&#63;&#115;&#117;&#98;&#106;&#101;&#99;&#116;&#61;&#69;&#108;&#121;&#111;&#115;%20&#65;&#73;">&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;</a>
     <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
       <a class="elink" href="https://www.elyos.ai" target="_blank">&#127760; elyos.ai</a>
       <a class="elink" href="https://www.elyos.ai/blog" target="_blank">&#128196; Engineering blog</a>
@@ -533,8 +516,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 </div>
 
 <div class="kalpa-footer">
-  <span><strong>Kalpa</strong> &middot; Specialist search &middot; Research, investment &amp; trading technology</span>
-  <span>&#69;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#116;&#101;&#99;&#104;&#46;&#97;&#115;&#115;&#111;&#99;&#105;&#97;&#116;&#101;&#115; &middot; Confidential</span>
+  <span><strong>Kalpa</strong></span>
+  <span><a class="footer-mail" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;&#63;&#115;&#117;&#98;&#106;&#101;&#99;&#116;&#61;&#69;&#108;&#121;&#111;&#115;%20&#65;&#73;">&#101;&#108;&#108;&#105;&#111;&#116;&#116;&#64;&#107;&#97;&#108;&#112;&#97;&#45;&#103;&#114;&#111;&#117;&#112;&#46;&#99;&#111;&#109;</a> <span style="color:#fff">&middot; Confidential</span></span>
 </div>
 
 </body>
